@@ -1,0 +1,171 @@
+header{
+    position: absolute;
+    width: 100%;
+    transition: all .5s ease;
+    background: transparent;
+    z-index: 99;
+    
+    .header__container{
+        
+        .header__content{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            .header__logo{
+                min-width: 121px;
+                a{
+                    svg{
+                        g{
+                            fill: #fff;
+
+                            &:last-child{
+                                fill: $secondary-color;
+                            }
+                        }
+                    }
+                }
+            }
+            .header__search{
+                margin-right: auto;
+                opacity: 0;
+                transition: all .25s ease;
+                form{
+                    width: 433px;
+                    display: flex;
+                    align-items: center;
+                    input{
+                        flex: 1;
+                        padding: 8px 2px 8px 16px;
+                        font-size: 16px;
+                        outline: none;
+                        border-radius: 4px 0 0 4px;
+                        border: 1px solid #c5c6c9;
+                    }
+                    button{
+                        padding: 9px 17px;
+                        background-color: #222325;
+                        border-radius: 0 4px 4px 0;
+                        border: none;
+                        outline: none;
+                        font-size: 16px;
+                        svg{
+                            fill: #fff;
+                        }
+                        &:hover{
+                            opacity: .9;
+                        }
+                    }
+                }
+            }
+
+            .header__nav{
+                .nav-list{
+                    display: flex;
+                    align-items: center;
+                    li{
+                        display: inline-block;
+                        padding: 0 10px;
+                        color: #fff;
+                        cursor: pointer;
+                        transition: all .3s;
+                        a, span{
+                            fill: #fff;
+                            color: #fff;
+                            font-weight: 600;
+                        }
+                        &:nth-child(3){
+                            span{
+                                &:first-child{
+                                    padding-right: 8px;
+                                }
+                            }
+                        }
+
+                        &:last-child{
+                            padding: 2px 17px;
+                            border: 1px solid #fff;
+                            border-radius: 4px;
+                            color: #fff;
+                            &:hover{
+                                background: $primary-color;
+                                border: 1px solid $secondary-color;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+header.header-active{
+    background: #fff;
+    border-bottom: 1px solid #e4e5e7;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    .header__container{
+        .header__content{
+            .header__logo{
+                a{
+                    svg{
+                        g{
+                            fill: #404145;
+
+                            &:last-child{
+                                fill: $secondary-color;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .header__search.active{
+                opacity: 1;
+            }
+
+            .header__nav{
+                .nav-list{
+                    li{
+                        color: $nav-color;
+                        
+                        a,span{
+                            fill: $nav-color;
+                            color: $nav-color;
+                        }
+
+                        &:first-child{
+                            a{
+                                color: #1e1692;
+                            }
+                        }
+
+                        &:hover{
+                            a,span{
+                                color: $secondary-color;
+                                fill: $secondary-color;
+                            }
+                        }
+
+                        &:last-child{
+                            border: 1px solid $secondary-color;
+                            a{
+                                color: $secondary-color;
+                                transition: all .3s;
+                            }
+
+                            &:hover{
+                                background: $primary-color;
+                                a{
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

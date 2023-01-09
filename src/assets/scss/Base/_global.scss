@@ -1,0 +1,28 @@
+body{
+    font-family: 'Poppins', sans-serif;
+
+    ul{
+        margin: 0;
+        padding: 0;
+    }
+
+    li{
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+
+        &:hover{
+            color: unset;
+            text-decoration: none;
+        }
+    }
+
+    .width-container{
+        max-width: 1400px;
+        margin: auto;
+        padding: 0 32px;
+    }
+
+}
+
