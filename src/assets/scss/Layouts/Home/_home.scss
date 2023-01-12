@@ -1,0 +1,17 @@
+$color-home-black: #404145;
+$text-silver-color: #74767e;
+
+.home--component__text {
+  font-size: 32px;
+  font-weight: 600;
+  color: $color-home-black;
+}
+
+@import './HomeCarousel/homecarousel';
+@import './HomeTrust/hometrust';
+@import './HomeSlideService/homesliderservice';
+@import './HomeFingertips/homefingertips';
+@import './HomeExplore/homeexplore';
+@import './HomeBusiness/homebusiness';
+@import './HomeSlideProject/homeslideproject';
+@import './HomeGuide/homeguide';

@@ -1,0 +1,42 @@
+.home--explore {
+    h6 {
+      margin-bottom: 40px;
+    }
+    .home--explore__content {
+      display: flex;
+      flex-wrap: wrap;
+      .home--explore__content--item {
+        width: 20%;
+        padding: 30px 20px;
+  
+        img {
+          display: block;
+          width: 60px;
+          height: 60px;
+          margin: 0 auto 15px;
+        }
+        a {
+          display: block;
+          text-align: center;
+          position: relative;
+          color: $color-home-black;
+  
+          &:after {
+            content: "";
+            position: absolute;
+            top: 65px;
+            right: 50%;
+            width: 25%;
+            border-bottom: 2px solid #c5c6c9;
+            transition: all 0.25s ease;
+            transform: translateX(50%);
+          }
+          &:hover::after {
+            border-color: green;
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+  
