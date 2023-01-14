@@ -1,0 +1,129 @@
+.register{
+    .register__content{
+        .form{
+            max-width: 430px;
+
+            .form__content{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+                .form__input{
+                    height: 70px;
+                    width: 49%;
+
+                    &:nth-child(3), &:nth-child(4){
+                        width: 100%;
+                    }
+
+                    &:nth-child(6){
+                        span{
+                            display: none;
+                        }
+                    }
+                    &:nth-child(5), &:nth-child(6){
+                        height: 65px;
+                    }
+
+                    input{
+                        &:valid ~ span,
+                        &:focus ~ span{
+                            display: block;
+                        }
+                    }
+                    p{
+                        margin-bottom: 0;
+                    }
+                }
+
+                .form__gender{
+                    width: 100%;
+                    display: flex;
+                    align-items: start;
+                    height: 35px;
+                    flex-wrap: wrap;
+                    .gender__tilte{
+                        display: flex;
+                        align-items: center;
+                        > i {
+                            font-size: 18px;
+                            color: #d9d9d9;
+                            transition: all .3s;
+                            margin-right: 10px;
+                        }
+                        > span{
+                            color: #d9d9d9;
+                            transition: all .3s;
+                            font-weight: 600;
+                            font-size: 18px;
+                            margin-right:  20px;
+                        }
+                    }
+
+                    > input {
+                        display: none;
+                    }
+
+                    #male:checked ~ .gender__tilte i, #female:checked ~ .gender__tilte i{
+                        color: #17a98c;
+                    }
+                    #male:checked ~ .gender__tilte span, #female:checked ~ .gender__tilte span{
+                        color: #17a98c;
+                    }
+
+
+                    #male:checked ~ .category label span.dot-male{
+                        border-color: #bdede3;
+                        background: #17a98c;
+                    }
+                    #female:checked ~ .category label span.dot-female{
+                        border-color: #bdede3;
+                        background: #17a98c;
+                    }
+
+                    .category{
+                        display: flex;
+                        align-items: center;
+                        label{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            margin-bottom: 0;
+                            margin-right: 20px;
+                            cursor: pointer;
+                            span.dot{
+                                display: inline-block;
+                                width: 20px;
+                                height: 20px;
+                                background: #bdede3;
+                                border-radius: 50%;
+                                margin-right: 10px;
+                                border: 5px solid transparent;
+                            }
+                            span.gender{
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                    p{
+                        margin-bottom: 0;
+                    }
+                }
+
+                .form__submit-login{
+                    width: 100%;
+                    margin-top: 15px;
+                }
+
+                .form__info{
+                    width: 100%;
+                    margin-top: 15px;
+                    p{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}

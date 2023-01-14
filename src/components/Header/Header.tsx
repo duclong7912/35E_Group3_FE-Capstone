@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { NavLink } from 'react-router-dom'
+import React, {useState, useEffect} from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 
 
 type Props = {}
@@ -8,13 +8,22 @@ const Header = (props: Props) => {
 
   const [navbar,setNavbar] = useState<boolean>(false);
   const [search, setSearch] = useState<boolean>(false);
-
-
-  const changeBackground = () => {
-    window.scrollY > 0 ? setNavbar(true) : setNavbar(false);
-    window.scrollY >= 150 ? setSearch(true) : setSearch(false);
-  }
-  window.addEventListener('scroll', changeBackground)
+  const location = useLocation();
+  
+  useEffect(() => {
+    const changeBackground = () => {
+      window.scrollY > 0 ? setNavbar(true) : setNavbar(false);
+      window.scrollY >= 150 ? setSearch(true) : setSearch(false);
+    }
+    if(location.pathname === '/') {
+      window.addEventListener('scroll', changeBackground)
+    } else if(location.pathname !== '/'){
+      const header = document.querySelector("header");
+      const search = document.querySelector(".header__search");
+      header?.classList.add('header-active');
+      search?.classList.add("active")
+    }
+  }, [location.pathname])  
 
   return (
     <header className={navbar ? 'header-active' : ''}>
@@ -60,12 +69,12 @@ const Header = (props: Props) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/users/login'>
+                <NavLink to='/users/register'>
                   Sign In
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/users/register'>
+                <NavLink to='/users/login'>
                   Join
                 </NavLink>
               </li>
