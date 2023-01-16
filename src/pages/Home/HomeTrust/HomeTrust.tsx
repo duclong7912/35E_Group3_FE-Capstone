@@ -4,7 +4,8 @@ type Props = {};
 
 const HomeTrust = (props: Props) => {
   return (
-    <div className="home--trust width-container d-flex">
+    <div className="home--trust">
+      <div className="home--trust__content width-container">
       <div className="home--trust__text">Trusted by:</div>
       <div className="home--trust__comp">
         <ul className="d-flex">
@@ -49,6 +50,7 @@ const HomeTrust = (props: Props) => {
             </picture>
           </li>
         </ul>
+      </div>
       </div>
     </div>
   );

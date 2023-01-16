@@ -1,0 +1,106 @@
+.home--carousel {
+  position: relative;
+  .home--carousel__item {
+    height: 680px;
+    img {
+      object-fit: cover;
+      width: 100%;
+      object-position: center;
+    }
+    .tag {
+      position: absolute;
+      bottom: 50px;
+      right: 20%;
+      color: white;
+      font-size: 20px;
+      .star {
+        color: rgb(236, 221, 13);
+        i {
+          margin-right: 2px;
+        }
+      }
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+  .home-carousel__search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    .search--content {
+      position: absolute;
+      top: 35%;
+      left: 32px;
+      p {
+        font-size: 50px;
+        font-weight: 600;
+        margin-bottom: 0;
+        line-height: 60px;
+        i {
+          font-family: "Times New Roman", Times, serif;
+          margin-left: 10px;
+        }
+      }
+      form {
+        margin-top: 20px;
+        position: relative;
+        display: flex;
+        i {
+          position: absolute;
+          z-index: 5;
+          color: silver;
+          top: 15px;
+          left: 15px;
+        }
+        input {
+            height: 48px;
+            padding: 10px 10px 10px 40px;
+
+          font-size: 16px;
+          line-height: 30px;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          &::placeholder {
+            font-size: 16px;
+          }
+          &:focus {
+            border-color: transparent;
+            box-shadow: none;
+          }
+        }
+        button {
+          font-size: 16px;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+      .popular {
+        display: flex;
+        margin-top: 25px;
+        ul {
+          display: flex;
+          li {
+            margin-left: 10px;
+            a {
+              color: white;
+              display: inline-block;
+              border: 1px solid white;
+              border-radius: 20px;
+              font-weight: 600;
+              font-size: 14px;
+              padding: 2px 12px;
+              &:hover {
+                background-color: white;
+                color: #404145;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

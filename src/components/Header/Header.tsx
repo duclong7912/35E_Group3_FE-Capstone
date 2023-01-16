@@ -61,7 +61,7 @@ const Header = (props: Props) => {
                 <span>English</span>
               </li>
               <li>
-                <span>US$ USD</span>
+                <span>$ USD</span>
               </li>
               <li>
                 <NavLink to='/'>

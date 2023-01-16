@@ -76,7 +76,7 @@ const HomeBusiness = (props: Props) => {
               </p>
             </li>
           </ul>
-          <a className="home--business__button" href="#">
+          <a className="home--business__button btn btn-success" href="#">
             Explore Fiver Business
           </a>
         </div>
