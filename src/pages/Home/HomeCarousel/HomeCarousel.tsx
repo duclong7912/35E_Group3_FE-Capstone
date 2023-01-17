@@ -13,9 +13,10 @@ const HomeCarousel = (props: Props) => {
     autoplaySpeed: 8 * 1000,
   };
 
-  // const handleSubmit = (e:any) => {
-  //   e.preventDefault();
-  // }
+  const handleSubmit = (e:any):void => {
+    e.preventDefault();
+    
+  }
 
   return (
     <div className="home--carousel">
@@ -84,7 +85,7 @@ const HomeCarousel = (props: Props) => {
             Find the perfect<i> freelance </i>
           </p>
           <p>services for your business</p>
-          <form>
+          <form onSubmit={handleSubmit}>
             <i className="fa-solid fa-magnifying-glass"></i>
             <input
               className="form-control"
