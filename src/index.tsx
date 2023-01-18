@@ -8,10 +8,10 @@ import Home from './pages/Home/Home';
 import JobDetail from './pages/JobDetail/JobDetail';
 import JobList from './pages/JobList/JobList';
 import Profile from './pages/Profile/Profile';
-import TypeJob from './pages/JobType/JobType';
 import LoginTemplate from './templates/LoginTemplate/LoginTemplate';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import JobType from './pages/JobType/JobType';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -24,7 +24,7 @@ root.render(
         <Route path='detail' element={<JobDetail />} />
         <Route path='list' element={<JobList />} />
         <Route path='profile' element={<Profile />} />
-        <Route path='type' element={<TypeJob />} />
+        <Route path='type' element={<JobType />} />
         <Route path='*' element={<Navigate to='/'/>} />
       </Route>
       <Route path='users' element={<LoginTemplate />}>
