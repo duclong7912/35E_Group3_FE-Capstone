@@ -5,12 +5,6 @@ type Props = {}
 
 const Login = (props: Props) => {
 
-  const handleClick = () => {
-    const reg = document.querySelector('.temp__card');
-    
-    
-  }
-
   return (
     <div className="login">
       <div className="login__content">
@@ -31,7 +25,7 @@ const Login = (props: Props) => {
               <button type='submit'>Login</button>
             </div>
             <div className="form__info">
-              <p>Don’t have an account? <NavLink to='/users/register' onClick={() => {handleClick()}}>Sign up</NavLink></p>
+              <p>Don’t have an account? <NavLink to='/users/register'>Sign up</NavLink></p>
             </div>
           </div>
         </form>

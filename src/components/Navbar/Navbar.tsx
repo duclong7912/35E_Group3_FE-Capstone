@@ -1,16 +1,25 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 
 type Props = {}
 
 const Navbar = (props: Props) => {
 
     const [navbar,setNavbar] = useState<boolean>(false);
+    const location = useLocation();
 
-    const showNavbar = () => {
-        window.scrollY >= 150 ? setNavbar(true) : setNavbar(false);
-      }
-      window.addEventListener('scroll', showNavbar)
+    useEffect(() => {
+        const showNavbar = () => {
+            window.scrollY >= 150 ? setNavbar(true) : setNavbar(false);
+        }
+        if(location.pathname === '/') {
+            window.addEventListener('scroll', showNavbar)
+        }else if(location.pathname !== '/') {
+            const navbar = document.querySelector(".nav__wrapper");
+            navbar?.classList.add("navbar-active");
+        }
+
+    }, [location.pathname])
 
   return (
     <nav className={navbar ? 'nav__wrapper navbar-active' : 'nav__wrapper'}>
