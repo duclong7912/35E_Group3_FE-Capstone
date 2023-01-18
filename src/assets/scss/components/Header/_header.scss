@@ -4,7 +4,6 @@ header{
     transition: all .5s ease;
     background: transparent;
     z-index: 99;
-    
     .header__container{
         
         .header__content{
@@ -104,8 +103,11 @@ header{
         }
     }
 }
+.header-static{
+    position: static !important;
+}
 
-header.header-active{
+.header-active{
     background: #fff;
     border-bottom: 1px solid #e4e5e7;
     position: fixed;

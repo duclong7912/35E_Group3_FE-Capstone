@@ -1,13 +1,30 @@
-import React from 'react'
+import React from "react";
+import HomeBusiness from "./HomeBusiness/HomeBusiness";
+import HomeCarousel from "./HomeCarousel/HomeCarousel";
+import HomeExplore from "./HomeExplore/HomeExplore";
+import HomeFingertips from "./HomeFingertips/HomeFingertips";
+import HomeGuide from "./HomeGuide/HomeGuide";
+import HomeLogoMaker from "./HomeLogoMaker/HomeLogoMaker";
+import HomeSlideProject from "./HomeSlideProject/HomeSlideProject";
+import HomeSlideService from "./HomeSlideService/HomeSlideService";
+import HomeTrust from "./HomeTrust/HomeTrust";
 
-type Props = {}
+type Props = {};
 
 const Home = (props: Props) => {
   return (
-    <div className='w-100 mb-5' style={{height: '100vh'}}>
-      <img className='w-100 h-100' style={{objectFit: 'cover'}} src="./img/carousel-1.png" alt="..." />
-    </div>
-  )
-}
+    <>
+      <HomeCarousel />
+      <HomeTrust />
+      <HomeSlideService />
+      <HomeFingertips />
+      <HomeExplore />
+      <HomeBusiness />
+      <HomeLogoMaker/>
+      <HomeSlideProject />
+      <HomeGuide />
+    </>
+  );
+};
 
-export default Home
+export default Home;
