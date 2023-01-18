@@ -1,0 +1,70 @@
+.home--service {
+  .home--service__content {
+    max-width: 1400px;
+    margin: auto;
+    padding: 86px 14px;
+    h6 {
+      padding-left: 18px;
+      margin-bottom: 24px;
+    }
+    .item--content {
+      position: relative;
+      height: 345px;
+      width: 327px;
+      color: #fff;
+      padding: 0 18px;
+      img {
+        border-radius: 5px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      h5 {
+        position: absolute;
+        z-index: 5;
+        top: 20px;
+        left: 35px;
+        font-size: 24px;
+        font-weight: 600;
+        p {
+          font-size: 14px;
+          margin-bottom: 5px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .slick-prev,
+  .slick-next {
+    z-index: 5;
+    top: 45%;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    &:hover, &:focus {
+      color: white;
+      background: white;
+    }
+    &::before {
+      content: "";
+      background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/arrows.a8b0bad.svg)
+        no-repeat;
+      background-size: 16px 64px;
+      width: 16px;
+      height: 16px;
+      display: block;
+      margin-left: 18px;
+    }
+  }
+  .slick-prev {
+    left: -10px;
+  }
+  .slick-next {
+    right: -10px;
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+}

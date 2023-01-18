@@ -1,11 +1,16 @@
-import React from 'react'
+import React from "react";
+import JobDetailLeft from "./JobDetailLeft";
+import JobDetailRight from "./JobDetailRight";
 
-type Props = {}
+type Props = {};
 
 const JobDetail = (props: Props) => {
   return (
-    <div>JobDetail</div>
-  )
-}
+    <div className="d-flex" style={{ height: "800px" }}>
+      <JobDetailLeft />
+      <JobDetailRight />
+    </div>
+  );
+};
 
-export default JobDetail
+export default JobDetail;
