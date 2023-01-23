@@ -1,0 +1,54 @@
+.jobdetai--overview {
+  .nav ul {
+    display: flex;
+    font-size: 14px;
+    svg {
+      fill: #446ee7;
+      height: 12px;
+      margin: 0 6px;
+    }
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #404145;
+    margin: 16px 0;
+  }
+  .foot {
+    display: flex;
+    .avatar img {
+      display: block;
+      border-radius: 50%;
+      border: 1px solid #404145;
+      height: 28px;
+    }
+    .description {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      align-items: center;
+      & > div {
+        margin-left: 10px;
+      }
+      .name {
+        font-weight: 600;
+      }
+
+      .star {
+        color: #ffb33e;
+        span:last-child {
+          color: #404145;
+        }
+      }
+      .order {
+        color: #95979e;
+      }
+      .choice {
+        background: url("https://fiverr-res.cloudinary.com/npm-assets/@fiverr/gig_page_perseus/fiverr-choice-badge.7de36f6.svg")
+          no-repeat 0 0;
+        height: 20px;
+        width: 100px;
+      }
+    }
+  }
+}

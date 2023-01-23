@@ -6,9 +6,13 @@ type Props = {};
 
 const JobDetail = (props: Props) => {
   return (
-    <div className="d-flex" style={{ height: "800px" }}>
-      <JobDetailLeft />
-      <JobDetailRight />
+    <div className="jobdetail">
+      <div className="left">
+        <JobDetailLeft />
+      </div>
+      <div className="right">
+        <JobDetailRight />
+      </div>
     </div>
   );
 };

@@ -1,10 +1,25 @@
+.jobdetail {
+  max-width: 1400px;
+  padding: 32px 32px 0;
+  display: flex;
+  margin: auto;
+  .left {
+    width: 70%;
+    padding-right: 100px;
+  }
+  .right {
+    width: 30%;
+  }
+}
 
+// Right
+@import "./JobDetailRight/jobdetailright";
 
-@import './Overview/overview';
-@import './Gallery/gallery';
-@import './Description/description';
-@import './AboutSeller/aboutseller';
-@import './Payment/payment';
-@import './Recommend/recommend';
-@import './Review/review';
-@import './Addcommend/addcommend';
+// Left
+@import "./Overview/overview";
+@import "./Gallery/gallery";
+@import "./Description/description";
+@import "./AboutSeller/aboutseller";
+@import "./Payment/payment";
+@import "./Review/review";
+@import './Comment/comment';

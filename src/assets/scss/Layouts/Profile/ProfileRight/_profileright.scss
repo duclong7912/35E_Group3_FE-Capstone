@@ -1,0 +1,306 @@
+// .profile--right {
+//   width: 55%;
+//   .create--gig {
+//     background: #fff;
+//     text-align: center;
+//     padding: 128px 0 120px;
+//     border: 1px solid #ddd;
+//     svg {
+//       // height: 60px;
+//       width: 100%;
+//     }
+//     .caption {
+//       font-size: 18px;
+//       font-weight: 500;
+//       margin: 24px 0;
+//     }
+//     a {
+//       font-size: 16px;
+//       padding: 9px 24px;
+//       text-transform: initial;
+//       background-color: #1dbf73;
+//       font-weight: 700;
+//       color: #fff;
+//       border: 1px solid transparent;
+//       border-radius: 3px;
+//       transition: all 0.5s ease;
+//       margin-top: 14px;
+//       display: inline-block;
+//       &:hover {
+//         box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3);
+//       }
+//     }
+//   }
+//   .item {
+//     margin-top: 20px;
+//     border: 1px solid #ddd;
+//     background: #fff;
+//     display: flex;
+//     .item--left {
+//       width: 30%;
+//       padding: 10px;
+//       display: flex;
+//       justify-content: center;
+//       img {
+//         width: 100%;
+//         object-fit: contain;
+//       }
+//     }
+//     .item--right {
+//       width: 70%;
+//       padding: 10px 20px;
+//       h6 {
+//         font-size: 10px;
+//         font-weight: 600;
+//         margin-bottom: 2px;
+//       }
+//       p {
+//         font-size: 8px;
+//         margin-bottom: 6px;
+//       }
+//     }
+//     .item--button {
+//       display: flex;
+//       justify-content: flex-end;
+
+//       button {
+//         margin-left: 8px;
+//       }
+//     }
+//   }
+// }
+
+@media screen and (min-width: 320px) {
+  .profile--right {
+    .create--gig {
+      padding: 20px 0;
+      svg {
+        height: 50px;
+        width: 100%;
+      }
+      .caption {
+        font-size: 8px;
+        margin: 6px 0;
+      }
+      a {
+        font-size: 6px;
+        padding: 4px 8px;
+        margin-top: 0;
+      }
+    }
+    .item {
+      margin-top: 20px;
+      min-height: 80px;
+      .item--left {
+        padding: 4px;
+      }
+      .item--right {
+        padding: 4px;
+        h6 {
+          font-size: 10px;
+          margin-bottom: 2px;
+        }
+        p {
+          font-size: 8px;
+          margin-bottom: 2px;
+        }
+      }
+      .item--button {
+        button {
+          margin-left: 2px;
+          font-size: 8px;
+          padding: 2px 4px;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 576px) {
+  .profile--right {
+    .create--gig {
+      svg {
+        height: 60px;
+      }
+      .caption {
+        font-size: 10px;
+      }
+      a {
+        font-size: 8px;
+      }
+    }
+    .item {
+      .item--left {
+        padding: 6px;
+      }
+      .item--right {
+        h6 {
+          font-size: 10px;
+          margin-bottom: 2px;
+        }
+        p {
+          font-size: 8px;
+          margin-bottom: 6px;
+        }
+      }
+      .item--button {
+        button {
+          margin-left: 4px;
+
+          font-size: 8px;
+          padding: 2px 4px;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .profile--right {
+    .create--gig {
+      svg {
+        height: 60px;
+      }
+      .caption {
+        font-size: 12px;
+      }
+      a {
+        font-size: 10px;
+      }
+    }
+    .item {
+      .item--left {
+        padding: 6px;
+      }
+      .item--right {
+        padding: 6px;
+        h6 {
+          font-size: 12px;
+          margin-bottom: 2px;
+        }
+        p {
+          font-size: 10px;
+          margin-bottom: 8px;
+        }
+      }
+      .item--button {
+        button {
+          margin-left: 6px;
+          font-size: 10px;
+          padding: 2px 4px;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 992px) {
+  .profile--right {
+    .create--gig {
+      svg {
+        height: 70px;
+      }
+      .caption {
+        font-size: 14px;
+      }
+      a {
+        font-size: 12px;
+      }
+    }
+    .item {
+      .item--left {
+        padding: 8px;
+      }
+      .item--right {
+        padding: 8px;
+        h6 {
+          font-size: 14px;
+          margin-bottom: 2px;
+        }
+        p {
+          font-size: 12px;
+          margin-bottom: 8px;
+        }
+      }
+      .item--button {
+        button {
+          margin-left: 8px;
+          font-size: 12px;
+          padding: 2px 4px;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 1200px) {
+  .profile--right {
+    width: 55%;
+    .create--gig {
+      background: #fff;
+      text-align: center;
+      padding: 128px 0 120px;
+      border: 1px solid #ddd;
+      svg {
+        height: 90px;
+        width: 100%;
+      }
+      .caption {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 24px 0;
+      }
+      a {
+        font-size: 16px;
+        padding: 9px 24px;
+        text-transform: initial;
+        background-color: #1dbf73;
+        font-weight: 700;
+        color: #fff;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        transition: all 0.5s ease;
+        margin-top: 14px;
+        display: inline-block;
+        &:hover {
+          box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+    .item {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      background: #fff;
+      display: flex;
+      .item--left {
+        width: 30%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        img {
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+      .item--right {
+        width: 70%;
+        padding: 10px 20px;
+        h6 {
+          font-size: 18px;
+          font-weight: 600;
+          margin-bottom: 2px;
+        }
+        p {
+          font-size: 14px;
+          margin-bottom: 6px;
+        }
+      }
+      .item--button {
+        display: flex;
+        justify-content: flex-end;
+  
+        button {
+          margin-left: 10px;
+          font-size: 14px;
+          padding: 2px 8px;
+        }
+      }
+    }
+  }
+}

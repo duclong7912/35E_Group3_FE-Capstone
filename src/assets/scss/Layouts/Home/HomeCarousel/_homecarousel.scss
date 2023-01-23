@@ -1,11 +1,19 @@
 .home--carousel {
   position: relative;
+  overflow: hidden;
+  .slick-list, .slick-track{
+    height: 100%;
+  }
   .home--carousel__item {
     height: 680px;
     img {
       object-fit: cover;
       width: 100%;
-      object-position: center;
+      height: 100%;
+      // object-position: center;
+      // display: block;
+      // object-position: bottom;
+      // max-height: 100vh;
     }
     .tag {
       position: absolute;

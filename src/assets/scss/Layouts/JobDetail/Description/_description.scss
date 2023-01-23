@@ -1,0 +1,29 @@
+.aboutgig {
+  h2 {
+    font-size: 20px;
+    color: #404145;
+  }
+  u {
+    background-color: #ffecd1;
+    text-decoration: none;
+    color: #62646a;
+    line-height: 30px;
+    margin: 4px;
+  }
+  .data {
+    border-top: 1px solid #dadbdd;
+    margin-top: 20px;
+    padding-top: 20px;
+    ul {
+      display: flex;
+      .data-item {
+        width: calc(100% / 3);
+        p {
+          color: #95979d;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
