@@ -5,7 +5,7 @@ type Props = {};
 const HomeFingertips = (props: Props) => {
   return (
     <div className="home--fingertip">
-      <div className="home--fingertipo__content width-container d-flex">
+      <div className="home--fingertipo__content width-container">
         <div className="home--fingertip__left">
           <h2 className="home--component__text">
             A whole world of freelance talent at your fingertips
