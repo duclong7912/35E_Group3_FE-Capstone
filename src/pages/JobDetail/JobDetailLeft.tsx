@@ -11,7 +11,7 @@ type Props = {}
 
 const JobDetailLeft = (props: Props) => {
   return (
-    <div>
+    <>
         <JobDetailOverview/>
         <JobDetailGallery/>
         <JobDetailDescription/>
@@ -19,7 +19,7 @@ const JobDetailLeft = (props: Props) => {
         <JobDetailPayment/>
         <JobDetailReview/>
         <JobDetailComment/>
-    </div>
+    </>
   )
 }
 

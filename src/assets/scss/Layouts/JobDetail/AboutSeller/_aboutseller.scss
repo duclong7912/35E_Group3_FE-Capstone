@@ -1,7 +1,10 @@
-.aboutseller {
-    margin-top: 70px;
+@media screen and(min-width:320px) {
+  .aboutseller {
+    order: 5;
+    margin-top: 40px;
     h2 {
       margin-bottom: 30px;
+      font-size: 24px;
     }
     .top {
       display: flex;
@@ -15,18 +18,21 @@
         color: #62646a;
         padding-left: 20px;
         h6 {
-          font-size: 16px;
+          font-size: 12px;
           font-weight: 600;
           margin-bottom: 0;
         }
         p {
           margin-bottom: 4px;
+          font-size: 14px;
         }
         .star {
           color: #ffb33e;
+          font-size: 12px;
+
           i {
             margin-right: 4px;
-            font-size: 16px;
+            font-size: 12px;
           }
           span {
             color: #62646a;
@@ -34,8 +40,8 @@
         }
         .btn {
           border: 1px solid #62646a;
-          margin-top: 24px;
-          font-size: 14px;
+          margin-top: 6px;
+          font-size: 12px;
           font-weight: 600;
           color: #62646a;
           &:hover {
@@ -50,8 +56,9 @@
       border: 1px solid #dadbdd;
       border-radius: 4px;
       margin-top: 20px;
-          color: #74767e;
-  
+      color: #74767e;
+      font-size: 12px;
+
       ul {
         display: flex;
         flex-wrap: wrap;
@@ -67,8 +74,88 @@
       .article {
         border-top: 1px solid #dadbdd;
         padding-top: 14px;
-        
       }
     }
   }
-  
+}
+
+@media screen and(min-width:768px) {
+  .aboutseller {
+    margin-top: 70px;
+    h2 {
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+    .top {
+      .img {
+        width: 15%;
+        img {
+          width: 100%;
+        }
+      }
+      .info {
+        padding-left: 20px;
+        h6 {
+          font-size: 16px;
+        }
+        p {
+          margin-bottom: 4px;
+          font-size: 16px;
+        }
+        .star {
+          font-size: 14px;
+
+          i {
+            font-size: 14px;
+          }
+        }
+        .btn {
+          margin-top: 10px;
+          font-size: 14px;
+        }
+      }
+    }
+    .bot {
+      padding: 24px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and(min-width:992px) {
+  .aboutseller {
+    order: 4;
+    margin-top: 70px;
+    h2 {
+      font-size: 32px;
+    }
+    .top {
+      
+      .info {
+        padding-left: 20px;
+        h6 {
+          font-size: 18px;
+        }
+        p {
+          margin-bottom: 4px;
+          font-size: 18px;
+        }
+        .star {
+          font-size: 16px;
+
+          i {
+            font-size: 16px;
+          }
+        }
+        .btn {
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+    }
+    .bot {
+      padding: 24px;
+      font-size: 18px;
+    }
+  }
+}

@@ -5,103 +5,224 @@
   color: #e4e5e7;
 }
 
-.jobdetail--review {
-  margin-bottom: 50px;
-  h6 {
-    margin: 60px 0 16px;
-  }
-  .detail {
-    display: flex;
-    justify-content: space-between;
-    .detail--left {
-      width: 50%;
-      span:first-child {
-        font-weight: 600;
-        line-height: 20px;
-      }
-      span:nth-child(2) {
-        color: #ffb33e;
-        margin-left: 10px;
 
-        i {
-          margin-right: 4px;
-          font-size: 16px;
-        }
-      }
+
+@media screen and(min-width:320px) {
+  .jobdetail--review {
+    order: 6;
+    margin: 50px 0;
+    h6 {
+      margin-bottom: 16px;
     }
-    .detail--right {
-      span:nth-child(2) {
-        font-weight: 600;
-        margin: 0 6px;
-      }
-    }
-  }
-
-  .star {
-    display: flex;
-    margin-top: 20px;
-
-    .star--left {
-      width: 50%;
-      table {
-        width: 100%;
-        line-height: 30px;
-        tr > td:nth-of-type(1) {
-          font-weight: 500;
+    .detail {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      .detail--left {
+        width: 50%;
+        span:first-child {
+          font-weight: 600;
+          line-height: 20px;
+          display: block;
         }
-        tr > td:nth-of-type(2) {
-          width: 60%;
-          padding-right: 10px;
-        }
-      }
-
-      .star--rate {
-        background: #e4e5e7;
-        height: 8px;
-        border-radius: 6px;
-        position: relative;
-        span {
-          position: absolute;
-          height: 100%;
-          border-radius: 6px;
-          background-color: #ffb33e;
-        }
-      }
-      .five--star .star--rate span {
-        width: 98%;
-      }
-      .four--star .star--rate span {
-        width: 1.5%;
-      }
-      .three--star .star--rate span {
-        width: 0.5%;
-      }
-    }
-
-    .star--right {
-      width: 50%;
-      padding: 0 16px;
-      color: #95979d;
-      h5 {
-        font-size: 16px;
-        color: #404145;
-      }
-      li div {
-        display: flex;
-        justify-content: space-between;
-        & > p {
-          margin-bottom: 8px;
-        }
-        & > div {
+        span:nth-child(2) {
           color: #ffb33e;
-          i {
-            font-size: 12px;
-            margin-right: 4px;
-          }
-          span {
-            font-size: 12px;
+          margin-left: 10px;
 
-            font-weight: 600;
+          i {
+            margin-right: 4px;
+            font-size: 12px;
+          }
+        }
+      }
+      .detail--right {
+        span:nth-child(2) {
+          font-weight: 600;
+          margin: 0 6px;
+        }
+      }
+    }
+
+    .star {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      font-size: 14px;
+      .star--left {
+        table {
+          width: 100%;
+          line-height: 30px;
+          tr > td:nth-of-type(1) {
+            font-weight: 500;
+          }
+          tr > td:nth-of-type(2) {
+            width: 60%;
+            padding-right: 10px;
+          }
+        }
+
+        .star--rate {
+          background: #e4e5e7;
+          height: 8px;
+          border-radius: 6px;
+          position: relative;
+          span {
+            position: absolute;
+            height: 100%;
+            border-radius: 6px;
+            background-color: #ffb33e;
+          }
+        }
+        .five--star .star--rate span {
+          width: 98%;
+        }
+        .four--star .star--rate span {
+          width: 1.5%;
+        }
+        .three--star .star--rate span {
+          width: 0.5%;
+        }
+      }
+
+      .star--right {
+        margin-top: 30px;
+        color: #95979d;
+        padding: 0 30px;
+        h5 {
+          font-size: 16px;
+          color: #404145;
+        }
+        li div {
+          display: flex;
+          justify-content: space-between;
+          & > p {
+            margin-bottom: 8px;
+          }
+          & > div {
+            color: #ffb33e;
+            i {
+              font-size: 12px;
+              margin-right: 4px;
+            }
+            span {
+              font-size: 12px;
+
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width:576px) {
+  .jobdetail--review {
+    h6 {
+      font-size: 26px;
+    }
+    .detail {
+      font-size: 16px;
+      .detail--left {
+        span:first-child {
+          display: block;
+        }
+      }
+    }
+
+    .star {
+      flex-direction: row;
+      margin-top: 20px;
+      font-size: 14px;
+      .star--left {
+        width: 50%;
+      }
+
+      .star--right {
+        width: 50%;
+        padding: 14px;
+        margin-top: 0;
+        h5 {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width:768px) {
+  .jobdetail--review {
+    h6 {
+      font-size: 28px;
+    }
+    .detail {
+      font-size: 18px;
+      .detail--left {
+        span:first-child {
+          display: inline-block;
+        }
+        span:nth-child(2) {
+          i {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .star {
+      font-size: 16px;
+
+      .star--right {
+        h5 {
+          font-size: 18px;
+        }
+        li div {
+          & > div {
+            i {
+              font-size: 14px;
+            }
+            span {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width:992px) {
+  .jobdetail--review {
+    h6 {
+      font-size: 32px;
+    }
+    .detail {
+      font-size: 18px;
+      .detail--left {
+       
+        span:nth-child(2) {
+          i {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .star {
+      font-size: 18px;
+
+      .star--right {
+        h5 {
+          font-size: 20px;
+        }
+        li div {
+          & > div {
+            i {
+              font-size: 16px;
+            }
+            span {
+              font-size: 16px;
+            }
           }
         }
       }

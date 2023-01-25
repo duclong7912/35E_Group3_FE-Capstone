@@ -8,7 +8,7 @@ const JobDetail = (props: Props) => {
   return (
     <div className="jobdetail">
       <div className="left">
-        <JobDetailLeft />
+        <JobDetailLeft/>
       </div>
       <div className="right">
         <JobDetailRight />
