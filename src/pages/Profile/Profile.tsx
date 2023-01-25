@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
+import ProfileLeft from "./ProfileLeft";
+import ProfileRight from "./ProfileRight";
 
-type Props = {}
+type Props = {};
 
 const Profile = (props: Props) => {
   return (
-    <div>Profile</div>
-  )
-}
+    <div className="profile">
+      <div className="profile--content width-container">
+        <ProfileLeft />
+        <ProfileRight />
+      </div>
+    </div>
+  );
+};
 
-export default Profile
+export default Profile;

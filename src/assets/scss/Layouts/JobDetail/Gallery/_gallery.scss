@@ -1,0 +1,133 @@
+// .jobdetail--gallery{
+//     .gallery--item{
+//         img{
+//             width: 100%;
+//         }
+//     }
+
+//     .slick-prev,
+//     .slick-next {
+//       z-index: 5;
+//       top: 45%;
+//       background-color: #fff;
+//       border-radius: 50%;
+//       width: 50px;
+//       height: 50px;
+//       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+//       &:hover,
+//       &:focus {
+//         color: white;
+//         background: white;
+//       }
+//       &::before {
+//         content: "";
+//         background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/arrows.a8b0bad.svg)
+//           no-repeat;
+//         background-size: 16px 64px;
+//         width: 16px;
+//         height: 16px;
+//         display: block;
+//         margin-left: 18px;
+//       }
+//     }
+//     .slick-prev {
+//       left: -10px;
+//     }
+//     .slick-next {
+//       right: -10px;
+//       &::before {
+//         transform: rotate(180deg);
+//       }
+//     }
+// }
+
+@media screen and (min-width: 320px) {
+  .jobdetail--gallery {
+    order: 2;
+    .gallery--item {
+      overflow: hidden;
+      border-radius: 6px;
+      img {
+        transition: all 0.5s ease;
+        width: 100%;
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    .slick-prev,
+    .slick-next {
+      z-index: 5;
+      top: 45%;
+      background-color: #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+      &:hover,
+      &:focus {
+        color: white;
+        background: white;
+      }
+      &::before {
+        content: "";
+        background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/arrows.a8b0bad.svg)
+          no-repeat;
+        background-size: 16px 64px;
+        width: 16px;
+        height: 16px;
+        display: block;
+        margin-left: 18px;
+      }
+    }
+    .slick-prev {
+      left: -30px;
+    }
+    .slick-next {
+      right: -30px;
+      &::before {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .jobdetail--gallery {
+    .slick-prev,
+    .slick-next {
+      z-index: 5;
+      top: 45%;
+      background-color: #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+      &:hover,
+      &:focus {
+        color: white;
+        background: white;
+      }
+      &::before {
+        content: "";
+        background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/arrows.a8b0bad.svg)
+          no-repeat;
+        background-size: 16px 64px;
+        width: 16px;
+        height: 16px;
+        display: block;
+        margin-left: 18px;
+      }
+    }
+    .slick-prev {
+      left: -30px;
+    }
+    .slick-next {
+      right: -30px;
+      &::before {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

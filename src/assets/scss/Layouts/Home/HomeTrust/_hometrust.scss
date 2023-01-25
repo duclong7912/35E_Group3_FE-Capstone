@@ -1,19 +1,35 @@
-.home--trust {
-  background-color: #fafafa;
-  .home--trust__content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 0;
-    .home--trust__text {
-      color: #b5b6ba;
-      font-weight: 600;
+@media screen and (min-width: 320px) {
+  .home--trust {
+    background-color: #fafafa;
+    .home--trust__content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 0;
+      .home--trust__text {
+        color: #b5b6ba;
+        font-weight: 600;
+      }
+      .home--trust__comp {
+        ul {
+          padding: 0 20px;
+          li {
+            margin: 0 5px;
+          }
+        }
+      }
     }
-    .home--trust__comp {
-      ul {
-        padding: 0 20px;
-        li {
-          margin: 0 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home--trust {
+    .home--trust__content {
+      .home--trust__comp {
+        ul {
+          li {
+            margin: 0 30px;
+          }
         }
       }
     }

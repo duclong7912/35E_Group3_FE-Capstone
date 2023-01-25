@@ -1,75 +1,185 @@
-.home--guide {
-  .home--guide__content {
-    position: relative;
 
-    max-width: 1400px;
-    margin: 60px auto;
-    padding: 0 14px;
-    h6 {
-      padding-left: 18px;
-      margin-bottom: 30px;
-    }
-    .content--top {
-      display: flex;
-      .item {
-        padding: 0 18px;
-        a {
-          img {
-            transition: all 0.5s ease;
-            width: 100%;
-            &:hover {
-              opacity: 0.8;
+
+@media screen and (min-width: 320px) {
+  .home--guide {
+    .home--guide__content {
+      position: relative;
+      max-width: 1400px;
+      margin: 60px auto;
+      padding: 0 14px;
+      h6 {
+        padding-left: 18px;
+        margin-bottom: 30px;
+        font-size: 28px;
+      }
+      .content--top {
+        display: flex;
+        flex-wrap: wrap;
+
+        .item {
+          width: calc(100%);
+          padding: 0 18px;
+          margin-bottom: 16px;
+          a {
+            img {
+              transition: all 0.5s ease;
+              width: 100%;
+              &:hover {
+                opacity: 0.8;
+              }
             }
-          }
-          h6 {
-            color: #333;
-            font-weight: 600;
-            padding-left: 0;
-            margin: 12px 0 2px;
-            font-size: 18px;
-          }
-          p {
-            font-size: 16px;
-            color: #74767e;
+            h6 {
+              color: #333;
+              font-weight: 600;
+              padding-left: 0;
+              margin: 12px 0 2px;
+              font-size: 18px;
+            }
+            p {
+              font-size: 16px;
+              color: #74767e;
+            }
           }
         }
       }
       .seemore {
-        position: absolute;
-        top: 20px;
-        right: 30px;
+        margin-left: 18px;
         a:hover {
           color: #446ee7;
         }
       }
-    }
-    .content--bot {
-      position: relative;
-      padding: 0 18px;
-      margin-top: 70px;
-      color: white;
-      img {
-        width: 100%;
-      }
-      .bot__text {
-        position: absolute;
-        top: 24%;
-        left: 8%;
+      .content--bot {
+        position: relative;
+        padding: 0 18px;
+        margin-top: 40px;
+        color: white;
+        img {
+          width: 100%;
+        }
+        .bot__text {
+          padding: 30px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
 
-        i {
-          font-family: "Times New Roman", Times, serif;
-          font-weight: 400;
-          font-size: 50px;
+          i {
+            font-family: "Times New Roman", Times, serif;
+            font-weight: 400;
+            font-size: 16px;
+          }
+          h2 {
+            font-weight: 600;
+            margin-bottom: 0;
+            font-size: 16px;
+            line-height: 24px;
+          }
+          a {
+            font-size: 8px;
+            font-weight: 500;
+            margin-top: 8px;
+            padding: 4px 6px;
+          }
         }
-        h2 {
-          font-size: 48px;
-          font-weight: 600;
-          margin-bottom: 0;
+      }
+    }
+  }
+}
+@media screen and (min-width: 576px) {
+  .home--guide {
+    .home--guide__content {
+      h6 {
+        font-size: 30px;
+      }
+      .content--top {
+        .item {
+          width: calc(100% / 2);
         }
-        a {
-          font-size: 16px;
-          font-weight: 500;
-          margin-top: 28px;
+      }
+      .content--bot {
+        .bot__text {
+          padding: 30px 50px;
+
+          i {
+            font-size: 24px;
+          }
+          h2 {
+            font-size: 24px;
+            line-height: 30px;
+          }
+          a {
+            font-size: 12px;
+            margin-top: 14px;
+            padding: 4px 6px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .home--guide {
+    .home--guide__content {
+      position: relative;
+      h6 {
+        font-size: 32px;
+      }
+      .content--top {
+        .item {
+          width: calc(100% / 3);
+        }
+      }
+      .seemore {
+        position: absolute;
+        top: 10px;
+        right: 30px;
+      }
+      .content--bot {
+        .bot__text {
+          padding: 60px 80px;
+
+          i {
+            font-size: 50px;
+          }
+          h2 {
+            font-size: 40px;
+            line-height: 40px;
+          }
+          a {
+            font-size: 16px;
+            margin-top: 30px;
+            padding: 4px 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 1200px) {
+  .home--guide {
+    .home--guide__content {
+         
+     
+      .content--bot {
+        .bot__text {
+          padding: 60px 80px;
+
+          i {
+            font-size: 50px;
+          }
+          h2 {
+            font-size: 46px;
+            line-height: 60px;
+          }
+          a {
+            font-size: 20px;
+            margin-top: 36px;
+            padding: 10px 20px;
+          }
         }
       }
     }

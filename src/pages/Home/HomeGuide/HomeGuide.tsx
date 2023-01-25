@@ -45,9 +45,9 @@ const HomeGuide = (props: Props) => {
               </a>
             </div>
           </div>
-          <div className="seemore">
-            <a href="#">See More Guides {">"}</a>
-          </div>
+        </div>
+        <div className="seemore">
+          <a href="#">See More Guides {">"}</a>
         </div>
         <div className="content--bot">
           <img
@@ -61,7 +61,9 @@ const HomeGuide = (props: Props) => {
             <h2>
               get your business <i>growing</i>.
             </h2>
-            <a className="btn btn-success" href="#">Get started</a>
+            <a className="btn btn-success" href="#">
+              Get started
+            </a>
           </div>
         </div>
       </div>

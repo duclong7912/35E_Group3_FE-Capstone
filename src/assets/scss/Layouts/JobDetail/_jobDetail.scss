@@ -1,10 +1,46 @@
 
 
-@import './Overview/overview';
-@import './Gallery/gallery';
-@import './Description/description';
-@import './AboutSeller/aboutseller';
-@import './Payment/payment';
-@import './Recommend/recommend';
-@import './Review/review';
-@import './Addcommend/addcommend';
+@media screen and (min-width: 320px) {
+  .jobdetail {
+    padding: 32px 32px 0;
+    display: flex;
+    flex-direction: column;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+    }
+    .right{
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .jobdetail {
+    max-width: 1400px;
+    padding: 32px 32px 0;
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-direction: row;
+    .left {
+      width: 65%;
+    }
+    .right {
+      display: block;
+      width: 30%;
+    }
+  }
+}
+
+// Right
+@import "./JobDetailRight/jobdetailright";
+
+// Left
+@import "./Overview/overview";
+@import "./Gallery/gallery";
+@import "./Description/description";
+@import "./AboutSeller/aboutseller";
+@import "./Payment/payment";
+@import "./Review/review";
+@import "./Comment/comment";

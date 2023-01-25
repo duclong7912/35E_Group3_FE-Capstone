@@ -1,0 +1,299 @@
+@media screen and (min-width: 320px) {
+  .jobdetail--payment {
+    order: 3;
+    margin-top: 30px;
+    h2 {
+      font-size: 20px;
+      line-height: 28px;
+      padding-bottom: 25px;
+      color: #404145;
+      font-weight: 700;
+
+      display: none;
+    }
+    .payment--table {
+      width: 100%;
+      border: 1px solid #efeff0;
+      font-size: 16px;
+      line-height: 21px;
+
+      display: none;
+      colgroup col {
+        border-right: 1px solid #efeff0;
+      }
+      tbody {
+        tr:nth-child(2n + 3) {
+          background-color: #fafafa;
+        }
+        tr td {
+          color: #74767e;
+          font-weight: 400;
+          vertical-align: text-top;
+        }
+        tr td:nth-of-type(1) {
+          padding: 12px 16px;
+        }
+        tr td:nth-of-type(2),
+        tr td:nth-of-type(3),
+        tr td:nth-of-type(4) {
+          text-align: center;
+          vertical-align: middle;
+          svg {
+            fill: #1dbf73;
+            height: 16px;
+            width: 16px;
+          }
+        }
+        .package {
+          color: #74767e;
+          th:first-of-type {
+            width: 25%;
+
+            font-weight: 400;
+            padding: 24px 16px;
+            vertical-align: text-top;
+          }
+          th:nth-of-type(2),
+          th:nth-of-type(3),
+          th:nth-of-type(4) {
+            width: 25%;
+            padding: 24px 16px 0;
+            font-weight: 400;
+            p:nth-of-type(1) {
+              font-size: 19px;
+              line-height: 26px;
+              margin-bottom: 8px;
+            }
+            p:nth-of-type(2) {
+              font-size: 19px;
+              line-height: 26px;
+              font-weight: 600;
+              margin-bottom: 16px;
+            }
+            p:nth-of-type(3) {
+              font-size: 12px;
+              line-height: 150%;
+
+              font-weight: 700;
+            }
+          }
+        }
+        .empty {
+          td:nth-of-type(2),
+          td:nth-of-type(3),
+          td:nth-of-type(4) {
+            padding: 0 16px 24px;
+            font-size: 13px;
+            color: #62646a;
+            text-align: start;
+            vertical-align: text-top;
+          }
+        }
+        .delivery {
+          td:nth-of-type(3) div,
+          td:nth-of-type(4) div {
+            display: flex;
+            flex-direction: column;
+            padding: 16px 0;
+            label {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              input {
+                margin-right: 6px;
+              }
+              &:nth-child(2) {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+        .total {
+          td:nth-of-type(2),
+          td:nth-of-type(3),
+          td:nth-of-type(4) {
+            padding: 12px 16px;
+            button {
+              font-size: 16px;
+              padding: 6px 40px;
+              margin-top: 10px;
+              background-color: #1dbf73;
+              color: #fff;
+              &:hover {
+                background: #19a463;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .payment--content {
+      margin: 20px 0;
+      .jobdetail--card {
+        color: #74767e;
+        border: 1px solid #dadbdd;
+
+        .choice {
+          display: flex;
+          & > div {
+            border: 1px solid #dadbdd;
+            width: calc(100% / 3);
+            text-align: center;
+            font-size: 16px;
+            padding: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            border-top: none;
+            background-color: #fafafa;
+          }
+          div:nth-child(2) {
+            background-color: #fff;
+            border-bottom: 3px solid #1dbf73;
+            color: #1dbf73;
+          }
+        }
+        .detail {
+          padding: 32px 24px 0;
+          font-size: 14px;
+          .top {
+            display: flex;
+            justify-content: space-between;
+            color: #404145;
+            font-weight: 600;
+            font-size: 16px;
+          }
+          .discription {
+            font-weight: 500;
+            margin: 24px 0;
+          }
+          .mid {
+            display: flex;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #62646a;
+            svg {
+              margin-right: 6px;
+              fill: #62646a;
+            }
+            div:last-child {
+              margin-left: 14px;
+            }
+          }
+          .bot {
+            margin-bottom: 16px;
+            svg {
+              fill: #1dbf73;
+              margin-right: 10px;
+            }
+            li {
+              line-height: 22px;
+            }
+          }
+          .button {
+            text-align: center;
+            display: grid;
+            button:nth-child(1) {
+              background-color: #1dbf73;
+              color: #fff;
+              font-size: 16px;
+              font-weight: 500;
+              margin-bottom: 16px;
+              &:hover {
+                background: #19a463;
+              }
+            }
+            button:nth-child(2) {
+              font-size: 16px;
+              color: #1dbf73;
+              margin: 4px 0 10px;
+
+              display: none;
+            }
+          }
+        }
+      }
+      .contact {
+        background-color: #fafafa;
+        margin-top: 18px;
+        padding: 24px;
+        .contact--content {
+          text-align: center;
+          font-weight: 600;
+          border: 1px solid black;
+          border-radius: 4px;
+          padding: 8px 0;
+          cursor: pointer;
+          svg {
+            margin-left: 8px;
+          }
+          &:hover {
+            background-color: #62646a;
+            color: #fff;
+            border-color: transparent;
+          }
+          &:hover svg {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .jobdetail--payment {
+    .payment--content {
+      margin: 20px 0;
+      .jobdetail--card {
+        .detail {
+          padding: 32px 24px;
+          font-size: 18px;
+          .top {
+            font-size: 20px;
+          }
+          .discription {
+            font-weight: 400;
+            margin: 12px 0;
+          }
+          .mid {
+            margin-bottom: 16px;
+            svg {
+              margin-right: 14px;
+            }
+            div:last-child {
+              margin-left: 20px;
+            }
+          }
+          .bot {
+            margin-bottom: 16px;
+            svg {
+              fill: #1dbf73;
+              margin-right: 10px;
+            }
+            li {
+              line-height: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .jobdetail--payment {
+    order: 5;
+    .h2 {
+      display: block;
+    }
+    .payment--table {
+      display: block;
+    }
+
+    .payment--content {
+      display: none;
+    }
+  }
+}

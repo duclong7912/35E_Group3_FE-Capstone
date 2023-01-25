@@ -1,0 +1,119 @@
+
+
+@media screen and(min-width:320px) {
+  .jobdetai--overview {
+    order: 1;
+    .nav ul {
+      display: flex;
+      font-size: 10px;
+      svg {
+        fill: #446ee7;
+        height: 6px;
+        margin: 0 2px;
+      }
+    }
+    h1 {
+      font-weight: 600;
+      color: #404145;
+      margin: 16px 0;
+      font-size: 20px;
+    }
+    .foot {
+      display: flex;
+      font-size: 10px;
+      margin-bottom: 10px;
+      .avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          display: block;
+          border-radius: 50%;
+          border: 1px solid #404145;
+          height: 20px;
+        }
+      }
+      .description {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & > div {
+          margin-left: 10px;
+        }
+        .name {
+          font-weight: 600;
+        }
+
+        .star {
+          color: #ffb33e;
+          span:last-child {
+            color: #404145;
+          }
+        }
+        .order {
+          color: #95979e;
+        }
+        .choice {
+          background: url("https://fiverr-res.cloudinary.com/npm-assets/@fiverr/gig_page_perseus/fiverr-choice-badge.7de36f6.svg")
+            no-repeat 0 0;
+          height: 20px;
+          width: 100px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width:768px) {
+  .jobdetai--overview {
+    .nav ul {
+      font-size: 14px;
+      svg {
+        height: 10px;
+        margin: 0 4px;
+      }
+    }
+    h1 {
+      font-size: 28px;
+    }
+    .foot {
+      font-size: 16px;
+      margin-bottom: 18px;
+      .avatar {
+        img {
+          height: 30px;
+        }
+      }
+      .description {
+        & > div {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width:992px) {
+  .jobdetai--overview {
+    .nav ul {
+      font-size: 16px;
+      svg {
+        height: 10px;
+        margin: 0 6px;
+      }
+    }
+    h1 {
+      font-size: 32px;
+    }
+    .foot {
+      font-size: 14px;
+      margin-bottom: 18px;
+      
+      .description {
+        & > div {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
