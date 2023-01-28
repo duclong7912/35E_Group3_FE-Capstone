@@ -10,7 +10,6 @@ const Navbar = (props: Props) => {
   const showNavbar = () => {
     window.scrollY >= 150 ? setNavbar(true) : setNavbar(false);
   };
-  //   window.addEventListener('scroll', showNavbar)
 
   useEffect(() => {
     const nav = document.querySelector(".nav__wrapper");

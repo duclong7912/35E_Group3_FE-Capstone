@@ -6,7 +6,7 @@ type Props = {}
 
 const Register = (props: Props) => {
 
-  const hadleChange = (e:any) => {
+  const handleChange = (e:any) => {
     console.log(e.target.value);
     
   }
@@ -31,6 +31,7 @@ const Register = (props: Props) => {
               <input type="password" name='password' required />
               <i className="fa-solid fa-lock"></i>
               <span>Password</span>
+              <p>error ne`</p>
             </div>
             <div className="form__input">
               <input type="password" name='confirmPassword' required />
@@ -48,7 +49,7 @@ const Register = (props: Props) => {
               <span>Your birthday</span>
             </div>
             <div className="form__gender">
-              <input type="radio" id='male' name='gender' value={"true"} onChange={hadleChange}/>
+              <input type="radio" id='male' name='gender' value={"true"} onChange={handleChange}/>
               <input type="radio" id='female' name='gender' value={"false"}/>
               <div className="gender__tilte">
                 <i className="fa-solid fa-venus-mars"></i>
