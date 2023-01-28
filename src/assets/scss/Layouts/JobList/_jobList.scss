@@ -1,14 +1,19 @@
 .joblist{
-    padding: 150px 0 0px;
-
+    margin-top: 50px;
+    overflow-x: hidden;
     .joblist__container{
 
         .joblist__content{
 
             .joblist__result{
-
+                @include res(sm) {
+                    font-size: 14px;
+                }
                 .result__title{
                     margin-bottom: 30px;
+                    @include res(sm) {
+                        display: none;
+                    }
                     h2{
                         font-weight: 600;
 
@@ -19,11 +24,26 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    @include res(xxl) {
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
                     .top-bar__filter{
                         width: 64%;
                         position: relative;
                         display: flex;
                         align-items: center;
+                        @include res(xxl) {
+                            width: 100%;
+                            margin-bottom: 20px;
+                        }
+                        @include res(lg) {
+                            flex-wrap: wrap;
+                            gap: 12px;
+                        }
+                        @include res(sm) {
+                            display: none;
+                        }
                         .filter__item{
                             position: relative;
                             button{
@@ -37,6 +57,9 @@
                                 font-weight: 600;
                                 position: relative;
                                 z-index: 1;
+                                @include res(lg) {
+                                    margin: unset;
+                                }
                                 span{
                                     margin-left: 12px;
                                     font-size: 12px;
@@ -63,6 +86,11 @@
                                 box-shadow: 0 12px 18px #00000024;
                                 transition: all .3s;
                                 z-index: -1;
+                                @include res(lg){
+                                    min-width: 210px;
+                                    left: 0;
+                                    padding: 20px 10px;
+                                }
                                 li{
                                     padding: 8px 0;
                                     font-size: 15px;
@@ -70,6 +98,9 @@
                                     justify-content: space-between;
                                     align-items: center;
                                     gap: 30px;
+                                    @include res(md){
+                                        font-size: 12px;
+                                    }
                                     a{
                                         color: #222325;
                                         font-weight: 600;
@@ -117,6 +148,13 @@
                         width: 40%;
                         display: flex;
                         align-items: center;
+                        @include res(xxl) {
+                            width: 100%;
+                        }
+                        @include res(lg) {
+                            flex-wrap: wrap;
+                            gap: 12px;
+                        }
                         .toggle__item{
                             display: flex;
                             align-items: center;
@@ -169,7 +207,13 @@
                     align-items: center;
                     justify-content: space-between;
                     margin: 25px 0;
+                    @include res(sm){
+                        flex-wrap: wrap;
+                    }
                     .result__info{
+                        @include res(sm){
+                            margin-bottom: 20px;
+                        }
                         span{
                             font-size: 14px;
                             color: #74767e;
@@ -180,6 +224,9 @@
                     .sort-by{
                         display: flex;
                         align-items: center;
+                        @include res(sm){
+                            margin-bottom: 20px;
+                        }
                         > span{
                             font-weight: 500;
                             margin-right: 10px;
@@ -198,6 +245,10 @@
                                     font-size: 15px;
                                     font-weight: 600;
                                     cursor: pointer;
+                                    @include res(sm) {
+                                        font-size: 14px;
+                                        max-width: 120px;
+                                    }
                                     &::placeholder{
                                         color: #222325;
                                         font-weight: 600;
@@ -220,11 +271,19 @@
                                 opacity: 0;
                                 transition: all .3s;
                                 z-index: -1;
+                                @include res(sm) {
+                                    top: 30px;
+                                    right: -20px;
+                                    width: 210px;
+                                }
                                 .menu-item{
                                     padding: 10px 10px;
                                     font-weight:600;
                                     cursor: pointer;
                                     transition: all .3s;
+                                    @include res(sm){
+                                        padding: 5px 10px;
+                                    }
                                     &:hover{
                                         color: #1dbf73;
                                     }
@@ -248,109 +307,121 @@
 
                 .result__services{
                     .service__content{
-                        display: flex;
-                        align-items: center;
-                        flex-wrap: wrap;
-                        gap: 32px;
-                        .service__card{
-                            border: 1px solid #e4e5e7;
-                            width: calc(100% / 4);
-                            max-width: 297px;
-                            .service__img{
-                                width: 100%;
-                                height: 178px;
-                                cursor: pointer;
-                                img{
+                        .service__col{
+                            margin-bottom: 30px;
+                            .service__card{
+                                border: 1px solid #e4e5e7;
+                                @include res(lg){
+                                    max-width: 350px;
+                                    margin: 0 auto;
+                                }
+                                .service__img{
                                     width: 100%;
-                                    height: 100%;
+                                    height: 178px;
+                                    cursor: pointer;
+                                    img{
+                                        width: 100%;
+                                        height: 100%;
+                                    }
                                 }
-                            }
-                            .service__seller{
-                                padding: 8px 12px;
-                                display: flex;
-                                align-items: center;
-                                height: 58px;
-                                img{
-                                    width: 24px;
-                                    border-radius: 50%;
-                                    margin-right: 8px;
-                                }
-                                .seller-info{
-                                    .seller-name{
-                                        height: 18px;
-                                        span{
+                                .service__seller{
+                                    padding: 8px 12px;
+                                    display: flex;
+                                    align-items: center;
+                                    height: 58px;
+                                    img{
+                                        width: 24px;
+                                        border-radius: 50%;
+                                        margin-right: 8px;
+                                    }
+                                    .seller-info{
+                                        .seller-name{
+                                            height: 18px;
+                                            span{
+                                                font-size: 14px;
+                                                font-weight: 600;
+                                                cursor: pointer;
+                                                @include res(sm) {
+                                                    font-size: 12px;
+                                                }
+                                                &:hover{
+                                                    text-decoration: underline;
+                                                }
+                                            }
+                                        }
+                                        > span{
+                                            color: #74767e;
                                             font-size: 14px;
-                                            font-weight: 600;
-                                            cursor: pointer;
-                                            &:hover{
-                                                text-decoration: underline;
+                                            font-weight: 400;
+                                            @include res(sm) {
+                                                font-size: 12px;
                                             }
                                         }
                                     }
-                                    > span{
-                                        color: #74767e;
-                                        font-size: 14px;
-                                        font-weight: 400;
-                                    }
                                 }
-                            }
-
-                            .service__info{
-                                padding: 0 12px 5px;
-                                > a{
-                                    color: #222325;
-                                    transition: all .3s;
-                                    height: 47px;
-                                    font-weight: 500;
-                                    &:hover{
-                                        color: #1dbf73;
-                                    }
-                                }
-                                .service__rate{
-                                    padding-top: 5px;
-                                    display: flex;
-                                    align-items: center;
-                                    .number-star{
-                                        margin-right: 3px;
-                                        margin-left: 5px;
-                                        margin-top: 2px;
-                                        color: #ffbe5b;
-                                        font-weight: 600;
-                                    }
-                                    .amount-rate{
-                                        color: #b5b6ba;
-                                        font-size: 15px;
-                                        margin-top: 3px;
-                                    }
-                                }
-                            }
-
-                            .service__footer{
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                padding: 10px 12px;
-                                border-top: 1px solid #e4e5e7;
-                                .heart{
-                                    cursor: pointer;
-                                    svg{
-                                        fill: #b5b6ba;
-                                    }
-                                }
-                                .service__price{
-                                    cursor: pointer;
-                                    > span{
-                                        &:first-child{
-                                            color: #74767e;
-                                            font-size: 13px;
-                                            font-weight: 600;
-                                            padding-right: 6px;
-                                            letter-spacing: -1px;
+    
+                                .service__info{
+                                    padding: 0 12px 5px;
+                                    > a{
+                                        display: block;
+                                        color: #222325;
+                                        transition: all .3s;
+                                        height: 50px;
+                                        font-weight: 500;
+                                        overflow: hidden;
+                                        &:hover{
+                                            color: #1dbf73;
+                                        }
+                                        @include res(sm) {
+                                            font-size: 14px;
                                         }
                                     }
-                                    span.price{
-                                        font-size: 18px;
-                                        font-weight: 500;
+                                    .service__rate{
+                                        padding-top: 5px;
+                                        display: flex;
+                                        align-items: center;
+                                        .number-star{
+                                            margin-right: 3px;
+                                            margin-left: 5px;
+                                            margin-top: 2px;
+                                            color: #ffbe5b;
+                                            font-weight: 600;
+                                        }
+                                        .amount-rate{
+                                            color: #b5b6ba;
+                                            font-size: 15px;
+                                            margin-top: 3px;
+                                        }
+                                    }
+                                }
+    
+                                .service__footer{
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    padding: 10px 12px;
+                                    border-top: 1px solid #e4e5e7;
+                                    .heart{
+                                        cursor: pointer;
+                                        svg{
+                                            fill: #b5b6ba;
+                                        }
+                                    }
+                                    .service__price{
+                                        cursor: pointer;
+                                        > span{
+                                            &:first-child{
+                                                color: #74767e;
+                                                font-size: 13px;
+                                                font-weight: 600;
+                                                padding-right: 6px;
+                                                letter-spacing: -1px;
+                                            }
+                                        }
+                                        span.price{
+                                            font-size: 18px;
+                                            font-weight: 500;
+                                        }
                                     }
                                 }
                             }
@@ -377,6 +448,16 @@
                             transition: all .2s;
                             &:hover{
                                 background: #fafafa;
+                            }
+                            @include res(md) {
+                                width: 25px;
+                                height: 25px;
+                                line-height: 25px;
+                                margin: 3px;
+                                font-size: 12px;
+                            }
+                            @include res(ssm){
+                                margin: 1px;
                             }
                         }
                         li.pagination-arrow{

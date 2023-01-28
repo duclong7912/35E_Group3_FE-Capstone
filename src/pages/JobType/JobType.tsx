@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 type Props = {}
 
@@ -49,6 +50,179 @@ const JobType = (props: Props) => {
               </div>
             </div>
           </div>
+          <div className="job__explore">
+            <div className="explore__title">
+              <h4>Explore Graphics & Design</h4>
+            </div>
+            <div className="explore__content row">
+              <div className="explore__col col-xl-3 col-lg-4 col-sm-6 mb-4">
+                <div className="explore__item">
+                  <div className="explore__img">
+                    <img src="./img/explore4.png" alt="explore" />
+                  </div>
+                  <div className="explore__info">
+                    <h6>Logo & Brand Identity</h6>
+                    <div className="explore-name">
+                      <NavLink to='#'>Logo Design</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Brand Style Guides</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Fonts & Typography</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Business Cards & Stationery</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="explore__col col-xl-3 col-lg-4 col-sm-6 mb-4">
+                <div className="explore__item">
+                  <div className="explore__img">
+                    <img src="./img/explore3.png" alt="explore" />
+                  </div>
+                  <div className="explore__info">
+                    <h6>Web & App Design</h6>
+                    <div className="explore-name">
+                      <NavLink to='#'>Website Design</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>App Design</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>UX Design</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Landing Page Design</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Icon Design</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="explore__col col-xl-3 col-lg-4 col-sm-6 mb-4">
+                <div className="explore__item">
+                  <div className="explore__img">
+                    <img src="./img/explore2.png" alt="explore" />
+                  </div>
+                  <div className="explore__info">
+                    <h6>Art & Illustration</h6>
+                    <div className="explore-name">
+                      <NavLink to='#'>Illustration</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>NFT Art</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Pattern Design</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Portraits & Caricatures</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Cartoons & Comics</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Tattoo Design</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="explore__col col-xl-3 col-lg-4 col-sm-6 mb-4">
+                <div className="explore__item">
+                  <div className="explore__img">
+                    <img src="./img/explore.png" alt="explore" />
+                  </div>
+                  <div className="explore__info">
+                    <h6>Marketing Design</h6>
+                    <div className="explore-name">
+                      <NavLink to='#'>Logo Design</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Brand Style Guides</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Fonts & Typography</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Business Cards & Stationery</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="explore__col col-xl-3 col-lg-4 col-sm-6 mb-4">
+                <div className="explore__item">
+                  <div className="explore__img">
+                    <img src="./img/explore4.png" alt="explore" />
+                  </div>
+                  <div className="explore__info">
+                    <h6>Logo & Brand Identity</h6>
+                    <div className="explore-name">
+                      <NavLink to='#'>Logo Design</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Brand Style Guides</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Fonts & Typography</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="explore-name">
+                      <NavLink to='#'>Business Cards & Stationery</NavLink>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="job__services">
+            <div className="services__title">
+              <h4>Services Related To Graphics & Design</h4>
+            </div>
+            <div className="services__tag">
+              <span>Logo Design</span>
+              <span>Minimalist logo design</span>
+              <span>Mascot logo design</span>
+              <span>3d logo design</span>
+              <span>Hand drawn logo design</span>
+              <span>Vintage logo design</span>
+              <span>Photo restoration</span>
+              <span>Product label design</span>
+              <span>Custom twitch overlay</span>
+              <span>Custom twitch emotes</span>
+              <span>Children book illustration</span>
+              <span>Instagram design</span>
+              <span>Movie poster design</span>
+              <span>Industrial & Product Design</span>
+              <span>3D Modeling & Rendering</span>
+              <span>Design for Manufacturing</span>
+              <span>Technical Drawing</span>
+            </div>
+          </div> 
         </div>
       </div>
     </div>

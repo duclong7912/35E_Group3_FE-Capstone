@@ -12,6 +12,12 @@ import LoginTemplate from './templates/LoginTemplate/LoginTemplate';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import JobType from './pages/JobType/JobType';
+import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
+import AdminHome from './pages/AdminPage/AdminHome/AdminHome';
+import UserManager from './pages/AdminPage/UserManager/UserManager';
+import JobManager from './pages/AdminPage/JobManager/JobManager';
+import JobTypeManager from './pages/AdminPage/JobTypeManager/JobTypeManager';
+import ServiceManager from './pages/AdminPage/ServiceManager/ServiceManager';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -31,6 +37,14 @@ root.render(
         <Route index element={<Login />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
+      </Route>
+      <Route path='admin' element={<AdminTemplate />} >
+        <Route index element={<AdminHome />} />
+        <Route path='users' element={<UserManager />} />
+        <Route path='job' element={<JobManager />} />
+        <Route path='jobtype' element={<JobTypeManager />} />
+        <Route path='service' element={<ServiceManager /> } />
+        <Route path='*' element={<Navigate to='/admin' />} />
       </Route>
     </Routes>
   </BrowserRouter>

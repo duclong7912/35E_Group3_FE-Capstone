@@ -1,0 +1,11 @@
+.admin-home{
+    width: 60%;
+    height: 90vh;
+    margin: auto;
+    @include res(lg){
+        width: 100%;
+    }
+    img{
+        object-fit: none;
+    }
+}

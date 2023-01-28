@@ -1,0 +1,54 @@
+.admin-job{
+    .add-modal, .update-modal{
+        .modal__container{
+            ::-webkit-scrollbar{
+                width: 7px;
+            }
+            ::-webkit-scrollbar-thumb{
+                background: #0a4b3e;
+                border-radius: 5px;
+            }
+            ::-webkit-scrollbar-track{
+                background: #e8f8f5;
+                border-radius: 0 5px 5px 0;
+            }
+            .modal__content{
+                max-height: 550px;
+                overflow-y: auto;
+                .form{
+                    
+                    .form__content{
+                        display: unset;
+    
+                        .form__input{
+                            width: 100%;
+                        }
+                        label{
+                            cursor: pointer;
+                            height: 60px;
+                            input{
+                                display: none;
+                            }
+                            div{
+                                background: #0a4b3e;
+                                color: #fff;
+                                padding: 8px 20px 8px 10px;
+                                border-radius: 5px;
+                                display: flex;
+                                align-items: center;
+                                span, i{
+                                    height: 23px;
+                                }
+                                i{
+                                    margin-right: 10px;
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+                    @include btnSubmit();
+                }
+            }
+        }
+    }
+}

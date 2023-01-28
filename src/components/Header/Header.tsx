@@ -13,15 +13,7 @@ const Header = (props: Props) => {
       window.scrollY > 0 ? setNavbar(true) : setNavbar(false);
       window.scrollY >= 150 ? setSearch(true) : setSearch(false);
     };
-
-    // if (location.pathname === "/") {
-    //   window.addEventListener("scroll", changeBackground);
-    // } else if (location.pathname !== "/") {
-    //   const header = document.querySelector("header");
-    //   const search = document.querySelector(".header__search");
-    //   header?.classList.add("header-active");
-    //   search?.classList.add("active");
-    // }
+    
     const header = document.querySelector("header");
     const search = document.querySelector(".header__search");
 
@@ -37,7 +29,13 @@ const Header = (props: Props) => {
   return (
     <header className={navbar ? "header-active" : ""}>
       <div className="header__container width-container">
-        <div className="header__content">
+        <div className={location.pathname === '/list' ? 'header__content result' : 'header__content'}>
+          <div className="bar" onClick={() => {
+            const body = document.querySelector("body");
+            body?.classList.toggle("show-sidebar");
+          }}>
+            <i className="fa-solid fa-bars"></i>
+          </div>
           <div className="header__logo">
             <NavLink to="/">
               <svg
@@ -101,17 +99,10 @@ const Header = (props: Props) => {
                 <span>English</span>
               </li>
               <li>
-                <span>$ USD</span>
-              </li>
-              <li>
                 <NavLink to="/">Become a Seller</NavLink>
               </li>
-              <li>
-                <NavLink to="/users/register">Sign In</NavLink>
-              </li>
-              <li>
-                <NavLink to="/users/login">Join</NavLink>
-              </li>
+              <li><NavLink to="/users/login">Sign In</NavLink></li>
+              <li><NavLink to="/users/register">Join</NavLink></li>
             </ul>
           </nav>
         </div>

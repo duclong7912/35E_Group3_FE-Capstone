@@ -1,7 +1,10 @@
 .jobtype{
-    padding: 150px 0 100px;
+    margin-top: 30px;
     .jobtype__container{
         .jobtype__content{
+            @include res(sm) {
+                font-size: 14px;
+            }
             .banner{
                 background-image: url(../../../img/banner.jpg);
                 background-size: cover;
@@ -13,17 +16,26 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
+                @include res(lg){
+                    background-position: right;
+                }
                 h2{
                     font-size: 32px;
                     color: #fff;
                     font-weight: 600;
                     margin-bottom: 0;
+                    @include res(sm) {
+                        font-size: 25px;
+                    }
                 }
                 p{
                     margin-top: 8px;
                     font-size: 20px;
                     color: #fff;
                     font-weight: 400;
+                    @include res(sm) {
+                        font-size: 16px;
+                    }
                 }
                 button{
                     border: 1px solid #fff;
@@ -97,6 +109,95 @@
                                 margin: 0 12px;
                                 font-weight: 500;
                             }
+                        }
+                    }
+                }
+            }
+
+            .job__explore{
+                margin-top: 56px;
+                .explore__title{
+                    h4{
+                        font-size: 24px;
+                        font-weight: 600;
+                        color: #404145;
+                        @include res(sm){
+                            margin-bottom: 30px;
+                        }
+                    }
+                }
+                .explore__content{
+                    .explore__col{
+                        .explore__item{
+                            .explore__img{
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                            .explore__info{
+                                h6{
+                                    font-size: 20px;
+                                    font-weight: 600;
+                                    color: #222325;
+                                    margin: 24px 0 12px;
+                                }
+                                .explore-name{
+                                    padding: 8px 12px;
+                                    margin-left: -12px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    cursor: pointer;
+                                    a{
+                                        font-size: 18px;
+                                        color: #62646a;
+                                    }
+                                    i{
+                                        color: #62646a;
+                                        display: none;
+                                    }
+    
+                                    &:hover{
+                                        background: #f5f5f5;
+                                        border-radius: 8px;
+                                        i{
+                                            display: block;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .job__services{
+                padding: 64px 0;
+                text-align: center;
+                .services__title{
+                    h4{
+                        font-size: 24px;
+                        color: #404145;
+                        font-weight: 600;
+                    }
+                }
+                .services__tag{
+                    margin-top: 48px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    span{
+                        padding: 5px 12px;
+                        margin: 0 6px 16px;
+                        color: #74767e;
+                        background: #efeff0;
+                        border-radius: 50px;
+                        font-weight: 600;
+                        font-size: 14px;
+                        @include res(sm){
+                            font-size: 12px;
                         }
                     }
                 }

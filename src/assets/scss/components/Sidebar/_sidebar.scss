@@ -1,0 +1,165 @@
+.sidebar{
+    .sidebar__main{
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -272px;
+        z-index: 9999;
+        height: 100%;
+        width: 272px;
+        background: #fff;
+        transition: all .3s;
+        .sidebar__header{
+            padding: 0 20px 20px;
+            a{
+                font-size: 16px;
+                padding: 8px 20px;
+                background: $secondary-color;
+                color: #fff;
+                border-radius: 4px;
+                font-weight: 600;
+            }
+        }
+        .sidebar__menu{
+            font-size: 16px;
+            padding: 0 20px ;
+            font-weight: 500;
+            > a{
+                color: #95979d;
+                padding: 8px 0;
+                display: inline-block;
+                &:last-child{
+                    color: $secondary-color;
+                    font-weight: 600;
+                }
+            }
+
+            .sidebar__categories{
+                color: #95979d;
+                overflow: hidden;
+                transition: all .3s;
+                .fa-chevron-down{
+                    font-size: 16px;
+                    transition: all .3s;
+                }
+                .categories-title, .list{
+                    padding: 8px 0;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .sidebar-content{
+                    max-height: 0px;
+                    transition: all .3s;
+                    li.categories-list{
+                        padding-left: 20px;
+                        overflow: hidden;
+                        ul{
+                            max-height: 0px;
+                            transition: all .3s;
+                            li{
+                                padding: 8px 0;
+                                padding-left: 20px;
+                                a{
+                                    color: #95979d;
+                                }
+                            }
+                        }
+                    }
+                    li.categories-list.show{
+                        .list{
+                            i{
+                                transform: rotate(-180deg);
+                            }
+                        }
+                        ul{
+                            max-height: 600px;
+                            transition: all .3s;
+                        }
+                    }
+                }
+            }
+
+            .sidebar__categories.show{
+                overflow: unset;
+                .categories-title{
+                    span i{
+                        transform: rotate(-180deg);
+                    }
+                }
+                .sidebar-content{
+                    max-height: 500px;
+                }
+            }
+
+            .sidebar__explore{
+                overflow: hidden;
+                .explore-title{
+                    padding: 8px 0;
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #95979d;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    span{
+                        i{
+                            transition: all .3s;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                ul {
+                    max-height: 0px;
+                    transition: all .3s;
+                    li{
+                        color: #95979d;
+                        display: block;
+                        padding: 8px 20px;
+                    }
+                }
+            }
+            .sidebar__explore.show{
+                span i {
+                    transform: rotate(-180deg);
+                }
+                ul{
+                    max-height: 600px;
+                    transition: all .3s;
+                }
+            }
+        }
+
+        .sidebar__general{
+            margin-top: 30px;
+            padding: 0 20px;
+            .general{
+                padding-bottom: 8px;
+                font-size: 16px;
+                font-weight: 600;
+                color: #404145;
+                border-bottom: 1px solid #dadbdd;
+            }
+            .general-home, .general-language, .general-money, p{
+                color: #95979d;
+                font-weight: 500;
+                font-size: 16px;
+                padding: 8px 0;
+            }
+        }
+    }
+    .sidebar__overlay{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: rgba(0,0,0,.5);
+        z-index: 9998;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .3s;
+    }
+}

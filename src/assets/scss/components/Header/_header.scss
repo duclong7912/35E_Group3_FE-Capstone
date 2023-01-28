@@ -1,85 +1,157 @@
-header{
+header {
     position: absolute;
     width: 100%;
     transition: all .5s ease;
     background: transparent;
     z-index: 100;
-    
-    .header__container{
-        
-        .header__content{
+
+    .header__container {
+        .header__content {
             display: flex;
             align-items: center;
             justify-content: space-between;
             height: 80px;
-            .header__logo{
+            @include res(sm){
+                height: 70px;
+                flex-wrap: wrap;
+                align-content: center;
+            }
+            .bar {
+                @include res(xl) {
+                    display: unset;
+                    margin: 2px 15px 0 0;
+                    i{
+                        font-size: 25px;
+                        color: #fff;
+                    }
+                }
+                display: none;
+            }
+
+            .header__logo {
                 min-width: 121px;
                 margin-bottom: 4px;
-                a{
-                    svg{
-                        g{
+
+                a {
+                    svg {
+                        g {
                             fill: #fff;
 
-                            &:last-child{
+                            &:last-child {
                                 fill: $secondary-color;
                             }
                         }
                     }
                 }
             }
-            .header__search{
+
+            .header__search {
                 margin-right: auto;
                 opacity: 0;
                 transition: all .25s ease;
-                form{
+                @include res(xxl) {
+                    width: 100%;
+                }
+                @include res(sm){
+                    display: none;
+                }
+                form {
                     width: 433px;
                     display: flex;
                     align-items: center;
-                    input{
+                    @include res(xxl) {
+                        width: 100%;
+                    }
+                    input {
                         flex: 1;
                         padding: 8px 2px 8px 16px;
                         font-size: 16px;
                         outline: none;
                         border-radius: 4px 0 0 4px;
                         border: 1px solid #c5c6c9;
+                        @include res(xl){
+                            width: 100%;
+                        }
+                        @include res(sm) {
+                            font-size: 12px;
+                        }
                     }
-                    button{
+
+                    button {
                         padding: 9px 17px;
                         background-color: #222325;
                         border-radius: 0 4px 4px 0;
                         border: none;
                         outline: none;
                         font-size: 16px;
-                        svg{
+                        @include res(lg){
+                            display: none;
+                        }
+                        svg {
                             fill: #fff;
                         }
-                        &:hover{
+
+                        &:hover {
                             opacity: .9;
                         }
                     }
                 }
             }
 
-            .header__nav{
-                .nav-list{
+            .header__nav {
+                @include res(xxl) {
+                    min-width: 650px;
+                }
+                @include res(xl){
+                    min-width: 530px;
+                }
+                @include res(lg){
+                    min-width: 175px;
+                }
+                @include res(sm){
+                    min-width: unset;
+                }
+                .nav-list {
                     display: flex;
                     align-items: center;
-                    li{
+                    @include res(xxl) {
+                        justify-content: flex-end;
+                    }
+                    li {
                         display: inline-block;
                         padding: 0 10px;
                         color: #fff;
                         cursor: pointer;
                         transition: all .3s;
-                        a, span{
+                        @include res(xl){
+                            &:nth-child(3){
+                                display: none;
+                            }
+                        }
+                        @include res(lg){
+                            &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4){
+                                display: none;
+                            }
+                        }
+                        a,
+                        span {
                             fill: #fff;
                             color: #fff;
                             font-weight: 600;
                         }
-                        &:nth-child(3){
-                            span{
-                                &:first-child{
+
+                        &:nth-child(3) {
+                            span {
+                                &:first-child {
                                     padding-right: 8px;
                                 }
+                            }
+                        }
+
+                        &:nth-child(5){
+                            padding: 0 20px 0 10px;
+                            @include res(sm){
+                                display: none;
                             }
                         }
 
@@ -87,42 +159,68 @@ header{
                             padding: 0;
                             border: 1px solid #fff;
                             border-radius: 4px;
-                            color: #fff;
-                            &:hover{
+                            transition: all .3s;
+
+                            a {
+                                color: #fff;
+                                display: block;
+                                padding: 4px 17px;
+                                font-weight: 600;
+                            }
+
+                            &:hover {
                                 background: $primary-color;
                                 border: 1px solid $secondary-color;
                             }
-                            a{  
-                                display: block;
-                                padding: 2px 17px;
-                            }
                         }
                     }
-                    
+
+                }
+            }
+        }
+        .header__content.result{
+            @include res(sm){
+                height: 135px;
+                .header__search{
+                    display: unset;
+                    order: 1;
+                    margin-top: 18px;
                 }
             }
         }
     }
 }
-.header-static{
+
+.header-static {
     position: static !important;
 }
 
-.header-active{
+.header-active {
     background: #fff;
     border-bottom: 1px solid #e4e5e7;
     position: fixed;
     width: 100%;
     z-index: 100;
-    .header__container{
-        .header__content{
-            .header__logo{
-                a{
-                    svg{
-                        g{
+
+    .header__container {
+        .header__content {
+            .bar{
+                @include res(xxl) {
+                    i{
+                        color: #222325;
+                    }
+                }
+            }
+            .header__logo {
+                @include res(sm){
+                    min-width: unset;
+                }
+                a {
+                    svg {
+                        g {
                             fill: #404145;
 
-                            &:last-child{
+                            &:last-child {
                                 fill: $secondary-color;
                             }
                         }
@@ -130,43 +228,51 @@ header{
                 }
             }
 
-            .header__search.active{
+            .header__search.active {
                 opacity: 1;
             }
 
-            .header__nav{
-                .nav-list{
-                    li{
+            .header__nav {
+                .nav-list {
+                    li {
                         color: $nav-color;
-                        
-                        a,span{
+
+                        a,
+                        span {
                             fill: $nav-color;
                             color: $nav-color;
                         }
 
-                        &:first-child{
-                            a{
+                        &:first-child {
+                            a {
                                 color: #1e1692;
                             }
                         }
 
-                        &:hover{
-                            a,span{
+                        &:hover {
+
+                            a,
+                            span {
                                 color: $secondary-color;
                                 fill: $secondary-color;
                             }
                         }
-
                         &:last-child{
                             border: 1px solid $secondary-color;
-                            a{
+                            @include res(sm){
+                                border: 1px solid transparent;
+                            }
+                            a {
                                 color: $secondary-color;
                                 transition: all .3s;
+                                @include res(sm){
+                                    color: #404145;
+                                }
                             }
 
-                            &:hover{
+                            &:hover {
                                 background: $primary-color;
-                                a{
+                                a {
                                     color: #fff;
                                 }
                             }

@@ -22,7 +22,26 @@ body{
         max-width: 1400px;
         margin: auto;
         padding: 0 32px;
+        @include res(sm){
+            padding: 0 24px;
+        }
     }
 
 }
 
+body.active{
+    overflow: hidden;
+    // padding-right: 17px;
+    // background: rgba(49, 49, 49, 0.3);
+}
+
+body.show-sidebar{
+    overflow-y: hidden;
+    .sidebar__main{
+        transform: translateX(272px);
+    }
+    .sidebar__overlay{
+        opacity: 1;
+        visibility: visible;
+    }
+}

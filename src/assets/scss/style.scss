@@ -1,20 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
-@import './Base/global';
 @import './Helpers/variables';
 @import './Helpers/mixin';
+@import './Base/global';
 
 @import './components/Header/header';
 @import './components/Footer/footer';
 @import './components/Navbar/navbar';
 @import './components/LoginTemplate/loginTemplate';
+@import './components/AdminTemplate/adminTemplate';
+@import './components/Sidebar/sidebar';
+@import './Layouts/AdminPage/adminHome';
 
 @import './Layouts/Home/home';
-@import './Layouts/AdminPage/adminPage';
 @import './Layouts/JobDetail/jobDetail';
 @import './Layouts/JobList/jobList';
 @import './Layouts/Login/login';
 @import './Layouts/Profile/profile';
 @import './Layouts/Register/register';
 @import './Layouts/JobType/JobType';
+
+@import './Layouts/UserManager/userManager';
+@import './Layouts/AdminPage/addAdmin';
+@import './Layouts/AdminPage/addJob';
+@import './Layouts/AdminPage/addService';

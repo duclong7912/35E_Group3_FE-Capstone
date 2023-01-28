@@ -1,0 +1,98 @@
+.add-modal.add-service, .update-modal.update-service{
+    .form__condition{
+        @include res(sm){
+            flex-direction: column;
+            align-items: flex-start !important;
+        }
+        input{
+            display: none;
+        }
+    }
+    #complete:checked ~ .condition__tilte i, #incomplete:checked ~ .condition__tilte i, #u-complete:checked ~ .condition__tilte i,  #u-incomplete:checked ~ .condition__tilte i{
+        color: #17a98c;
+    }
+    #complete:checked ~ .condition__tilte span, #incomplete:checked ~ .condition__tilte span, #u-complete:checked ~ .condition__tilte span, #u-incomplete:checked ~ .condition__tilte span{
+        color: #17a98c;
+    }
+    #complete:checked ~ .condition label span.dot-complete, #u-complete:checked ~ .condition label span.dot-complete{
+        border-color: #bdede3;
+        background: #17a98c;
+    }
+    #incomplete:checked ~ .condition label span.dot-incomplete, #u-incomplete:checked ~ .condition label span.dot-incomplete{
+        border-color: #bdede3;
+        background: #17a98c;
+    }
+
+    .condition__tilte{
+        display: flex;
+        align-items: center;
+        > i {
+            font-size: 18px;
+            color: #d9d9d9;
+            transition: all .3s;
+            margin-right: 10px;
+        }
+        > span{
+            color: #d9d9d9;
+            transition: all .3s;
+            font-weight: 600;
+            font-size: 18px;
+            margin-right:  20px;
+        }
+    }
+    .condition{
+        display: flex;
+        align-items: center;
+        label{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0;
+            margin-right: 20px;
+            cursor: pointer;
+            span.dot{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: #bdede3;
+                border-radius: 50%;
+                margin-right: 10px;
+                border: 5px solid transparent;
+            }
+            span.gender{
+                font-weight: 500;
+            }
+            span.complete, span.incomplete{
+                font-weight: 500;
+            }
+        }
+    }
+
+    .modal__container{
+        .modal__content{
+            
+            .form{
+                .form__content{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    .form__input{
+                        width: 49%;
+                    }
+                    .form__condition{
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 30px;
+                        .condition{
+                            label{
+                                height: 35px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
