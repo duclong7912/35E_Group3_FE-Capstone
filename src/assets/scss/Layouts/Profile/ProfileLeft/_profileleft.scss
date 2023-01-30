@@ -1,424 +1,280 @@
-// .profile--left {
-//   width: 40%;
-//   .info {
-//     background-color: #fff;
-//     border: 1px solid #dadbdd;
-//     padding: 30px;
-//     font-size: 14px;
-//     .top {
-//       .avatar {
-//         display: flex;
-//         justify-content: center;
-//         img {
-//           width: 150px;
-//           height: 150px;
-//           border-radius: 50%;
-//         }
-//       }
-//       .name {
-//         text-align: center;
-//         font-weight: 600;
-//         font-size: 20px;
-//         margin: 10px 0 4px;
-//       }
-//       .edit {
-//         text-align: center;
-//         span {
-//           border: none;
-//           background-color: transparent;
-
-//           svg {
-//             fill: #b5b6ba;
-//             height: 14px;
-//             cursor: pointer;
-//             &:hover {
-//               fill: #333;
-//             }
-//           }
-//         }
-//       }
-//       .preview {
-//         text-align: center;
-//         a {
-//           border-radius: 4px;
-//           border: 1px solid #333;
-//           color: #333;
-//           font-weight: 500;
-//           padding: 6px 0;
-//           display: inline-block;
-//           margin: 12px 0 16px;
-//           &:hover {
-//             background-color: #74767e;
-//             color: #fff;
-//             border-color: transparent;
-//           }
-//         }
-//       }
-//     }
-
-//     .bot {
-//       border-top: 1px solid #dadbdd;
-//       color: #62646a;
-//       .from {
-//         display: flex;
-//         justify-content: space-between;
-//         margin: 10px 0;
-//         .location {
-//           span {
-//             margin-right: 10px;
-//           }
-//         }
-//         .country {
-//           font-weight: 600;
-//         }
-//       }
-//       .since {
-//         display: flex;
-//         justify-content: space-between;
-//         span {
-//           margin-right: 10px;
-//         }
-//         .year {
-//           font-weight: 600;
-//         }
-//       }
-//     }
-//   }
-
-//   .description {
-//     background-color: #fff;
-//     border: 1px solid #dadbdd;
-//     padding: 30px;
-//     margin-top: 30px;
-//     & > :not(.list) {
-//       border-top: 1px solid #dadbdd;
-//       margin-bottom: 30px;
-//       padding-top: 20px;
-//       & > div:first-child {
-//         color: #0e0e0f;
-//         font-weight: 600;
-//       }
-//       & > div:last-child {
-//         color: #b2b2b2;
-//       }
-//       a {
-//         float: right;
-//         color: #00698c;
-//         font-weight: 400;
-//         &:hover {
-//           text-decoration: underline;
-//         }
-//       }
-//     }
-//     .des {
-//       border: none;
-//       color: #0e0e0f;
-//       font-weight: 600;
-//       padding-top: 0;
-//     }
-//     .des--content {
-//       border: none;
-//       min-height: 30px;
-//       margin-bottom: 0;
-//     }
-//     .language {
-//       margin-bottom: 8px;
-//       color: #0e0e0f;
-//       font-weight: 600;
-//     }
-//     .list {
-//       margin-bottom: 20px;
-//       li span:last-child {
-//         color: #b2b2b2;
-//       }
-//     }
-//     .account {
-//       li {
-//         color: #00698c;
-//         font-size: 14px;
-//         margin-top: 8px;
-//         width: 130px;
-//         cursor: pointer;
-//         i {
-//           margin-right: 8px;
-//           font-weight: 600;
-//         }
-//       }
-//     }
-//   }
-// }
-
 @media screen and (min-width: 320px) {
- .profile--left {
-  width: 40%;
-  .info {
-    background-color: #fff;
-    border: 1px solid #dadbdd;
-    padding: 4px;
-    font-size: 14px;
-    .top {
-      .avatar {
-        display: flex;
-        justify-content: center;
-        img {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-        }
-      }
-      .name {
-        text-align: center;
-        font-weight: 600;
-        margin: 4px 0 0;
-        font-size: 12px;
-      }
-      .edit {
-        text-align: center;
-        span {
-          border: none;
-          background-color: transparent;
-          svg {
-            fill: #b5b6ba;
-            height: 8px;
-            cursor: pointer;
-            &:hover {
-              fill: #333;
-            }
-          }
-        }
-      }
-      .preview {
-        text-align: center;
-        a {
-          border-radius: 4px;
-          border: 1px solid #333;
-          color: #333;
-          font-weight: 500;
-          display: inline-block;
-          padding: 2px 6px;
-          margin: 4px 0 10px;
-          font-size: 8px;
-          &:hover {
-            background-color: #74767e;
-            color: #fff;
-            border-color: transparent;
-          }
-        }
-      }
-    }
-
-    .bot {
-      border-top: 1px solid #dadbdd;
-      color: #62646a;
-      font-size: 8px;
-      .from {
-        display: flex;
-        justify-content: space-between;
-        margin: 6px 0;
-        .location {
-          span {
-            margin-right: 2px;
-          }
-        }
-        .country {
-          font-weight: 600;
-        }
-      }
-      .since {
-        display: flex;
-        justify-content: space-between;
-        span {
-          margin-right: 2px;
-        }
-        .year {
-          font-weight: 600;
-        }
-      }
-    }
-  }
-
-  .description {
-    background-color: #fff;
-    border: 1px solid #dadbdd;
-    padding: 6px;
-    margin-top: 10px;
-    font-size: 8px;
-    & > :not(.list) {
-      border-top: 1px solid #dadbdd;
-      margin-bottom: 10px;
-      padding-top: 10px;
-      & > div:first-child {
-        color: #0e0e0f;
-        font-weight: 600;
-      }
-      & > div:last-child {
-        color: #b2b2b2;
-      }
-      a {
-        float: right;
-        color: #00698c;
-        font-weight: 400;
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-    .des {
-      border: none;
-      color: #0e0e0f;
-      font-weight: 600;
-      padding-top: 0;
-    }
-    .des--content {
-      border: none;
-      margin-bottom: 0;
-      min-height: 10px;
-    }
-    .language {
-      margin-bottom: 2px;
-      color: #0e0e0f;
-      font-weight: 600;
-    }
-    .list {
-      margin-bottom: 6px;
-      li span:last-child {
-        color: #b2b2b2;
-      }
-    }
-    .account {
-      li {
-        color: #00698c;
-        font-size: 8px;
-        margin-top: 8px;
-        width: 80px;
-        cursor: pointer;
-        i {
-          font-weight: 600;
-          margin-right: 6px;
-        }
-      }
-    }
-  }
-}
-}
-@media screen and (min-width: 576px) {
   .profile--left {
+    padding: 15px 12px;
     .info {
-      padding: 14px;
-      font-size: 8px;
+      background-color: #fff;
+      border: 1px solid #dadbdd;
+      padding: 50px 20px 30px;
       .top {
+        position: relative;
         .avatar {
+          display: flex;
+          justify-content: center;
           img {
-            width: 40px;
-            height: 40px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
           }
         }
         .name {
-          font-size: 8px;
-          margin: 4px 0 0;
+          text-align: center;
+          font-weight: 600;
+          margin: 8px 0;
+          font-size: 20px;
         }
         .edit {
+          text-align: center;
+          line-height: 0;
+          margin-bottom: 20px;
           span {
-            svg {
-              height: 8px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            color: #74767e;
+            font-size: 14px;
+            i {
+              color: #b2b2b2;
+              margin-right: 6px;
             }
           }
         }
         .preview {
+          display: none;
+          text-align: center;
           a {
-            font-size: 6px;
-            padding: 2px 10px;
-            margin: 2px 0 8px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            color: #333;
+            font-weight: 500;
+            display: inline-block;
+            padding: 2px 6px;
+            margin: 4px 0 10px;
+            font-size: 8px;
+            &:hover {
+              background-color: #74767e;
+              color: #fff;
+              border-color: transparent;
+            }
           }
+        }
+        .status {
+          position: absolute;
+          right: 5px;
+          top: 0;
+          border: 1px solid #1dbf73;
+          color: #1dbf73;
+          border-radius: 30px;
+          font-size: 14px;
+          padding: 0px 10px;
         }
       }
 
       .bot {
-        font-size: 8px;
+        border-top: 1px solid #dadbdd;
+        color: #62646a;
+        font-size: 14px;
         .from {
+          display: flex;
+          justify-content: space-between;
+          margin: 15px 0;
           .location {
             span {
-              margin-right: 4px;
+              margin-right: 8px;
             }
+          }
+          .country {
+            font-weight: 600;
           }
         }
         .since {
+          display: flex;
+          justify-content: space-between;
           span {
-            margin-right: 4px;
+            margin-right: 8px;
           }
+          .year {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    .learn {
+      background-color: #fff;
+      border: 1px solid #dadbdd;
+      text-align: center;
+      padding: 30px 30px 15px;
+      margin: 20px 0;
+      .learn--icon {
+        text-align: left;
+      }
+      .learn--img {
+        margin: 16px 0;
+      }
+      h5 {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      p {
+        color: #62646a;
+      }
+      a {
+        display: inline-block;
+        background-color: #1dbf73;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 6px;
+        padding: 10px 30px;
+        &:hover {
+          color: #19a463;
         }
       }
     }
 
     .description {
-      padding: 14px;
-      font-size: 8px;
+      background-color: #fff;
+      & > div,
+      & > ul {
+        border: 1px solid #ddd;
+        padding: 20px 15px;
+        & > div:first-child {
+          color: #0e0e0f;
+          font-weight: 600;
+        }
+        & > div:last-child {
+          color: #b2b2b2;
+        }
+        a {
+          // display: none;
+          float: right;
+          color: #00698c;
+          font-weight: 400;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .des {
+        color: #0e0e0f;
+        font-weight: 600;
+        border-bottom: none;
+        .name,
+        .phone,
+        .birthday {
+          display: flex;
+          justify-content: space-between;
+          span {
+            width: 50%;
+            font-weight: 400;
+            color: #333;
+            margin-top: 4px;
+          }
+        }
+      }
+      // .des--content {
+      //   border: none;
+      //   min-height: 10px;
+      // }
+      .language {
+        color: #0e0e0f;
+        font-weight: 600;
+        border-bottom: none;
+      }
+      .list {
+        border-bottom: none;
+        border-top: none;
+        padding-top: 0;
+        li span:last-child {
+          color: #b2b2b2;
+        }
+      }
+      .account {
+        border-bottom: none;
+
+        li {
+          color: #00698c;
+          font-size: 14px;
+          margin-top: 8px;
+          width: 140px;
+          cursor: pointer;
+          i {
+            font-weight: 600;
+            margin-right: 8px;
+            color: #333;
+          }
+        }
+      }
+      .skill {
+        border-bottom: none;
+      }
+      .certification {
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (min-width: 576px) {
+  .profile--left {
+    padding: 20px;
+    .info {
+      padding: 65px 50px 50px;
+      .top {
+        .avatar {
+          img {
+            width: 160px;
+            height: 160px;
+          }
+        }
+        .name {
+          font-size: 20px;
+        }
+      }
+    }
+    .learn {
+      margin: 30px 0;
+    }
+    .description {
+      .des {
+        display: block;
+      }
+      .certification {
+        display: block;
+        border-top: none;
+      }
     }
   }
 }
 @media screen and (min-width: 768px) {
   .profile--left {
     .info {
-      padding: 16px 24px;
+      padding: 30px 20px;
       .top {
         .avatar {
           img {
-            width: 50px;
-            height: 50px;
+            width: 100px;
+            height: 100px;
           }
         }
-        .name {
-          font-size: 12px;
-          margin: 4px 0 0;
-        }
+
         .edit {
-          span {
-            svg {
-              height: 8px;
-            }
-          }
+          margin-bottom: 4px;
         }
         .preview {
+          display: block;
           a {
-            font-size: 8px;
+            font-size: 14px;
             padding: 2px 10px;
             margin: 4px 0 10px;
           }
         }
       }
-
-      .bot {
-        font-size: 10px;
-        .from {
-          .location {
-            span {
-              margin-right: 5px;
-            }
-          }
-        }
-        .since {
-          span {
-            margin-right: 5px;
-          }
-        }
-      }
     }
-
-    .description {
-      padding: 16px;
-      font-size: 10px;
-      .language {
-        margin-bottom: 4px;
+    .learn {
+      margin: 20px 0;
+      h5 {
+        font-size: 16px;
       }
-      .account {
-        li {
-          font-size: 10px;
-          margin-top: 5px;
-          width: 90px;
-          i {
-            margin-right: 6px;
-          }
-        }
+      p {
+        font-size: 14px;
       }
     }
   }
@@ -429,43 +285,8 @@
     .info {
       padding: 20px 30px;
       .top {
-        .avatar {
-          img {
-            width: 60px;
-            height: 60px;
-          }
-        }
         .name {
           font-size: 14px;
-          margin: 4px 0 0;
-        }
-
-        .preview {
-          a {
-            font-size: 10px;
-          }
-        }
-      }
-
-      .bot {
-        font-size: 12px;
-      }
-    }
-
-    .description {
-      padding: 20px 30px;
-      font-size: 12px;
-      .language {
-        margin-bottom: 5px;
-      }
-      .account {
-        li {
-          font-size: 12px;
-          margin-top: 5px;
-          width: 110px;
-          i {
-            margin-right: 6px;
-          }
         }
       }
     }
@@ -474,14 +295,14 @@
 
 @media screen and (min-width: 1200px) {
   .profile--left {
-    width: 30%;
+    width: 35%;
     .info {
       padding: 20px 30px;
       .top {
         .avatar {
           img {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
           }
         }
         .name {
@@ -489,29 +310,22 @@
           margin: 4px 0 0;
         }
 
-        .preview {
-          a {
-            font-size: 12px;
-          }
-        }
+       
       }
 
       .bot {
-        font-size: 12px;
+        font-size: 16px;
       }
     }
 
     .description {
-      padding: 20px 30px;
-      font-size: 14px;
       .language {
         margin-bottom: 5px;
       }
       .account {
         li {
-          font-size: 12px;
-          margin-top: 5px;
-          width: 110px;
+          margin-top: 8px;
+          width: 140px;
           i {
             margin-right: 6px;
           }

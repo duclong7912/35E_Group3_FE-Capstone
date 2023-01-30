@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {};
 
 const ProfileLeft = (props: Props) => {
+  let widthBrowser = window.innerWidth;
+  const [icon, setIcon] = useState<Boolean>(false);
+
+  useEffect(() => {
+    widthBrowser < 767 ? setIcon(true) : setIcon(false);
+  }, [widthBrowser]);
+
   return (
     <div className="profile--left">
       <div className="info">
@@ -12,20 +19,20 @@ const ProfileLeft = (props: Props) => {
           </div>
           <div className="name">tan1906</div>
           <div className="edit">
-            <span>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M15.3628 2.30102L13.6796 0.618553C12.8553 -0.205791 11.521 -0.205916 10.6965 0.618522L0.778434 10.4718L0.0102775 15.1279C-0.0733163 15.6346 0.365528 16.0736 0.872371 15.99L5.52846 15.2218L15.3824 5.30374C16.2052 4.4809 16.2131 3.15127 15.3628 2.30102ZM6.26384 9.7364C6.39809 9.87065 6.57406 9.93774 6.75 9.93774C6.92593 9.93774 7.1019 9.87065 7.23615 9.7364L10.9558 6.01671L11.8486 6.90949L6.5625 12.2301V10.9377H5.0625V9.43774H3.77012L9.09072 4.15165L9.9835 5.04443L6.26381 8.76408C5.9954 9.03258 5.9954 9.4679 6.26384 9.7364ZM2.56662 14.3169L1.6834 13.4336L2.06278 11.1341L2.63778 10.5627H3.9375V12.0627H5.4375V13.3624L4.86618 13.9375L2.56662 14.3169ZM14.4099 4.33146L14.4083 4.33305L14.4067 4.33465L12.9058 5.8454L10.1548 3.09446L11.6656 1.59352L11.6672 1.59196L11.6687 1.5904C11.9546 1.30458 12.418 1.30105 12.7073 1.59037L14.3903 3.2733C14.699 3.58196 14.7009 4.04046 14.4099 4.33146Z"></path>
-              </svg>
-            </span>
+            {icon ? (
+              <span>
+                <i className="fa-solid fa-flag"></i>Report
+              </span>
+            ) : (
+              <span>
+                <i className="fa-solid fa-pencil"></i>
+              </span>
+            )}
           </div>
           <div className="preview">
             <a href="#">Preview Fiverr Profile</a>
           </div>
+          <div className="status">Online</div>
         </div>
         <div className="bot">
           <div className="from">
@@ -48,16 +55,48 @@ const ProfileLeft = (props: Props) => {
           </div>
         </div>
       </div>
+      <div className="learn">
+        <div className="learn--icon">
+          <span>
+            <img
+              src="https://fiverr-res.cloudinary.com/image/upload/q_auto,f_png/v1/attachments/generic_asset/asset/6bef0aaa4d62dcf41383658e5e3211ee-1571214998624/fiverrlearn_logo.svg"
+              alt="Learn from Fiverr"
+            />
+          </span>
+        </div>
+        <div className="learn--img">
+          <img
+            src="https://npm-assets.fiverrcdn.com/assets/@fiverr-private/fiverr_learn/enroll-icon.69b770f.svg"
+            alt="..."
+          />
+        </div>
+        <h5>Earn badges and stand out</h5>
+        <p>Boost your sales, by boosting your expertise.</p>
+        <a href="#">Enroll Now</a>
+      </div>
       <div className="description">
         <div className="des">
-          Description
+          <span>Description</span>
           <a href="#" className="edit">
             Edit description
           </a>
+          <div className="name">
+            <span>Name:</span>
+            <span>Ngoc</span>
+          </div>
+          <div className="phone">
+            <span>Phone:</span>
+            <span>1234567890</span>
+          </div>
+          <div className="birthday">
+            <span>Birthday:</span>
+            <span>01-01-2000</span>
+          </div>
         </div>
-        <div className="des--content"></div>
+
+        {/* <div className="des--content"></div> */}
         <div className="language">
-          Language
+          Languages
           <a href="#" className="add">
             Add new
           </a>
@@ -71,25 +110,25 @@ const ProfileLeft = (props: Props) => {
           <div>Linked Accounts</div>
           <ul>
             <li>
-              <i className="fa-solid fa-plus"></i>Facebook
+              <i className="fa-brands fa-facebook"></i>Facebook
             </li>
             <li>
-              <i className="fa-solid fa-plus"></i>Google
+              <i className="fa-brands fa-google"></i>Google
             </li>
             <li>
-              <i className="fa-solid fa-plus"></i>Dribble
+              <i className="fa-brands fa-dribbble"></i>Dribble
             </li>
             <li>
-              <i className="fa-solid fa-plus"></i>Stack Overflow
+              <i className="fa-brands fa-stack-overflow"></i>Stack Overflow
             </li>
             <li>
-              <i className="fa-solid fa-plus"></i>Github
+              <i className="fa-brands fa-github"></i>Github
             </li>
             <li>
-              <i className="fa-solid fa-plus"></i>Vimeo
+              <i className="fa-brands fa-vimeo"></i>Vimeo
             </li>
             <li>
-              <i className="fa-solid fa-plus"></i>Twitter
+              <i className="fa-brands fa-twitter"></i>Twitter
             </li>
           </ul>
         </div>
