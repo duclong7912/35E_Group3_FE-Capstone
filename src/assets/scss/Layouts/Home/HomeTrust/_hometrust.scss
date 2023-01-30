@@ -7,6 +7,7 @@
       justify-content: center;
       padding: 15px 0;
       .home--trust__text {
+        display: none;
         color: #b5b6ba;
         font-weight: 600;
       }
@@ -16,8 +17,22 @@
           li {
             margin: 0 5px;
           }
-          li:last-child{
+          li:last-child {
             display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width: 576px) {
+  .home--trust {
+    .home--trust__content {
+      .home--trust__comp {
+        ul {
+          li:last-child {
+            display: block;
           }
         }
       }
@@ -28,14 +43,15 @@
 @media screen and (min-width: 768px) {
   .home--trust {
     .home--trust__content {
+      .home--trust__text {
+        display: block;
+      }
       .home--trust__comp {
         ul {
           li {
             margin: 0 30px;
           }
-          li:last-child{
-            display: block;
-          }
+          
         }
       }
     }
