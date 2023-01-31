@@ -12,7 +12,7 @@ header {
             justify-content: space-between;
             height: 80px;
             @include res(sm){
-                height: 70px;
+                height: 120px;
                 flex-wrap: wrap;
                 align-content: center;
             }
@@ -31,7 +31,9 @@ header {
             .header__logo {
                 min-width: 121px;
                 margin-bottom: 4px;
-
+                @include res(sm){
+                    min-width: unset;
+                }
                 a {
                     svg {
                         g {
@@ -53,7 +55,9 @@ header {
                     width: 100%;
                 }
                 @include res(sm){
-                    display: none;
+                    display: unset;
+                    order: 1;
+                    margin-top: 10px;
                 }
                 form {
                     width: 433px;
@@ -73,7 +77,7 @@ header {
                             width: 100%;
                         }
                         @include res(sm) {
-                            font-size: 12px;
+                            font-size: 14px;
                         }
                     }
 
@@ -178,21 +182,12 @@ header {
                 }
             }
         }
-        .header__content.result{
-            @include res(sm){
-                height: 135px;
-                .header__search{
-                    display: unset;
-                    order: 1;
-                    margin-top: 18px;
-                }
-            }
-        }
     }
 }
 
-.header-static {
-    position: static !important;
+.header-sticky {
+    position: sticky !important;
+    top: 0;
 }
 
 .header-active {

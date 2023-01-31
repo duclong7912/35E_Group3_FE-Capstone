@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Slick, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const HomeCarousel = (props: Props) => {
+  const [param, setParam] = useState<string>("");
+  const navigate = useNavigate();
+
   const slickSettings: Settings = {
     fade: true,
     cssEase: "linear",
@@ -13,9 +17,17 @@ const HomeCarousel = (props: Props) => {
     autoplaySpeed: 8 * 1000,
   };
 
-  const handleSubmit = (e:any):void => {
-    e.preventDefault();
-    
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setParam(value);
+  }
+
+  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
+    e?.preventDefault();
+    setTimeout(() => {
+      navigate(`result/${param}`)
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 500)
   }
 
   return (
@@ -90,7 +102,8 @@ const HomeCarousel = (props: Props) => {
             <input
               className="form-control"
               type="search"
-              placeholder='Try "building mobile app" '
+              placeholder='Try "building mobile app"'
+              onChange={handleChange}
             />
             <button className="btn btn-success">Search</button>
           </form>

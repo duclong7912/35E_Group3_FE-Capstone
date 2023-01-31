@@ -1,35 +1,54 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { DispatchType } from "../../redux/configStore";
+import { useDispatch } from 'react-redux'
 
 type Props = {};
 
 const Header = (props: Props) => {
   const [navbar, setNavbar] = useState<boolean>(false);
   const [search, setSearch] = useState<boolean>(false);
+  const [param, setParam] = useState<string>("");
   const location = useLocation();
+  const dispatch:DispatchType = useDispatch();
+  const navigate = useNavigate();
 
+  const changeBackground = () => {
+    window.scrollY > 0 ? setNavbar(true) : setNavbar(false);
+    window.scrollY >= 150 ? setSearch(true) : setSearch(false);
+  };
   useEffect(() => {
-    const changeBackground = () => {
-      window.scrollY > 0 ? setNavbar(true) : setNavbar(false);
-      window.scrollY >= 150 ? setSearch(true) : setSearch(false);
-    };
-    
     const header = document.querySelector("header");
     const search = document.querySelector(".header__search");
-
-    if (location.pathname === "/") {
+    if (location.pathname == "/") {
       window.addEventListener("scroll", changeBackground);
+      return () => {
+        window.removeEventListener("scroll", changeBackground);
+      }
     } else if (location.pathname !== "/") {
       header?.classList.add("header-active");
-      header?.classList.add("header-static");
+      header?.classList.add("header-sticky");
       search?.classList.add("active");
     }
   }, [location.pathname]);
 
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setParam(value);
+  }
+
+  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
+    e?.preventDefault();
+    setTimeout(() => {
+      navigate(`result/${param}`)
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 500)
+  }
+
   return (
-    <header className={navbar ? "header-active" : ""}>
+    <header className={navbar ? 'header-active' : ''}>
       <div className="header__container width-container">
-        <div className={location.pathname === '/list' ? 'header__content result' : 'header__content'}>
+        <div className= 'header__content'>
           <div className="bar" onClick={() => {
             const body = document.querySelector("body");
             body?.classList.toggle("show-sidebar");
@@ -54,14 +73,15 @@ const Header = (props: Props) => {
               </svg>
             </NavLink>
           </div>
-          <div className={search ? "header__search active" : "header__search"}>
-            <form>
+          <div className={search ? 'header__search active' : 'header__search'}>
+            <form onSubmit={handleSubmit}>
               <input
                 type="search"
                 className="search-input"
                 placeholder="What service are you looking for today?"
+                onChange={handleChange}
               />
-              <button className="btn-search">
+              <button className="btn-search" type="submit">
                 <svg
                   width="16"
                   height="16"
@@ -77,10 +97,10 @@ const Header = (props: Props) => {
           <nav className="header__nav">
             <ul className="nav-list">
               <li>
-                <NavLink to="/">Fiverr Business</NavLink>
+                <NavLink to="#">Fiverr Business</NavLink>
               </li>
               <li>
-                <NavLink to="/">Explore</NavLink>
+                <NavLink to="#">Explore</NavLink>
               </li>
               <li>
                 <span>
@@ -99,7 +119,7 @@ const Header = (props: Props) => {
                 <span>English</span>
               </li>
               <li>
-                <NavLink to="/">Become a Seller</NavLink>
+                <NavLink to="#">Become a Seller</NavLink>
               </li>
               <li><NavLink to="/users/login">Sign In</NavLink></li>
               <li><NavLink to="/users/register">Join</NavLink></li>
