@@ -61,7 +61,7 @@ const AdminTemplate = (props: Props) => {
             <i className='bx bxs-grid' id='openSidebar'></i>
             <span>Dashboard</span>
           </div>
-          <div className="profile">
+          <div className="admin__profile">
             <img src="./img/profile.jpg" alt="avatar" className='avatar'/>
             <ul className='profile-action'>
               <li><i className='bx bx-user-circle'></i><span>Update Account</span></li>
