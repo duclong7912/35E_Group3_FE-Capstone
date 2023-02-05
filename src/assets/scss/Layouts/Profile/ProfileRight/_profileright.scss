@@ -1,16 +1,116 @@
 @media screen and (min-width: 320px) {
   .profile--right {
-    display: none;
+    padding: 0 12px 15px;
+    .create--gig{
+      display: none;
+    }
+    .list-job-hired{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      .item-hired{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        background: #fff;
+        padding: 10px;
+        border: 1px solid #ddd;
+        .item-hired-img{
+          img{
+            width: 100%;
+            height: 200px;
+          }
+        }
+        .item-hired-content{
+          margin-top: 20px;
+          .item-hired-title{
+            h5{
+              font-size: 16px;
+              font-weight: 500;
+              height: 40px;
+            }
+          }
+          .item-hired-info{
+            font-size: 13px;
+            color: #62646a;
+            height: 75px;
+          }
+          .item-hired-star{
+            display: flex;
+            align-items: center;
+            .number-star{
+                margin-right: 3px;
+                margin-left: 5px;
+                margin-top: 2px;
+                color: #ffbe5b;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+            .amount-rate{
+                color: #b5b6ba;
+                font-size: 15px;
+                margin-top: 3px;
+            }
+          }
+          .item-hired-action{
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            margin-top: 10px;
+            button{
+              border: none;
+              outline: none;
+              color: #fff;
+              padding: 5px 15px;
+              border-radius: 5px;
+              margin: 0 5px;
+              font-weight: 500;
+              &:hover{
+                opacity: .9;
+              }
+            }
+            .item-hired-del{
+              background: #e14c4c;
+            }
+            .item-hired-detail{
+              background: #1dbf73;
+            }
+          }
+        }
+      }
+
+      .hired-empty{
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 16px;
+        font-weight: 600;
+        background: #fff;
+        border: 1px solid #ddd;
+        color: #0e0e0f;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .profile--right{
+    padding: 0 20px 15px;
+    .item-hired{
+      width: 100%;
+    }
   }
 }
 
 @media screen and (min-width: 768px) {
   .profile--right {
-    width: 65%;
+    width: 60%;
 
     display: block;
     padding: 20px 0;
     .create--gig {
+      display: block;
       background: #fff;
       text-align: center;
       border: 1px solid #ddd;
@@ -40,47 +140,31 @@
         }
       }
     }
-    .item {
-      border: 1px solid #ddd;
-      background: #fff;
-      display: flex;
+
+    .list-job-hired{
       margin-top: 20px;
-      .item--left {
-        width: 30%;
-        display: flex;
-        justify-content: center;
-        padding: 6px;
-        img {
-          width: 100%;
-          object-fit: contain;
+      .item-hired{
+        .item-hired-content{
+          .item-hired-title{
+            h5{
+              font-size: 18px;
+            }
+          }
+          .item-hired-info{
+            font-size: 14px;
+            height: 60px;
+          }
+          
         }
       }
-      .item--right {
-        width: 70%;
-        padding: 6px;
-        h6 {
-          font-weight: 600;
-          font-size: 16px;
-          margin-bottom: 2px;
-        }
-        p {
-          font-size: 12px;
-          margin-bottom: 8px;
-          min-height: 60px;
-        }
-      }
-      .item--button {
-        display: flex;
-        justify-content: flex-end;
-        button {
-          margin-left: 6px;
-          font-size: 14px;
-          padding: 2px 4px;
-        }
+
+      .hired-empty{
+        font-size: 18px;
       }
     }
   }
 }
+
 @media screen and (min-width: 992px) {
   .profile--right {
     .create--gig {
@@ -95,30 +179,14 @@
         font-size: 16px;
       }
     }
-    .item {
-      .item--left {
-        padding: 8px;
-      }
-      .item--right {
-        padding: 8px;
 
-        p {
-          font-size: 14px;
-          min-height: 80px;
-        }
-      }
-      .item--button {
-        button {
-          margin-left: 8px;
-        }
-      }
-    }
   }
 }
 
 @media screen and (min-width: 1200px) {
   .profile--right {
-    padding: 20px;
+    width: 67%;
+    padding: 20px 0;
     .create--gig {
       svg {
         height: 90px;
@@ -131,25 +199,18 @@
         font-size: 16px;
       }
     }
-    .item {
-      .item--left {
-        padding: 12px;
-      }
-      .item--right {
-        padding: 8px;
-        h6{
-          font-size: 20px;
+    .list-job-hired{
+      .item-hired{
+        flex-direction: row;
+        .item-hired-img{
+          margin-right: 20px;
+          img{
+            width: 200px;
+            height: 120px;
+          }
         }
-        p {
-          font-size: 16px;
-          min-height: 140px;
-        }
-      }
-      .item--button {
-        button {
-          margin-left: 14px;
-          font-size: 18px;
-          padding: 4px 10px;
+        .item-hired-content{
+          margin-top: unset;
         }
       }
     }

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import jobMenuReducer from './jobMenuReducer/jobMenuReducer';
+import userReducer from './userReducer/userReducer';
 
 export const store = configureStore({
     reducer: {
-        jobMenuReducer
+        jobMenuReducer,
+        userReducer
     }
 })
 

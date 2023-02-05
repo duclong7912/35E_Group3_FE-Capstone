@@ -21,132 +21,153 @@
                 border-radius: 4px;
                 font-weight: 600;
             }
-        }
-        .sidebar__menu{
-            font-size: 16px;
-            padding: 0 20px ;
-            font-weight: 500;
-            > a{
-                color: #95979d;
-                padding: 8px 0;
-                display: inline-block;
-                &:last-child{
-                    color: $secondary-color;
+            .sidebar__info{
+                text-align: center;
+                img{
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                }
+                h4{
+                    font-size: 18px;
                     font-weight: 600;
+                    margin-bottom: unset;
+                    margin-top: 10px;
                 }
             }
-
-            .sidebar__categories{
-                color: #95979d;
-                overflow: hidden;
-                transition: all .3s;
-                .fa-chevron-down{
-                    font-size: 16px;
-                    transition: all .3s;
-                }
-                .categories-title, .list{
+        }
+        .sidebar__wrapper{
+            overflow-y: auto;
+            .sidebar__menu{
+                font-size: 16px;
+                padding: 0 20px ;
+                font-weight: 500;
+                > a{
+                    color: #95979d;
                     padding: 8px 0;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
+                    display: inline-block;
+                    &:last-child{
+                        color: $secondary-color;
+                        font-weight: 600;
+                    }
                 }
-                .sidebar-content{
-                    max-height: 0px;
+    
+                .sidebar__categories{
+                    color: #95979d;
                     transition: all .3s;
-                    li.categories-list{
-                        padding-left: 20px;
+                    .sidebar__wrap{
                         overflow: hidden;
-                        ul{
-                            max-height: 0px;
-                            transition: all .3s;
-                            li{
-                                padding: 8px 0;
-                                padding-left: 20px;
-                                a{
-                                    color: #95979d;
+                    }
+                    .fa-chevron-down{
+                        font-size: 14px;
+                        transition: all .5s;
+                    }
+                    .categories-title, .list-job{
+                        padding: 8px 0;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                    .sidebar-content{
+                        max-height: 0px;
+                        transition: all .5s;
+                        li.categories-list{
+                            padding-left: 20px;
+                            overflow: hidden;
+                            ul{
+                                max-height: 0px;
+                                transition: all .4s;
+                                li{
+                                    padding-left: 20px;
+                                    a{
+                                        color: #95979d;
+                                        display: block;
+                                        padding: 8px 0;
+                                    }
                                 }
                             }
                         }
-                    }
-                    li.categories-list.show{
-                        .list{
-                            i{
-                                transform: rotate(-180deg);
+                        li.categories-list.show{
+                            .list-job{
+                                i{
+                                    transform: rotate(-180deg);
+                                }
+                            }
+                            ul{
+                                max-height: 600px;
+                                transition: all .6s;
                             }
                         }
-                        ul{
-                            max-height: 600px;
-                            transition: all .3s;
+                    }
+                }
+    
+                .sidebar__categories.show{
+                    // overflow: unset;
+                    .categories-title{
+                        span i{
+                            transform: rotate(-180deg);
+                        }
+                    }
+                    .sidebar-content{
+                        transition: all 1.5s;
+                        max-height: 1500px;
+                    }
+                }
+    
+                .sidebar__explore{
+                    overflow: hidden;
+                    .explore-title{
+                        padding: 8px 0;
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: #95979d;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        span{
+                            i{
+                                transition: all .3s;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    ul {
+                        max-height: 0px;
+                        transition: all .5s;
+                        li{
+                            color: #95979d;
+                            display: block;
+                            padding: 8px 20px;
                         }
                     }
                 }
-            }
-
-            .sidebar__categories.show{
-                overflow: unset;
-                .categories-title{
-                    span i{
+                .sidebar__explore.show{
+                    span i {
                         transform: rotate(-180deg);
                     }
-                }
-                .sidebar-content{
-                    max-height: 500px;
+                    ul{
+                        max-height: 600px;
+                        transition: all .6s;
+                    }
                 }
             }
-
-            .sidebar__explore{
-                overflow: hidden;
-                .explore-title{
-                    padding: 8px 0;
+    
+            .sidebar__general{
+                margin-top: 30px;
+                padding: 0 20px;
+                .general{
+                    padding-bottom: 8px;
                     font-size: 16px;
-                    font-weight: 500;
+                    font-weight: 600;
+                    color: #404145;
+                    border-bottom: 1px solid #dadbdd;
+                }
+                .general-home, .general-language, .general-money, p{
                     color: #95979d;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    span{
-                        i{
-                            transition: all .3s;
-                            font-size: 14px;
-                        }
-                    }
+                    font-weight: 500;
+                    font-size: 16px;
+                    padding: 8px 0;
                 }
-                ul {
-                    max-height: 0px;
-                    transition: all .3s;
-                    li{
-                        color: #95979d;
-                        display: block;
-                        padding: 8px 20px;
-                    }
-                }
-            }
-            .sidebar__explore.show{
-                span i {
-                    transform: rotate(-180deg);
-                }
-                ul{
-                    max-height: 600px;
-                    transition: all .3s;
-                }
-            }
-        }
-
-        .sidebar__general{
-            margin-top: 30px;
-            padding: 0 20px;
-            .general{
-                padding-bottom: 8px;
-                font-size: 16px;
-                font-weight: 600;
-                color: #404145;
-                border-bottom: 1px solid #dadbdd;
-            }
-            .general-home, .general-language, .general-money, p{
-                color: #95979d;
-                font-weight: 500;
-                font-size: 16px;
-                padding: 8px 0;
             }
         }
     }

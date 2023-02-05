@@ -20,13 +20,16 @@ import JobTypeManager from './pages/AdminPage/JobTypeManager/JobTypeManager';
 import ServiceManager from './pages/AdminPage/ServiceManager/ServiceManager';
 import { Provider } from 'react-redux'
 import { store } from './redux/configStore';
+import { createBrowserHistory } from 'history';
 
+
+export const history:any = createBrowserHistory();
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <HistoryRouter history={history}>
       <Routes>
         <Route path="" element={<HomeTemplate />}>
           <Route index element={<Home />} />
@@ -57,7 +60,7 @@ root.render(
           <Route path='*' element={<Navigate to='/admin' />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HistoryRouter>
   </Provider>
 );
 

@@ -20,7 +20,6 @@ const JobList = (props: Props) => {
             listCategory[i].className = 'category-list';
             arrow[i].className = 'fa-solid fa-chevron-down arrow';
           }
-          console.log(arrow[t]);
           listCategory[t].className = 'category-list show';
           arrow[t].className = 'fa-solid fa-chevron-down arrow rotate';
         }
