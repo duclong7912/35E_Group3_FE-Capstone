@@ -1,30 +1,110 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { DispatchType, StateType } from "../../redux/configStore";
+import { closeModal, openModal } from "../../hoc/Modal/modal";
+import { useFormik } from "formik";
+import * as yup from 'yup';
+import { EditUserModel, ProfileModel } from "../../Models/userModel/userModel";
+import { changeAvatarAPI, profileAPI, updateProfileAPI } from "../../redux/userReducer/userReducer";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import useTag from "../../hooks/useTag";
+import { profile } from "console";
+import { USER_LOGIN, setStoreJson, getCookie, ACCESS_TOKEN, getStoreJson } from "../../util/config";
 
 type Props = {};
 
 const ProfileLeft = (props: Props) => {
   let widthBrowser = window.innerWidth;
+  const { userLogin } = useSelector((state:StateType) => state.userReducer);
   const [icon, setIcon] = useState<Boolean>(false);
+  const [ cert, skill , handleCertChange, handleSkillChange, handleDeleteCert, handleDeleteSkill ] = useTag(userLogin)
+  const regexName = /^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$/
+  const regexPhone = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+  const dispatch:DispatchType = useDispatch();
+  const navigate = useNavigate();
+
+  const formEdit = useFormik<EditUserModel>({
+    initialValues: {
+      id: 0,
+      email: '',
+      name: '',
+      birthday: '',
+      phone: '',
+      certification: [],
+      skill: [],
+      gender: true,
+    },
+    validationSchema: yup.object().shape({
+      name: yup.string().required("Name cannot be blank.").matches(regexName, "Name is invalid."),
+      birthday: yup.string().required("Birthday cannot be blank."),
+      phone: yup.string().required("Phone cannot be blank.").matches(regexPhone, "Phone is invalid."),
+      gender: yup.string().required("Please select your gender.")
+    }),
+    onSubmit: (values:EditUserModel) => {
+      const actionEdit = updateProfileAPI(values);
+      dispatch(actionEdit);
+      setStoreJson(USER_LOGIN , values)
+      setTimeout(() => {window.location.reload()}, 1500);
+    }
+  })
+
+  useEffect(() => {
+    if(cert) {
+      formEdit.setFieldValue('certification', cert)
+    }
+    if(skill){
+      formEdit.setFieldValue("skill", skill)
+    }
+  }, [cert, skill])
+
+  useEffect(() => {
+    formEdit.setValues({...userLogin as any})
+    setStoreJson(USER_LOGIN , userLogin)
+  }, [userLogin])
 
   useEffect(() => {
     widthBrowser < 767 ? setIcon(true) : setIcon(false);
   }, [widthBrowser]);
 
+  const handleSelectGender = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    formEdit.values.gender = value === "true" ? true : false
+    formEdit.setValues({...formEdit.values})
+  }
+  
+  const handleChangeAvatar = (e:React.ChangeEvent<HTMLInputElement>) => {
+    // const file = e?.target.files[0];
+    const { files } = e.target as HTMLInputElement
+    const action = changeAvatarAPI((files as FileList)[0]);
+    dispatch(action)
+  }
+
   return (
     <div className="profile--left">
+      <ToastContainer />
       <div className="info">
         <div className="top">
           <div className="avatar">
-            <img src="https://picsum.photos/200" alt="..." />
+            <label htmlFor="file">
+              <input type="file" id="file" onChange={handleChangeAvatar}/>
+              <div className="camera">
+                <i className="bx bx-camera"></i>
+              </div>
+              {userLogin?.avatar ?
+              <img src={userLogin?.avatar} alt="avatar" /> :
+              <span>{userLogin?.name.slice(0, 1)}</span>
+              }
+            </label>
           </div>
-          <div className="name">tan1906</div>
+          <div className="name">{userLogin?.name}</div>
           <div className="edit">
             {icon ? (
               <span>
                 <i className="fa-solid fa-flag"></i>Report
               </span>
             ) : (
-              <span>
+              <span onClick={() => openModal(".modal__edit-user")}>
                 <i className="fa-solid fa-pencil"></i>
               </span>
             )}
@@ -76,30 +156,29 @@ const ProfileLeft = (props: Props) => {
       </div>
       <div className="description">
         <div className="des">
-          <span>Description</span>
-          <a href="#" className="edit">
-            Edit description
-          </a>
+          <div className="des-title">
+            <span>Description</span>
+            <span onClick={() => openModal(".modal__edit-user")}><i className="fa-solid fa-pencil"></i></span>
+          </div>
           <div className="name">
             <span>Name:</span>
-            <span>Ngoc</span>
+            <span>{userLogin?.name}</span>
           </div>
           <div className="phone">
             <span>Phone:</span>
-            <span>1234567890</span>
+            <span>{userLogin?.phone}</span>
           </div>
           <div className="birthday">
             <span>Birthday:</span>
-            <span>01-01-2000</span>
+            <span>{userLogin?.birthday}</span>
           </div>
         </div>
 
-        {/* <div className="des--content"></div> */}
         <div className="language">
-          Languages
-          <a href="#" className="add">
-            Add new
-          </a>
+          <div className="des-title">
+            <span>Languages</span>
+            <span onClick={() => openModal(".modal__edit-user")}><i className="fa-solid fa-pencil"></i></span>
+          </div>
         </div>
         <ul className="list">
           <li>
@@ -133,22 +212,150 @@ const ProfileLeft = (props: Props) => {
           </ul>
         </div>
         <div className="skill">
-          <div>
-            Skills<a href="#">Add new</a>
+          <div className="skill-wrap pb-2">
+            <div className="des-title">
+              <span>Skill</span>
+              <span onClick={() => openModal(".modal__edit-user")}><i className="fa-solid fa-pencil"></i></span>
+            </div>
           </div>
+          {userLogin?.skill.length !== 0 ? 
+          <ul className="tag-item">
+            {userLogin?.skill.map((item, i) => {
+              return <li key={i}>{item}</li>
+            })}
+          </ul>
+          :
           <div>Add your Skills.</div>
+          }
         </div>
         <div className="education">
-          <div>
-            Education<a href="#">Add new</a>
-          </div>
-          <div>Add your Education.</div>
+            <div className="des-title pb-2">
+              <span>Education</span>
+              <span onClick={() => openModal(".modal__edit-user")}><i className="fa-solid fa-pencil"></i></span>
+            </div>
+            <ul className="tag-item">
+              <li>Cybersoft</li>
+            </ul>
         </div>
         <div className="certification">
-          <div>
-            Certification<a href="#">Add new</a>
+            <div className="des-title pb-2">
+              <span>Certification</span>
+              <span onClick={() => openModal(".modal__edit-user")}><i className="fa-solid fa-pencil"></i></span>
+            </div>
+            {userLogin?.certification.length !== 0 ?
+            <ul className="tag-item">
+              {userLogin?.certification.map((item, i) => {
+                return <li key={i}>{item}</li>
+              })}
+            </ul>
+            :
+            <div>Add your Certification.</div>
+          }    
+        </div>
+      </div>
+
+      <div className="modal__edit-user">
+        <div className="modal__edit-container">
+          <div className="modal__edit-content">
+            <div className="close-modal" onClick={() => {closeModal(".modal__edit-user")}}>
+              <i className='bx bxs-x-square'></i>
+            </div>
+            <h2>Update User</h2>
+            <form className="form" onSubmit={formEdit.handleSubmit}>
+              <div className="form__content">
+                  <div className="form__input">
+                    <div className="input-content">
+                      <input type="text" name="email" required value={formEdit.values.email || ""} disabled/>
+                      <i className="fa-solid fa-envelope"></i>
+                      <span>Email</span>
+                    </div>
+                  </div>
+                  <div className="form__input">
+                  <div className="input-content">
+                    <input type="text" name="name" required value={formEdit.values.name || ""} onChange={formEdit.handleChange}/>
+                    <i className="fa-solid fa-user"></i>
+                    <span>Name</span>
+                  </div>
+                  {formEdit.errors.name && <p className="messErr">{formEdit.errors?.name}</p>}
+                </div>
+                <div className="form__input">
+                  <div className="input-content">
+                    <input type="date" name="birthday" required value={formEdit.values.birthday || ""} onChange={formEdit.handleChange}/>
+                    <i className="bx bxs-cake"></i>
+                    <span>Birthday</span>
+                  </div>
+                  {formEdit.errors.birthday && <p className="messErr">{formEdit.errors.birthday}</p>}
+                </div>
+                <div className="form__input">
+                  <div className="input-content">
+                    <input type="text" name="phone" required value={formEdit.values.phone || ""} onChange={formEdit.handleChange}/>
+                    <i className="fa-solid fa-phone"></i>
+                    <span>Phone</span>
+                  </div>
+                  {formEdit.errors.phone && <p className="messErr">{formEdit.errors.phone}</p>}
+                </div>
+                <div className="form__input cert">
+                  <div className="input-content">
+                    <ul>
+                      {cert?.map((item:string, i:number) => {
+                        return <li key={i}>
+                        <span>{item}</span>
+                        <i className="fa-solid fa-circle-xmark" onClick={() => handleDeleteCert(item)}></i>
+                      </li>
+                      })}
+                    </ul>
+                    <input type="text" name="certification" onKeyUp={handleCertChange} onKeyPress={e => { e.which === 13 && e.preventDefault() }}/>
+                    <i className="fa-solid fa-circle-check"></i>
+                    <span>Certification</span>
+                  </div>
+                </div>
+                <div className="form__input skill">
+                  <div className="input-content">
+                    <ul>
+                      {skill?.map((item:string, i:number) => {
+                        return <li key={i}>
+                        <span>{item}</span>
+                        <i className="fa-solid fa-circle-xmark" onClick={() => handleDeleteSkill(item)}></i>
+                      </li>
+                      })}
+                    </ul>
+                    <input type="text" name="skills" onKeyUp={handleSkillChange} onKeyPress={e => { e.which === 13 && e.preventDefault() }}/>
+                    <i className="fa-solid fa-code"></i>
+                    <span>Skills</span>
+                  </div>
+                </div>
+                <div className="form__gender">
+                  <input type="radio" id="male" name="gender" value="true" 
+                    onChange={handleSelectGender}
+                    checked={formEdit.values.gender}/>
+                  <input
+                    type="radio"
+                    id="female"
+                    name="gender"
+                    value="false"
+                    checked={!formEdit.values.gender}
+                    onChange={handleSelectGender}
+                  />
+                  <div className="gender__tilte">
+                    <i className="fa-solid fa-venus-mars"></i>
+                    <span>Gender</span>
+                  </div>
+                  <div className="category">
+                    <label htmlFor="male">
+                      <span className="dot dot-male"></span>
+                      <span className="gender">Male</span>
+                    </label>
+                    <label htmlFor="female">
+                      <span className="dot dot-female"></span>
+                      <span className="gender">Female</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              {formEdit.errors.gender && <p className="messErr">{formEdit.errors.gender}</p>}
+              <button type="submit">Submit</button>
+            </form>
           </div>
-          <div>Add your Certification.</div>
         </div>
       </div>
     </div>

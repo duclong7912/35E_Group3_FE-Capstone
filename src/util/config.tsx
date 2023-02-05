@@ -20,6 +20,9 @@ export const config = {
         }
         return null;
     },
+    eraseCookie: (name:string) => {
+        document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    },
     getStore: (name:string) => {
         if (localStorage.getItem(name)) {
             return localStorage.getItem(name);
@@ -40,11 +43,15 @@ export const config = {
         }
         return null;
     },
+    removeLocalStorage: (name:string) => {
+        localStorage.removeItem(name)
+    },
     ACCESS_TOKEN: 'accessToken',
-    USER_LOGIN: 'userLogin'
+    USER_LOGIN: 'userLogin',
+    ROLE: "role"
 }
 
-export const { setCookie, getCookie, getStore, setStore, setStoreJson, getStoreJson, ACCESS_TOKEN, USER_LOGIN } = config;
+export const { setCookie, getCookie, getStore, setStore, setStoreJson, getStoreJson, eraseCookie, removeLocalStorage, ACCESS_TOKEN, USER_LOGIN, ROLE } = config;
 
 const DOMAIN = 'https://fiverrnew.cybersoft.edu.vn/api';
 const TOKEN_CYBERSOFT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAzNUUiLCJIZXRIYW5TdHJpbmciOiIwNy8wNi8yMDIzIiwiSGV0SGFuVGltZSI6IjE2ODYwOTYwMDAwMDAiLCJuYmYiOjE2NTczODYwMDAsImV4cCI6MTY4NjI0MzYwMH0.XsCcIZvawxcwye8KVYB2vJK4d3Gbr1XROtNyAL8nypA';
@@ -62,7 +69,8 @@ http.interceptors.request.use(
         const token = getStore(ACCESS_TOKEN);
         config.headers = {
             ...config.headers,
-            ['Authorization']: `Bearer ${token}`,
+            ['token']: `${token}`,
+            ['Authorization']: `${token}`,
             ['TokenCybersoft']: TOKEN_CYBERSOFT
         }
         // config.headers['Content-Type'] = 'application/json';

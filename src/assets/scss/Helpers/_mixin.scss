@@ -10,55 +10,77 @@
             height: 75px;
             position: relative;
   
-            i,
-            span {
-              position: absolute;
-              color: #d9d9d9;
-              z-index: 1;
-            }
-  
-            i {
-              left: 0;
-              height: calc(100% - 1px);
-              width: 38px;
-              line-height: 38px;
-              text-align: center;
-              transition: all 0.3s;
-            }
-  
-            span {
-              top: 8px;
-              left: 40px;
-              pointer-events: none;
-              transition: all 0.3s;
-            }
-  
-            input {
-              position: relative;
-              width: 100%;
-              height: 40px;
-              padding-left: 40px;
-              border: none;
-              outline: none;
+            .input-content{
               border-bottom: 2px solid #d9d9d9;
-              transition: all 0.3s;
-  
-              &:valid ~ i,
-              &:focus ~ i {
-                color: #17a98c;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              >  i,
+              > span {
+                position: absolute;
+                color: #d9d9d9;
+                z-index: 1;
               }
-              &:valid,
-              &:focus {
-                border-bottom: 2px solid #17a98c;
+    
+              >i {
+                left: 0;
+                height: 35px;
+                width: 38px;
+                line-height: 37px;
+                text-align: center;
+                transition: all 0.3s;
               }
-              &:valid ~ span,
-              &:focus ~ span {
-                font-size: 13px;
-                color: #17a98c;
-                transform: translate(5px, -20px);
-                font-weight: 600;
+    
+              > span {
+                top: 7px;
+                left: 40px;
+                pointer-events: none;
+                transition: all 0.3s;
+              }
+    
+              input {
+                position: relative;
+                width: 100%;
+                height: 35px;
+                padding-left: 40px;
+                border: none;
+                outline: none;
+                transition: all 0.3s;
+    
+                &:valid ~ i,
+                &:focus ~ i, &:disabled ~ span, &:disabled ~ i {
+                  color: #17a98c;
+                }
+                &:valid ~ span,
+                &:focus ~ span, &:disabled ~ span {
+                  font-size: 13px;
+                  color: #17a98c;
+                  transform: translate(5px, -20px);
+                  font-weight: 600;
+                }
+              }
+
+              .eye{
+                position: relative;
+                right: 15px;
+                i{
+                  color: #d9d9d9;
+                  width: 20px;
+                  height: 20px;
+                  line-height: 20px;
+                  text-align: center;
+                  cursor: pointer;
+                }
               }
             }
+            .input-content:has(input:valid), .input-content:has(input:focus), .input-content:has(input:disabled){
+              border-bottom: 2px solid #17a98c;
+            }
+
+          .messErr{
+            color: #e50000;
+            font-weight: 400;
+          }
           }
           .form-jobType{
             input{
@@ -117,6 +139,72 @@
         background-position: right center;
       }
     }
+}
+
+@mixin profileAction(){
+  .profile-action{
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    max-width: 260px;
+    width: 100%;
+    background: #0a4b3e;
+    color: #fff;
+    padding: 7px;
+    border-radius: 5px;
+    transition: all .3s;
+    opacity: 0;
+    z-index: -1;
+    visibility: hidden;
+    li{
+        padding: 8px;
+        margin: 6px 0;
+        display: flex;
+        align-items: center;
+        transition: all .3s;
+        cursor: pointer;
+        border: unset;
+        a{
+          padding: unset;
+        }
+        i, span, a{
+            color: #fff;
+            transition: all .3s;
+        }
+        i{
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        span,a{
+            font-weight: 500;
+        }
+        &:hover{
+            background: #fff;
+            border-radius: 4px;
+            i,span,a{
+                color: #0a4b3e;
+            }
+        }
+    }
+}
+  .profile-action.active{
+      opacity: 1;
+      z-index: 99;
+      visibility: visible;
+  }
+}
+
+@mixin closeModal() {
+  .close-modal{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    i{
+        font-size: 25px;
+        color: #17a98c;
+    }
+  }
 }
 
 @mixin res($breakpoint) {

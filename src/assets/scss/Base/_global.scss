@@ -1,6 +1,7 @@
 body{
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
+
     ul{
         margin: 0;
         padding: 0;
@@ -31,12 +32,16 @@ body{
 
 body.active{
     overflow: hidden;
-    // padding-right: 17px;
+    padding-right: 17px;
+    @include res(lg) {
+        padding-right: unset;
+    }
     // background: rgba(49, 49, 49, 0.3);
 }
 
 body.show-sidebar{
     overflow-y: hidden;
+    padding-right: 17px;
     .sidebar__main{
         transform: translateX(272px);
     }

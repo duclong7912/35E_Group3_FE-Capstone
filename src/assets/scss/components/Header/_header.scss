@@ -159,7 +159,7 @@ header {
                             }
                         }
 
-                        &:last-child{
+                         &:last-child{
                             padding: 0;
                             border: 1px solid #fff;
                             border-radius: 4px;
@@ -178,7 +178,72 @@ header {
                             }
                         }
                     }
+                    li.header-avatar{
+                        
+                        border: unset;
+                        label{
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            background: $secondary-color;
+                            position: relative;
+                            margin-left: 20px;
+                            margin-bottom: unset;
+                            cursor: pointer;
+                            span{
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%,-50%);
+                                color: #fff;
+                            }
+                        }
 
+                        @include res(sm){
+                            display: unset;
+                        }
+                        &:hover{
+                            background: unset;
+                            border: unset;
+                        }
+                        img{
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            margin-left: 20px;
+                        }
+                        @include profileAction();
+                        .profile-action{
+                            background: #fff;
+                            border: 1px solid #dadbdd;
+                            box-shadow: 0 0 5px 1px #0000000d;
+                            max-width: 150px;
+                            li{
+                                margin: unset;
+                                display: block;
+                                a{
+                                    display: block;
+                                }
+                            }
+                            li a, li span, li i{
+                                color: #74767e;
+                                transition: all .3s;
+                            }
+                            li:hover{
+                                a, span, i{
+                                    color: $secondary-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .header__nav:has(.header-avatar){
+                @include res(lg){
+                    min-width: 100px !important;
+                }
+                @include res(sm){
+                    min-width: unset !important;
                 }
             }
         }
@@ -269,6 +334,29 @@ header {
                                 background: $primary-color;
                                 a {
                                     color: #fff;
+                                }
+                            }
+                        }
+                    }
+                    li.header-avatar{
+                        border: unset;
+                        &:hover{
+                            background: unset;
+                            border: unset;
+                            label{
+                                span{
+                                    color: #fff;
+                                }
+                            }
+                        }
+                        .profile-action{
+                            li a, li span, li i{
+                                color: #74767e;
+                                transition: all .3s;
+                            }
+                            li:hover{
+                                a, span, i{
+                                    color: $secondary-color;
                                 }
                             }
                         }

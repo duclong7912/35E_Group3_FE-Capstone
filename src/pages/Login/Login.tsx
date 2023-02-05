@@ -1,13 +1,56 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-
+import { useFormik } from 'formik'
+import React, { useEffect, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { LoginModel } from '../../Models/loginModel/loginModel'
+import * as yup from "yup";
+import { ToastContainer, toast } from 'react-toastify';
+import BeatLoader from "react-spinners/BeatLoader";
+import HashLoader from "react-spinners/HashLoader";
+import { loginAPI } from '../../redux/userReducer/userReducer';
+import { DispatchType, StateType } from '../../redux/configStore';
+import { useDispatch, useSelector } from 'react-redux';
+import { history } from '../..';
 type Props = {}
 
 const Login = (props: Props) => {
 
+  const [password, setPassword] = useState<boolean>(false)
+  const [load, setLoad] = useState<boolean>(false)
+  const { loading, userLogin } = useSelector((state:StateType) => state.userReducer)
+  const dispatch:DispatchType = useDispatch();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if(userLogin){
+      navigate("/")
+    }
+  }, [])
+
+  const formLog = useFormik<LoginModel>({
+    initialValues: {
+      email: "",
+      password: ""
+    },
+    validationSchema: yup.object().shape({
+      email: yup.string().required("Email is required.").email("Email is invalid."),
+    }),
+    onSubmit: (values:LoginModel) => {
+      setLoad(true)
+      const actionLogin = loginAPI(values);
+      dispatch(actionLogin)
+      setTimeout(() => {setLoad(false)},2000)
+    }
+  })
+
+
+  const handlePassword = () => {
+    setPassword(!password);
+  }
+
   return (
     <div className="login">
+      <ToastContainer />
       <div className="login__content">
+        {loading ? <HashLoader color='#17a98c' size={40} /> : <>
         <div className="back-to-home">
           <span>
             <NavLink to='/'>
@@ -16,26 +59,35 @@ const Login = (props: Props) => {
           </span>
         </div>
         <h2>Login</h2>
-        <form className='form'>
+        <form className='form' onSubmit={formLog.handleSubmit}>
           <div className="form__content">
             <div className="form__input">
-              <input type="text" name='email' required />
-              <i className="fa-solid fa-user"></i>
-              <span>Email</span>
+              <div className="input-content">
+                <input type="text" name='email' required onChange={formLog.handleChange} onBlur={formLog.handleBlur}/>
+                <i className="fa-solid fa-user"></i>
+                <span>Email</span>
+              </div>
+              {(formLog.errors.email && formLog.touched.email) && <p className='messErr'>{formLog.errors.email}</p>}
             </div>
             <div className="form__input">
-              <input type="text" name='password' required />
-              <i className="fa-solid fa-lock"></i>
-              <span>Password</span>
+              <div className="input-content">
+                <input type={password ? "text" : "password"} name='password' autoComplete='off' required onChange={formLog.handleChange}/>
+                <i className="fa-solid fa-lock"></i>
+                <span>Password</span>
+                <a className='eye' onClick={handlePassword}>{password ? <i className="fa-solid fa-eye-low-vision"></i> : <i className="fa-solid fa-eye"></i>}</a>
+              </div>
             </div>
             <div className="form__submit-login">
-              <button type='submit'>Login</button>
+              <button type='submit'>
+                {load ? <BeatLoader color='#fff' size={10} /> : 'Login'}
+              </button>
             </div>
             <div className="form__info">
               <p>Don’t have an account? <NavLink to='/users/register'>Sign up</NavLink></p>
             </div>
           </div>
         </form>
+        </> }
       </div>
     </div>
   )

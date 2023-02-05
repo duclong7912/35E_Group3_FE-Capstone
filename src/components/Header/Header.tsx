@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { DispatchType } from "../../redux/configStore";
-import { useDispatch } from 'react-redux'
+import { DispatchType, StateType } from "../../redux/configStore";
+import { useDispatch, useSelector } from 'react-redux'
+import { ACCESS_TOKEN, ROLE, USER_LOGIN, eraseCookie, getStoreJson, removeLocalStorage } from "../../util/config";
+import { profileAPI } from "../../redux/userReducer/userReducer";
 
 type Props = {};
 
@@ -9,6 +11,7 @@ const Header = (props: Props) => {
   const [navbar, setNavbar] = useState<boolean>(false);
   const [search, setSearch] = useState<boolean>(false);
   const [param, setParam] = useState<string>("");
+  const { userLogin } = useSelector((state:StateType) => state.userReducer) 
   const location = useLocation();
   const dispatch:DispatchType = useDispatch();
   const navigate = useNavigate();
@@ -22,6 +25,7 @@ const Header = (props: Props) => {
     const search = document.querySelector(".header__search");
     if (location.pathname == "/") {
       window.addEventListener("scroll", changeBackground);
+      
       return () => {
         window.removeEventListener("scroll", changeBackground);
       }
@@ -31,6 +35,20 @@ const Header = (props: Props) => {
       search?.classList.add("active");
     }
   }, [location.pathname]);
+
+  useEffect(() => {
+    const avatar = document.querySelector(".avatar");
+    const option = document.querySelector(".profile-action");
+    avatar?.addEventListener("click", () => {
+    option?.classList.toggle("active");
+    })
+
+    if(userLogin) {
+      const user = getStoreJson(USER_LOGIN);
+      const action = profileAPI(user.id);
+      dispatch(action)
+    }
+  },[])
 
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -43,6 +61,16 @@ const Header = (props: Props) => {
       navigate(`result/${param}`)
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }, 500)
+  }
+
+  const handleLogout = () => {
+    eraseCookie(ACCESS_TOKEN)
+    eraseCookie(ROLE)
+    removeLocalStorage(USER_LOGIN);
+    removeLocalStorage(ROLE);
+    removeLocalStorage(ACCESS_TOKEN)
+    navigate("/")
+    window.location.reload();
   }
 
   return (
@@ -121,8 +149,28 @@ const Header = (props: Props) => {
               <li>
                 <NavLink to="#">Become a Seller</NavLink>
               </li>
-              <li><NavLink to="/users/login">Sign In</NavLink></li>
-              <li><NavLink to="/users/register">Join</NavLink></li>
+              {userLogin ? 
+                <li className="header-avatar">
+                  {userLogin?.avatar ?
+                  <img src={userLogin.avatar} alt="avatar" className="avatar"/>
+                  :
+                  <label className="avatar">
+                    <span>{userLogin?.name.slice(0,1)}</span>
+                  </label>
+                  }
+                  <ul className='profile-action'>
+                    <li onClick={() => {
+                      const option = document.querySelector(".profile-action");
+                      option?.classList.remove("active")
+                    }}><NavLink to={"/profile"}>Profile</NavLink></li>
+                    <li onClick={handleLogout}><span>Log out</span></li>
+                  </ul>
+                </li> 
+                : 
+                <>
+                <li><NavLink to="/users/login">Sign In</NavLink></li>
+                <li><NavLink to="/users/register">Join</NavLink></li>
+                </>}
             </ul>
           </nav>
         </div>

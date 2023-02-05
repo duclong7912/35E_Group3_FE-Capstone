@@ -60,7 +60,7 @@
                     width: 100%;
                     display: flex;
                     align-items: start;
-                    height: 35px;
+                    height: 40px;
                     flex-wrap: wrap;
                     .gender__tilte{
                         display: flex;
@@ -142,13 +142,22 @@
                     p{
                         margin-bottom: 0;
                     }
+                    .messErr{
+                        color: #e50000;
+                        font-weight: 400;
+                      }
                 }
 
                 .form__submit-login{
                     width: 100%;
                     margin-top: 15px;
+                    button{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
                 }
-
+                
                 .form__info{
                     width: 100%;
                     margin-top: 15px;
