@@ -1,4 +1,5 @@
 import React from 'react'
+import { JobDetailModel } from '../../Models/jobDetail/jobDetailModel'
 import JobDetailAboutSeller from './JobDetailAboutSeller/JobDetailAboutSeller'
 import JobDetailComment from './JobDetailComment/JobDetailComment'
 import JobDetailDescription from './JobDetailDescription/JobDetailDescription'
@@ -7,11 +8,15 @@ import JobDetailOverview from './JobDetailOverview/JobDetailOverview'
 import JobDetailPayment from './JobDetailPayment/JobDetailPayment'
 import JobDetailReview from './JobDetailReview/JobDetailReview'
 
-type Props = {}
+type Props = {
+}
 
-const JobDetailLeft = (props: Props) => {
+const JobDetailLeft = ({}: Props) => {
+
+  
+  
   return (
-    <>
+    <div>
         <JobDetailOverview/>
         <JobDetailGallery/>
         <JobDetailDescription/>
@@ -19,7 +24,7 @@ const JobDetailLeft = (props: Props) => {
         <JobDetailPayment/>
         <JobDetailReview/>
         <JobDetailComment/>
-    </>
+    </div>
   )
 }
 

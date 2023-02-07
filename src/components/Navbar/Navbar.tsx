@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { jobMenuAPI } from "../../redux/jobMenuReducer/jobMenuReducer";
 import { DispatchType, StateType } from "../../redux/configStore";
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,7 +9,6 @@ type Props = {};
 
 const Navbar = (props: Props) => {
   const [navbar, setNavbar] = useState<boolean>(false);
-  const location = useLocation();
   const dispatch:DispatchType = useDispatch();
   const { arrJobMenu } = useSelector((state: StateType) => state.jobMenuReducer)
 
@@ -17,15 +16,9 @@ const Navbar = (props: Props) => {
     window.scrollY >= 150 ? setNavbar(true) : setNavbar(false);
   };
 
-  useEffect(() => {
-    const nav = document.querySelector(".nav__wrapper");
+  window.addEventListener("scroll", showNavbar);
 
-    if (location.pathname === "/") {
-      window.addEventListener("scroll", showNavbar);
-    } else if (location.pathname !== "/") {
-      nav?.classList.add("nav-sticky");
-    }
-  }, [location.pathname]);
+  
 
   useEffect(() => {
     getJobMenu();

@@ -1,8 +1,10 @@
 import React from "react";
 
+
 type Props = {};
 
 const JobDetailReview = (props: Props) => {
+  
   return (
     <div className="jobdetail--review">
       <h6>Reviews</h6>
