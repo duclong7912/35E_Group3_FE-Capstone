@@ -3,9 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { DispatchType, StateType } from "../../redux/configStore";
 import { closeModal, openModal } from "../../hoc/Modal/modal";
 import { useFormik } from "formik";
-import * as yup from 'yup';
+import * as yup from "yup";
 import { EditUserModel, ProfileModel } from "../../Models/userModel/userModel";
-import { changeAvatarAPI, profileAPI, updateProfileAPI } from "../../redux/userReducer/userReducer";
+import {
+  changeAvatarAPI,
+  profileAPI,
+  updateProfileAPI,
+} from "../../redux/userReducer/userReducer";
 import { useNavigate } from "react-router-dom";
 import useTag from "../../hooks/useTag";
 import { USER_LOGIN, setStoreJson, getCookie, ACCESS_TOKEN, getStoreJson } from "../../util/config";
@@ -14,21 +18,29 @@ type Props = {};
 
 const ProfileLeft = (props: Props) => {
   let widthBrowser = window.innerWidth;
-  const { userLogin } = useSelector((state:StateType) => state.userReducer);
+  const { userLogin } = useSelector((state: StateType) => state.userReducer);
   const [icon, setIcon] = useState<Boolean>(false);
-  const [ cert, skill , handleCertChange, handleSkillChange, handleDeleteCert, handleDeleteSkill ] = useTag(userLogin)
-  const regexName = /^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$/
+  const [
+    cert,
+    skill,
+    handleCertChange,
+    handleSkillChange,
+    handleDeleteCert,
+    handleDeleteSkill,
+  ] = useTag(userLogin);
+  const regexName =
+    /^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$/;
   const regexPhone = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
-  const dispatch:DispatchType = useDispatch();
+  const dispatch: DispatchType = useDispatch();
   const navigate = useNavigate();
 
   const formEdit = useFormik<EditUserModel>({
     initialValues: {
       id: 0,
-      email: '',
-      name: '',
-      birthday: '',
-      phone: '',
+      email: "",
+      name: "",
+      birthday: "",
+      phone: "",
       certification: [],
       skill: [],
       gender: true,
@@ -39,7 +51,7 @@ const ProfileLeft = (props: Props) => {
       phone: yup.string().required("Phone is required.").matches(regexPhone, "Phone is invalid."),
       gender: yup.string().required("Please select your gender.")
     }),
-    onSubmit: (values:EditUserModel) => {
+    onSubmit: (values: EditUserModel) => {
       const actionEdit = updateProfileAPI(values);
       dispatch(actionEdit);
       setStoreJson(USER_LOGIN , values)
@@ -47,24 +59,24 @@ const ProfileLeft = (props: Props) => {
   })
 
   useEffect(() => {
-    if(cert) {
-      formEdit.setFieldValue('certification', cert)
+    if (cert) {
+      formEdit.setFieldValue("certification", cert);
     }
-    if(skill){
-      formEdit.setFieldValue("skill", skill)
+    if (skill) {
+      formEdit.setFieldValue("skill", skill);
     }
-  }, [cert, skill])
+  }, [cert, skill]);
 
   useEffect(() => {
-    formEdit.setValues({...userLogin as any})
-    setStoreJson(USER_LOGIN , userLogin)
-  }, [userLogin])
+    formEdit.setValues({ ...(userLogin as any) });
+    setStoreJson(USER_LOGIN, userLogin);
+  }, [userLogin]);
 
   useEffect(() => {
     widthBrowser < 767 ? setIcon(true) : setIcon(false);
   }, [widthBrowser]);
 
-  const handleSelectGender = (e:React.ChangeEvent<HTMLInputElement>) => {
+  const handleSelectGender = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     formEdit.values.gender = value === "true" ? true : false
     formEdit.setValues({...formEdit.values})
@@ -73,8 +85,8 @@ const ProfileLeft = (props: Props) => {
   const handleChangeAvatar = (e:React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target as HTMLInputElement
     const action = changeAvatarAPI((files as FileList)[0]);
-    dispatch(action)
-  }
+    dispatch(action);
+  };
 
   return (
     <div className="profile--left">
@@ -86,10 +98,12 @@ const ProfileLeft = (props: Props) => {
               <div className="camera">
                 <i className="bx bx-camera"></i>
               </div>
-              {userLogin?.avatar ?
-              <img src={userLogin?.avatar} alt="avatar" /> :
-              <span>{userLogin?.name.slice(0, 1)}</span>
-              }
+              {userLogin?.avatar ? (
+                <img src={userLogin?.avatar} alt="avatar" />
+              ) : (
+                // <span>{userLogin?.name.slice(0, 1)}</span>
+                <span>{userLogin?.name}</span>
+              )}
             </label>
           </div>
           <div className="name">{userLogin?.name}</div>
@@ -153,7 +167,9 @@ const ProfileLeft = (props: Props) => {
         <div className="des">
           <div className="des-title">
             <span>Description</span>
-            <span onClick={() => openModal(".modal__edit-user")}><i className="fa-solid fa-pencil"></i></span>
+            <span onClick={() => openModal(".modal__edit-user")}>
+              <i className="fa-solid fa-pencil"></i>
+            </span>
           </div>
           <div className="name">
             <span>Name:</span>
@@ -172,7 +188,9 @@ const ProfileLeft = (props: Props) => {
         <div className="language">
           <div className="des-title">
             <span>Languages</span>
-            <span onClick={() => openModal(".modal__edit-user")}><i className="fa-solid fa-pencil"></i></span>
+            <span onClick={() => openModal(".modal__edit-user")}>
+              <i className="fa-solid fa-pencil"></i>
+            </span>
           </div>
         </div>
         <ul className="list">
@@ -210,10 +228,12 @@ const ProfileLeft = (props: Props) => {
           <div className="skill-wrap pb-2">
             <div className="des-title">
               <span>Skill</span>
-              <span onClick={() => openModal(".modal__edit-user")}><i className="fa-solid fa-pencil"></i></span>
+              <span onClick={() => openModal(".modal__edit-user")}>
+                <i className="fa-solid fa-pencil"></i>
+              </span>
             </div>
           </div>
-          {userLogin?.skill.length !== 0 ? 
+          {/* {userLogin?.skill.length !== 0 ? 
           <ul className="tag-item">
             {userLogin?.skill.map((item, i) => {
               return <li key={i}>{item}</li>
@@ -221,85 +241,154 @@ const ProfileLeft = (props: Props) => {
           </ul>
           :
           <div>Add your Skills.</div>
-          }
-        </div>
-        <div className="education">
-            <div className="des-title pb-2">
-              <span>Education</span>
-              <span onClick={() => openModal(".modal__edit-user")}><i className="fa-solid fa-pencil"></i></span>
-            </div>
+          } */}
+          {userLogin?.skill ? (
             <ul className="tag-item">
-              <li>Cybersoft</li>
-            </ul>
-        </div>
-        <div className="certification">
-            <div className="des-title pb-2">
-              <span>Certification</span>
-              <span onClick={() => openModal(".modal__edit-user")}><i className="fa-solid fa-pencil"></i></span>
-            </div>
-            {userLogin?.certification.length !== 0 ?
-            <ul className="tag-item">
-              {userLogin?.certification.map((item, i) => {
-                return <li key={i}>{item}</li>
+              {userLogin?.skill.map((item, i) => {
+                return <li key={i}>{item}</li>;
               })}
             </ul>
-            :
+          ) : (
+            <div>Add your Skills.</div>
+          )}
+        </div>
+        <div className="education">
+          <div className="des-title pb-2">
+            <span>Education</span>
+            <span onClick={() => openModal(".modal__edit-user")}>
+              <i className="fa-solid fa-pencil"></i>
+            </span>
+          </div>
+          <ul className="tag-item">
+            <li>Cybersoft</li>
+          </ul>
+        </div>
+        <div className="certification">
+          <div className="des-title pb-2">
+            <span>Certification</span>
+            <span onClick={() => openModal(".modal__edit-user")}>
+              <i className="fa-solid fa-pencil"></i>
+            </span>
+          </div>
+          {/* {userLogin?.certification.length !== 0 ? (
+            <ul className="tag-item">
+              {userLogin?.certification.map((item, i) => {
+                return <li key={i}>{item}</li>;
+              })}
+            </ul>
+          ) : (
             <div>Add your Certification.</div>
-          }    
+          )} */}
+          {userLogin?.certification ? (
+            <ul className="tag-item">
+              {userLogin?.certification.map((item, i) => {
+                return <li key={i}>{item}</li>;
+              })}
+            </ul>
+          ) : (
+            <div>Add your Certification.</div>
+          )}
         </div>
       </div>
 
       <div className="modal__edit-user">
         <div className="modal__edit-container">
           <div className="modal__edit-content">
-            <div className="close-modal" onClick={() => {closeModal(".modal__edit-user")}}>
-              <i className='bx bxs-x-square'></i>
+            <div
+              className="close-modal"
+              onClick={() => {
+                closeModal(".modal__edit-user");
+              }}
+            >
+              <i className="bx bxs-x-square"></i>
             </div>
             <h2>Update User</h2>
             <form className="form" onSubmit={formEdit.handleSubmit}>
               <div className="form__content">
-                  <div className="form__input">
-                    <div className="input-content">
-                      <input type="text" name="email" required value={formEdit.values.email || ""} disabled/>
-                      <i className="fa-solid fa-envelope"></i>
-                      <span>Email</span>
-                    </div>
-                  </div>
-                  <div className="form__input">
+                <div className="form__input">
                   <div className="input-content">
-                    <input type="text" name="name" required value={formEdit.values.name || ""} onChange={formEdit.handleChange}/>
+                    <input
+                      type="text"
+                      name="email"
+                      required
+                      value={formEdit.values.email || ""}
+                      disabled
+                    />
+                    <i className="fa-solid fa-envelope"></i>
+                    <span>Email</span>
+                  </div>
+                </div>
+                <div className="form__input">
+                  <div className="input-content">
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      value={formEdit.values.name || ""}
+                      onChange={formEdit.handleChange}
+                    />
                     <i className="fa-solid fa-user"></i>
                     <span>Name</span>
                   </div>
-                  {formEdit.errors.name && <p className="messErr">{formEdit.errors?.name}</p>}
+                  {formEdit.errors.name && (
+                    <p className="messErr">{formEdit.errors?.name}</p>
+                  )}
                 </div>
                 <div className="form__input">
                   <div className="input-content">
-                    <input type="date" name="birthday" required value={formEdit.values.birthday || ""} onChange={formEdit.handleChange}/>
+                    <input
+                      type="date"
+                      name="birthday"
+                      required
+                      value={formEdit.values.birthday || ""}
+                      onChange={formEdit.handleChange}
+                    />
                     <i className="bx bxs-cake"></i>
                     <span>Birthday</span>
                   </div>
-                  {formEdit.errors.birthday && <p className="messErr">{formEdit.errors.birthday}</p>}
+                  {formEdit.errors.birthday && (
+                    <p className="messErr">{formEdit.errors.birthday}</p>
+                  )}
                 </div>
                 <div className="form__input">
                   <div className="input-content">
-                    <input type="text" name="phone" required value={formEdit.values.phone || ""} onChange={formEdit.handleChange}/>
+                    <input
+                      type="text"
+                      name="phone"
+                      required
+                      value={formEdit.values.phone || ""}
+                      onChange={formEdit.handleChange}
+                    />
                     <i className="fa-solid fa-phone"></i>
                     <span>Phone</span>
                   </div>
-                  {formEdit.errors.phone && <p className="messErr">{formEdit.errors.phone}</p>}
+                  {formEdit.errors.phone && (
+                    <p className="messErr">{formEdit.errors.phone}</p>
+                  )}
                 </div>
                 <div className="form__input cert">
                   <div className="input-content">
                     <ul>
-                      {cert?.map((item:string, i:number) => {
-                        return <li key={i}>
-                        <span>{item}</span>
-                        <i className="fa-solid fa-circle-xmark" onClick={() => handleDeleteCert(item)}></i>
-                      </li>
+                      {cert?.map((item: string, i: number) => {
+                        return (
+                          <li key={i}>
+                            <span>{item}</span>
+                            <i
+                              className="fa-solid fa-circle-xmark"
+                              onClick={() => handleDeleteCert(item)}
+                            ></i>
+                          </li>
+                        );
                       })}
                     </ul>
-                    <input type="text" name="certification" onKeyUp={handleCertChange} onKeyPress={e => { e.which === 13 && e.preventDefault() }}/>
+                    <input
+                      type="text"
+                      name="certification"
+                      onKeyUp={handleCertChange}
+                      onKeyPress={(e) => {
+                        e.which === 13 && e.preventDefault();
+                      }}
+                    />
                     <i className="fa-solid fa-circle-check"></i>
                     <span>Certification</span>
                   </div>
@@ -307,22 +396,39 @@ const ProfileLeft = (props: Props) => {
                 <div className="form__input skill">
                   <div className="input-content">
                     <ul>
-                      {skill?.map((item:string, i:number) => {
-                        return <li key={i}>
-                        <span>{item}</span>
-                        <i className="fa-solid fa-circle-xmark" onClick={() => handleDeleteSkill(item)}></i>
-                      </li>
+                      {skill?.map((item: string, i: number) => {
+                        return (
+                          <li key={i}>
+                            <span>{item}</span>
+                            <i
+                              className="fa-solid fa-circle-xmark"
+                              onClick={() => handleDeleteSkill(item)}
+                            ></i>
+                          </li>
+                        );
                       })}
                     </ul>
-                    <input type="text" name="skills" onKeyUp={handleSkillChange} onKeyPress={e => { e.which === 13 && e.preventDefault() }}/>
+                    <input
+                      type="text"
+                      name="skills"
+                      onKeyUp={handleSkillChange}
+                      onKeyPress={(e) => {
+                        e.which === 13 && e.preventDefault();
+                      }}
+                    />
                     <i className="fa-solid fa-code"></i>
                     <span>Skills</span>
                   </div>
                 </div>
                 <div className="form__gender">
-                  <input type="radio" id="male" name="gender" value="true" 
+                  <input
+                    type="radio"
+                    id="male"
+                    name="gender"
+                    value="true"
                     onChange={handleSelectGender}
-                    checked={formEdit.values.gender}/>
+                    checked={formEdit.values.gender}
+                  />
                   <input
                     type="radio"
                     id="female"
@@ -347,7 +453,9 @@ const ProfileLeft = (props: Props) => {
                   </div>
                 </div>
               </div>
-              {formEdit.errors.gender && <p className="messErr">{formEdit.errors.gender}</p>}
+              {formEdit.errors.gender && (
+                <p className="messErr">{formEdit.errors.gender}</p>
+              )}
               <button type="submit">Submit</button>
             </form>
           </div>

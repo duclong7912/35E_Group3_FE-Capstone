@@ -155,7 +155,9 @@ const Header = (props: Props) => {
                   <img src={userLogin.avatar} alt="avatar" className="avatar"/>
                   :
                   <label className="avatar">
-                    <span>{userLogin?.name.slice(0,1)}</span>
+                    {/* <span>{userLogin?.name.slice(0,1)}</span> */}
+                    <span>{userLogin?.name}</span>
+
                   </label>
                   }
                   <ul className='profile-action'>

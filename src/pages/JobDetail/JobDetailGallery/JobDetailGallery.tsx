@@ -2,22 +2,30 @@ import React from "react";
 import Slick, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useSelector } from "react-redux";
+import { StateType } from "../../../redux/configStore";
+import { JobDetailModel } from "../../../Models/jobDetail/jobDetailModel";
 type Props = {};
 
 const JobDetailGallery = (props: Props) => {
   const setting = {};
+
+  const { arrJobDetail } = useSelector(
+    (state: StateType) => state.JobDetailReducer
+  );
+
   return (
     <div className="jobdetail--gallery">
       <Slick {...setting}>
-          <div className="gallery--item">
-            <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/133693784/original/c5e0da9f537feabb0c773a09d96bbea796f69d1a/design-ecommerce-wix-website.jpg" alt="..." />
+        {arrJobDetail.map((detail:JobDetailModel, index:number)=>{
+          return (
+          <div className="gallery--item" key={index}>
+            <img src={detail.congViec.hinhAnh} alt="..." />
           </div>
-          <div className="gallery--item">
-            <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/133693784/original/c5e0da9f537feabb0c773a09d96bbea796f69d1a/design-ecommerce-wix-website.jpg" alt="..." />
-          </div>
-          <div className="gallery--item">
-            <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/133693784/original/c5e0da9f537feabb0c773a09d96bbea796f69d1a/design-ecommerce-wix-website.jpg" alt="..." />
-          </div>
+
+          )
+        })}
+          
       </Slick>
     </div>
   );
