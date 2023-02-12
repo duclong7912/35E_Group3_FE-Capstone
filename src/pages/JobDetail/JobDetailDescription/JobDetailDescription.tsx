@@ -14,7 +14,7 @@ const JobDetailDescription = (props: Props) => {
     <>
       {arrJobDetail.map((detail: JobDetailModel, index: number) => {
         return (
-          <div className="aboutgig">
+          <div className="aboutgig" key={index}>
             <h2>About This Gig</h2>
             <b>
               <u>***ALWAYS DISCUSS FIRST BEFORE MAKING ORDER***</u>

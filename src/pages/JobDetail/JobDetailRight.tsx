@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import {
   JobDetailModel,
   ThueCongViec,
@@ -11,6 +11,7 @@ import { hireJob } from "../../redux/JobDetailReducer/JobDetailReducer";
 type Props = {};
 
 const JobDetailRight = (props: Props) => {
+  const location = useLocation();
   const { userLogin } = useSelector((state: StateType) => state.userReducer);
   const { arrJobDetail } = useSelector(
     (state: StateType) => state.JobDetailReducer
@@ -41,11 +42,13 @@ const JobDetailRight = (props: Props) => {
     }
   };
 
+
+
   return (
     <div className="jobdetail--right">
       {arrJobDetail.map((detail: JobDetailModel, index: number) => {
         return (
-          <div className="content">
+          <div className="content" key={index}>
             <div className="jobdetail--card">
               <div className="choice">
                 <div>Basic</div>

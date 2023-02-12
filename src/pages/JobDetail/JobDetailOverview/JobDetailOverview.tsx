@@ -14,9 +14,9 @@ const JobDetailOverview = (props: Props) => {
     <div className="jobdetai--overview">
       {arrJobDetail.map((detail: JobDetailModel, index: number) => {
         return (
-          <>
+          <div  key={index}>
             {" "}
-            <div className="nav" key={index}>
+            <div className="nav">
               <ul>
                 <li>
                   <a href="#">{detail.tenLoaiCongViec}</a>
@@ -68,7 +68,7 @@ const JobDetailOverview = (props: Props) => {
                 <div className="choice"></div>
               </div>
             </div>
-          </>
+          </div>
         );
       })}
     </div>

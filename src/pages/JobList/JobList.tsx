@@ -66,7 +66,7 @@ const JobList = (props: Props) => {
 
   useEffect(() => {
     getListById();
-  }, []);
+  }, [param.id]);
 
   return (
     <div className="joblist">
