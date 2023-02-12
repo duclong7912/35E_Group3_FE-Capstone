@@ -27,9 +27,9 @@ nav.nav__wrapper {
   .navbar__container {
     position: relative;
     border-bottom: 1px solid #e4e5e7;
-    // overflow-x: auto;
-    overflow: auto;
-    
+    @include res(xl) {
+      overflow: auto;
+    }
     .navbar-list {
       display: flex;
       align-items: center;
@@ -86,7 +86,12 @@ nav.nav__wrapper {
 
         &:hover>.navbar-menu {
           display: block;
-          z-index: 5;
+          z-index: 999;
+        }
+        @include res(xl) {
+          &:hover>.navbar-menu{
+            display: none;
+          }
         }
 
         .navbar-menu {
