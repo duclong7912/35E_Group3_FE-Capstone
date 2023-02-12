@@ -80,6 +80,20 @@
                     .form__input{
                         width: 49%;
                     }
+                    .form__input.hire-date{
+                        .input-content{
+                            border-bottom: 2px solid #17a98c;
+                            i{
+                                color: #17a98c;
+                            }
+                            span{
+                                font-size: 13px;
+                                color: #17a98c;
+                                transform: translate(5px, -20px);
+                                font-weight: 600;
+                            }
+                        }
+                    }
                     .form__condition{
                         display: flex;
                         align-items: center;

@@ -1,8 +1,8 @@
 .add-modal, .update-modal{
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 0;
-    width: calc(100% + 78px);
+    left: 0;
+    width: 100vw;
     height: 100vh;
     background: rgba(49,49,49,.3);
     display: flex;
@@ -16,13 +16,13 @@
         width: 100%;
     }
     .modal__container{
-        width: 45%;
+        width: 50%;
         margin: auto;
         @include res(xl){
-            width: 60%;
+            width: 70%;
         }
         @include res(md){
-            width: 80%;
+            width: 90%;
         }
         @include res(sm){
             width: 90%;
@@ -35,7 +35,7 @@
             border-radius: 5px;
             box-shadow: 0 1px 10px #0a4b3e48;
             position: relative;
-
+            
             .close-modal{
                 position: absolute;
                 top: 15px;
@@ -54,7 +54,7 @@
                 margin-bottom: 20px;
             }
             .form{
-                max-width: 500px;
+                max-width: 550px;
                 .form__content{
                     display: flex;
                     align-items: center;
@@ -65,30 +65,48 @@
                         width: 100%;
                         i,span{
                             font-size: 16px;
+                        } 
+                    }
+                    .form__input.cert, .form__input.skill{
+                        .input-content{
+                            border-bottom: 2px solid #17a98c;
+                            >i{
+                                color: #17a98c
+                            }
+                            >span{
+                                color: #17a98c;
+                                font-size: 13px;
+                                color: #17a98c;
+                                transform: translate(5px, -20px);
+                                font-weight: 600;
+                            }
                         }
                     }
+                    @include handleForm();
+                    
                 }
 
                 @include btnSubmit();
-
                 .form__gender{
                     width: 49%;
-                    height: 75px;
+                    height: 55px;
+                    display: flex;
+                    align-items: start;
                     .gender__tilte{
                         display: flex;
                         align-items: center;
                         > i {
-                            font-size: 18px;
+                            font-size: 16px;
                             color: #d9d9d9;
                             transition: all .3s;
-                            margin-right: 10px;
+                            margin-right: 5px;
                         }
                         > span{
                             color: #d9d9d9;
                             transition: all .3s;
                             font-weight: 600;
-                            font-size: 18px;
-                            margin-right:  20px;
+                            font-size: 16px;
+                            margin-right:  10px;
                         }
                     }
 
@@ -121,15 +139,15 @@
                             align-items: center;
                             justify-content: space-between;
                             margin-bottom: 0;
-                            margin-right: 20px;
+                            margin-right: 10px;
                             cursor: pointer;
                             span.dot{
                                 display: inline-block;
-                                width: 20px;
-                                height: 20px;
+                                width: 18px;
+                                height: 18px;
                                 background: #bdede3;
                                 border-radius: 50%;
-                                margin-right: 10px;
+                                margin-right: 5px;
                                 border: 5px solid transparent;
                             }
                             span.gender{

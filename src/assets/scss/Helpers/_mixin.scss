@@ -80,6 +80,12 @@
           .messErr{
             color: #e50000;
             font-weight: 400;
+            @include res(sm){
+              font-size: 14px;
+            }
+            @include res(ssm){
+              font-size: 12px;
+            }
           }
           }
           .form-jobType{
@@ -146,7 +152,7 @@
     position: absolute;
     top: 70px;
     right: 10px;
-    max-width: 260px;
+    max-width: 200px;
     width: 100%;
     background: #0a4b3e;
     color: #fff;
@@ -207,6 +213,53 @@
   }
 }
 
+@mixin handleForm() {
+  .form__input.cert, .form__input.skill{
+    width: 100% !important;
+    ::-webkit-scrollbar{
+      height: 7px;
+    }
+    ::-webkit-scrollbar-thumb{
+      background: #d1f1eb;
+    }
+
+    .input-content{
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      > i{
+        background: #fff;
+      }
+      ul{
+        padding-left: 40px;
+        display: flex;
+        align-items: center;
+        li{
+          display: flex;
+          align-items: center;
+          width: max-content;
+          background: #d1f1eb;
+          color: #12836d;
+          padding: 0 7px;
+          border-radius: 30px;
+          margin-right: 5px;
+          span{
+            margin-right: 3px;
+            color: #12836d;
+          }
+          i{
+            cursor: pointer;
+          }
+        }
+      }
+      input{
+        padding-left: unset;
+        width: calc(100% + 150px);
+      }
+    }
+  }
+}
+
 @mixin res($breakpoint) {
   @if $breakpoint == xxl {
       // width < 1360px
@@ -237,12 +290,6 @@
       @media (max-width: 36em) {
           @content;
       }
-  }
-  @if $breakpoint == sm {
-    // width < 576px
-    @media (max-width: 36em) {
-        @content;
-    }
   }
   @if $breakpoint == ssm {
     // width < 400px
