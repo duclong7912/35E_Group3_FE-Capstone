@@ -1,17 +1,15 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 type Props = {}
 
 const LoginTemplate = (props: Props) => {
 
-  const handleClick = () => {
-    // const reg = document.querySelector('.temp__card');
-    // reg?.classList.toggle('active');
-  }
 
   return (
     <div className="login__temp">
+      <ToastContainer />
       <div className="temp__container">
         <div className="temp__content">
           <div className="temp__card">

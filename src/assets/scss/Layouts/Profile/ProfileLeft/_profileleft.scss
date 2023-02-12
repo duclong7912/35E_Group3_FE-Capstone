@@ -59,6 +59,7 @@
             img{
               width: 100%;
               height: 100%;
+              object-fit: cover;
             }
           }
         }
@@ -329,8 +330,8 @@
     .modal__edit-user {
       position: fixed;
       top: 0;
-      right: 0;
-      width: 100%;
+      left: 0;
+      width: 100vw;
       height: 100vh;
       background: rgba(49, 49, 49, 0.3);
       display: flex;
@@ -376,50 +377,7 @@
                 width: 100%;
               }
 
-              .form__input.cert, .form__input.skill{
-                width: 100%;
-                ::-webkit-scrollbar{
-                  height: 7px;
-                }
-                ::-webkit-scrollbar-thumb{
-                  background: #d1f1eb;
-                }
-
-                .input-content{
-                  display: flex;
-                  align-items: center;
-                  overflow-x: auto;
-                  > i{
-                    background: #fff;
-                  }
-                  ul{
-                    padding-left: 40px;
-                    display: flex;
-                    align-items: center;
-                    li{
-                      display: flex;
-                      align-items: center;
-                      width: max-content;
-                      background: #d1f1eb;
-                      color: #12836d;
-                      padding: 0 7px;
-                      border-radius: 30px;
-                      margin-right: 5px;
-                      span{
-                        margin-right: 3px;
-                        color: #12836d;
-                      }
-                      i{
-                        cursor: pointer;
-                      }
-                    }
-                  }
-                  input{
-                    padding-left: unset;
-                    width: calc(100% + 150px);
-                  }
-                }
-              }
+              @include handleForm();
 
               .form__gender {
                 width: 100%;

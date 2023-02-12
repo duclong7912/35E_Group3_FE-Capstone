@@ -7,7 +7,7 @@ export default function useTag(login:any) {
 
     const handleCertChange = (e:React.KeyboardEvent<HTMLInputElement>)  => {
         let { value } = e.target as HTMLInputElement;
-          if (!cert.includes(value)) {
+          if (!cert.includes(value) && value.trim()) {
             if (e.key === "Enter" && value) {
                 setCert([...cert, value]);
                 (e.target as HTMLInputElement).value = "";
@@ -17,7 +17,7 @@ export default function useTag(login:any) {
 
     const handleSkillChange = (e:React.KeyboardEvent<HTMLInputElement>)  => {
         let { value } = e.target as HTMLInputElement;
-          if (!skill.includes(value)) {
+          if (!skill.includes(value) && value.trim()) {
             if (e.key === "Enter" && value) {
                 setSkill([...skill, value]);
                 (e.target as HTMLInputElement).value = "";

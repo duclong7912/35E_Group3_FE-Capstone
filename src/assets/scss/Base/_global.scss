@@ -42,6 +42,9 @@ body.active{
 body.show-sidebar{
     overflow-y: hidden;
     padding-right: 17px;
+    @include res(md) {
+        padding-right: unset;
+    }
     .sidebar__main{
         transform: translateX(272px);
     }

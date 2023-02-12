@@ -5,7 +5,7 @@
     min-height: 100vh;
     margin: 0 auto;
     .sidebar{
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         height: 100%;
@@ -14,6 +14,10 @@
         padding: 0 14px;
         overflow: hidden;
         transition: all .5s;
+        @include res(md) {
+            width: 0px;
+            padding: 0;
+        }
         .logo__content{
             position: relative;
             height: 60px;
@@ -34,7 +38,7 @@
                 cursor: pointer;
                 font-size: 30px;
                 color: #1abc9c;
-                transition: all .3s;
+                transition: all .6s ;
             }
         }
 
@@ -95,6 +99,9 @@
     .sidebar.active{
         width: 240px;
         z-index: 2;
+        @include res(md) {
+            padding: 0 14px;
+        }
         .logo__content{
             .sidebar__logo{
                 opacity: 1;
@@ -112,6 +119,7 @@
             }
             #btnToggle{
                 left: 90%;
+                transition: all .4s ease;
             }
 
         }
@@ -119,10 +127,6 @@
             left: 240px;
             width: calc(100% - 240px);
             transition: all .5s;
-        }
-
-        ~ .home__content .add-modal, ~ .home__content .update-modal{
-            width: calc(100% + 240px);
         }
         
     }
@@ -162,14 +166,47 @@
                 }
             }
             .admin__profile{
+                display: flex;
+                align-items: center;
+
                 img{
                     width: 50px;
                     height: 50px;
                     border-radius: 50%;
                     cursor: pointer;
-                    border: 1px solid #fff;
+                    object-fit: cover;
                 }
-
+                label{
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 50%;
+                    background: $secondary-color;
+                    position: relative;
+                    margin-bottom: unset;
+                    cursor: pointer;
+                    span{
+                        font-weight: 700;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                        color: #fff;
+                    }
+                }
+                ul{
+                    li{
+                        i.fa-user{
+                            font-size: 16px;
+                            width: 20px;
+                            height: 20px;
+                            line-height: 20px;
+                            text-align: center
+                        }
+                        a{
+                            flex: 1
+                        }
+                    }
+                }
                 @include profileAction();
                 
             }
