@@ -11,7 +11,6 @@ const Navbar = (props: Props) => {
   const [navbar, setNavbar] = useState<boolean>(false);
   const dispatch:DispatchType = useDispatch();
   const { arrJobMenu } = useSelector((state: StateType) => state.jobMenuReducer)
-
   const showNavbar = () => {
     window.scrollY >= 150 ? setNavbar(true) : setNavbar(false);
   };
