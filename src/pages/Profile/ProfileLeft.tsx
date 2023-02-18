@@ -101,8 +101,7 @@ const ProfileLeft = (props: Props) => {
               {userLogin?.avatar ? (
                 <img src={userLogin?.avatar} alt="avatar" />
               ) : (
-                // <span>{userLogin?.name.slice(0, 1)}</span>
-                <span>{userLogin?.name}</span>
+                <span>{userLogin?.name.slice(0, 1)}</span>
               )}
             </label>
           </div>
