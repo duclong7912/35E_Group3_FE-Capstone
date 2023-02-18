@@ -112,11 +112,18 @@ const JobDetailComment = (props: Props) => {
       <form onSubmit={handleSubmit}>
         <div className="add--comment">
           <div className="image">
-            {userLogin?.avatar === "" ? (
-              <img src={avatarEmpty} alt="..." />
+            {!userLogin ? 
+              <img src={avatarEmpty} alt="..." className="test"/> : 
+              userLogin.avatar ? <img src={userLogin?.avatar} alt="..."/> : 
+              <label className="avatar">
+                <span>{userLogin?.name.slice(0,1)}</span>
+              </label>
+            }
+            {/* {userLogin?.avatar === "" ? (
+              <img src={avatarEmpty} alt="..." className="test"/>
             ) : (
-              <img src={userLogin?.avatar} alt="..." />
-            )}
+              <img src={userLogin?.avatar} alt="..."/>
+            )} */}
           </div>
           <input
             id="input-comment"
