@@ -5,15 +5,17 @@ import jobMenuReducer from './jobMenuReducer/jobMenuReducer';
 import jobResultReducer from './JobResultReducer/jobResultReducer';
 import jobTypeReducer from './jobTypeReducer/jobTypeReducer';
 import userReducer from './userReducer/userReducer';
+import adminReducer from './adminReducer/adminReducer';
 
 export const store = configureStore({
     reducer: {
-        jobMenuReducer,
         userReducer,
+        jobMenuReducer,
         jobTypeReducer,
         jobListReducer,
         JobDetailReducer,
         jobResultReducer,
+        adminReducer,
     }
 })
 

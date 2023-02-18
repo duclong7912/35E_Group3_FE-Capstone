@@ -44,6 +44,9 @@ root.render(
           <Route path="category">
             <Route path=":id" element={<JobList />} />
           </Route>
+          <Route path="result">
+            <Route path=":keyword" element={<JobList />}></Route>
+          </Route>
           <Route path="profile" element={<Profile />} />
           <Route path="type">
             <Route path=":id" element={<JobType />} />

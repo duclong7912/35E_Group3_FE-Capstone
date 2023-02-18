@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import HomeBusiness from "./HomeBusiness/HomeBusiness";
 import HomeCarousel from "./HomeCarousel/HomeCarousel";
 import HomeExplore from "./HomeExplore/HomeExplore";
@@ -8,13 +8,11 @@ import HomeLogoMaker from "./HomeLogoMaker/HomeLogoMaker";
 import HomeSlideProject from "./HomeSlideProject/HomeSlideProject";
 import HomeSlideService from "./HomeSlideService/HomeSlideService";
 import HomeTrust from "./HomeTrust/HomeTrust";
-import { useLocation } from "react-router-dom";
 
 type Props = {};
 
-const Home = (props: Props) => {
-  
-  
+const Home = (props: Props) => {  
+
   return (
     <>
       <HomeCarousel />

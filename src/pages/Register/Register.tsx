@@ -6,10 +6,10 @@ import * as yup from 'yup';
 import { loadingAction, resgisterAPI } from '../../redux/userReducer/userReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { DispatchType, StateType } from '../../redux/configStore';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import BeatLoader from "react-spinners/BeatLoader";
 import HashLoader from "react-spinners/HashLoader";
+import { regexName, regexPhone } from '../../util/config';
 
 type Props = {}
 
@@ -22,8 +22,6 @@ const Register = (props: Props) => {
   const { loading, userLogin } = useSelector((state:StateType) => state.userReducer)
   const dispatch:DispatchType = useDispatch();
   const navigate = useNavigate();
-  const regexName = /^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$/
-  const regexPhone = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
 
   useEffect(() => {
     if(userLogin){
@@ -68,7 +66,6 @@ const Register = (props: Props) => {
   }
   return (
     <div className="register">
-      <ToastContainer />
       <div className="register__content">
         {loading ? <HashLoader color='#17a98c' size={40} /> : <>
         <h2>Register</h2>

@@ -11,18 +11,8 @@ import {
   updateProfileAPI,
 } from "../../redux/userReducer/userReducer";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
 import useTag from "../../hooks/useTag";
-import { profile } from "console";
-import {
-  USER_LOGIN,
-  setStoreJson,
-  getCookie,
-  ACCESS_TOKEN,
-  getStoreJson,
-} from "../../util/config";
-
-import avatarEmpty from "../../assets/img/avatar-empty.jpg";
+import { USER_LOGIN, setStoreJson, getCookie, ACCESS_TOKEN, getStoreJson } from "../../util/config";
 
 type Props = {};
 
@@ -56,26 +46,17 @@ const ProfileLeft = (props: Props) => {
       gender: true,
     },
     validationSchema: yup.object().shape({
-      name: yup
-        .string()
-        .required("Name cannot be blank.")
-        .matches(regexName, "Name is invalid."),
-      birthday: yup.string().required("Birthday cannot be blank."),
-      phone: yup
-        .string()
-        .required("Phone cannot be blank.")
-        .matches(regexPhone, "Phone is invalid."),
-      gender: yup.string().required("Please select your gender."),
+      name: yup.string().required("Name is required.").matches(regexName, "Name is invalid."),
+      birthday: yup.string().required("Birthday is required."),
+      phone: yup.string().required("Phone is required.").matches(regexPhone, "Phone is invalid."),
+      gender: yup.string().required("Please select your gender.")
     }),
     onSubmit: (values: EditUserModel) => {
       const actionEdit = updateProfileAPI(values);
       dispatch(actionEdit);
-      setStoreJson(USER_LOGIN, values);
-      setTimeout(() => {
-        window.location.reload();
-      }, 1500);
-    },
-  });
+      setStoreJson(USER_LOGIN , values)
+    }
+  })
 
   useEffect(() => {
     if (cert) {
@@ -97,25 +78,23 @@ const ProfileLeft = (props: Props) => {
 
   const handleSelectGender = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    formEdit.values.gender = value === "true" ? true : false;
-    formEdit.setValues({ ...formEdit.values });
-  };
-
-  const handleChangeAvatar = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // const file = e?.target.files[0];
-    const { files } = e.target as HTMLInputElement;
+    formEdit.values.gender = value === "true" ? true : false
+    formEdit.setValues({...formEdit.values})
+  }
+  
+  const handleChangeAvatar = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = e.target as HTMLInputElement
     const action = changeAvatarAPI((files as FileList)[0]);
     dispatch(action);
   };
 
   return (
     <div className="profile--left">
-      <ToastContainer />
       <div className="info">
         <div className="top">
           <div className="avatar">
             <label htmlFor="file">
-              <input type="file" id="file" onChange={handleChangeAvatar} />
+              <input type="file" id="file" hidden onChange={handleChangeAvatar}/>
               <div className="camera">
                 <i className="bx bx-camera"></i>
               </div>

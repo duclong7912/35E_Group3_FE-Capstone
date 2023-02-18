@@ -20,14 +20,11 @@ const Sidebar = (props: Props) => {
         const listCategory = document.querySelectorAll(".categories-list")
         listCategory[i].classList.toggle("show")
     }
-    useEffect(() => {
+
+    const handleCloseSidebar = () => {
         const body = document.querySelector("body")
-        window.onclick = (e:MouseEvent) => {
-            if((e.target as HTMLInputElement).matches(".sidebar__overlay")){
-                body?.classList.remove("show-sidebar")
-            }
-        }
-    }, [])
+        body?.classList.remove("show-sidebar")
+    }
 
   return (
     <div className="sidebar">
@@ -109,7 +106,7 @@ const Sidebar = (props: Props) => {
                 </div>
             </div>
         </div>
-        <div className="sidebar__overlay"></div>
+        <div className="sidebar__overlay" onClick={handleCloseSidebar}></div>
     </div>
   )
 }

@@ -23,11 +23,11 @@ export interface ProfileModel {
 
 
 export interface EditUserModel {
-  id: number | '',
-  email: string | '',
-  name: string | '',
-  phone: number | string | '',
-  birthday: string | '',
+  id: number,
+  email: string | string,
+  name: string | string,
+  phone: number | string | string,
+  birthday: string | string,
   gender: boolean ,
   certification: string[],
   skill: string[]

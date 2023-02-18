@@ -20,6 +20,9 @@
             @include res(sm){
                 max-width: 315px;
             }
+            @include res(ssm){
+                max-width: 270px;
+            }
             .form__content{
                 display: flex;
                 align-items: center;
@@ -73,6 +76,10 @@
                             @include res(sm){
                                 font-size: 16px;
                             }
+                            @include res(ssm){
+                                margin-right: 5px;
+                                font-size: 15px;
+                            }
                         }
                         > span{
                             color: #d9d9d9;
@@ -83,6 +90,10 @@
                             @include res(sm){
                                 font-size: 16px;
                                 margin-right: 15px;
+                            }
+                            @include res(sm){
+                                font-size: 15px;
+                                margin-right: 10px;
                             }
                         }
                     }
@@ -133,9 +144,15 @@
                                     width: 18px;
                                     height: 18px;
                                 }
+                                @include res(ssm){
+                                    margin-right: 5px;
+                                }
                             }
                             span.gender{
                                 font-weight: 500;
+                                @include res(ssm){
+                                    font-size: 15px;
+                                }
                             }
                         }
                     }
@@ -145,7 +162,7 @@
                     .messErr{
                         color: #e50000;
                         font-weight: 400;
-                      }
+                    }
                 }
 
                 .form__submit-login{

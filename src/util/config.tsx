@@ -1,5 +1,8 @@
 import axios from "axios";
 
+export const regexName = /^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$/
+export const regexPhone = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+
 export const config = {
     setCookie: (name:string, value:string, days:number) => {
         var expires = "";
@@ -92,7 +95,7 @@ http.interceptors.response.use((response) => {
         return  Promise.reject(err);
     }
     if(err.response.status === 401 || err.response.status === 403) {
-        alert('Token không hợp lệ ! Vui lòng đăng nhập lại !');
+        // alert('Token không hợp lệ ! Vui lòng đăng nhập lại !');
         // history.push('/login');
         return Promise.reject(err)
     }

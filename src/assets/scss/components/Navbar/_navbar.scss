@@ -7,16 +7,27 @@ nav.nav__wrapper {
   transform: rotateX(90deg);
   opacity: 0;
   transition: transform 0.3s;
+  ::-webkit-scrollbar{
+    height: 5px;
+  }
+  ::-webkit-scrollbar-thumb{
+      background: #e4e5e7;
+  }
+  ::-webkit-scrollbar-track{
+      background: #e8f8f5;
+  }
+  @include res(md) {
+    ::-webkit-scrollbar{
+      display: none;
+    }
+  }
   @include res(sm){
     display: none;
   }
   .navbar__container {
     position: relative;
     border-bottom: 1px solid #e4e5e7;
-    @include res(xxl){
-      &::-webkit-scrollbar{
-        display: none;
-      }
+    @include res(xl) {
       overflow: auto;
     }
     .navbar-list {
@@ -24,12 +35,19 @@ nav.nav__wrapper {
       align-items: center;
       justify-content: space-between;
       position: relative;
-      @include res(xxl){
+      
+      @include res(xl) {
         width: max-content;
       }
+
       >li {
         display: inline-block;
         margin: 0 10px;
+        position: relative;
+        @include res(xxl) {
+          margin: 0 8px;
+        }
+
         &:first-child {
           margin-left: 0;
         }
@@ -68,30 +86,35 @@ nav.nav__wrapper {
 
         &:hover>.navbar-menu {
           display: block;
-          z-index: 5;
+          z-index: 999;
+        }
+        @include res(xl) {
+          &:hover>.navbar-menu{
+            display: none;
+          }
         }
 
         .navbar-menu {
           position: absolute;
-          top: 45px;
-          left: -15px;
+          // top: 45px;
+          left: 0;
           background: #fff;
           display: none;
           border: 1px solid #e4e5e7;
           border-top: unset;
           box-shadow: 0 1px 3px #dadbdd;
-          max-width: 1000px;
+          max-width: 550px;
+          width: max-content;
           .navbar__wrap {
             padding: 30px;
             display: flex;
             flex-wrap: wrap;
-            gap: 0 75px;
-
             .navbar__content {
-              width: 240px;
+              width: 200px;
+              margin-right: 20px;
 
               h6 {
-                font-size: 17px;
+                font-size: 16px;
                 font-weight: 600;
               }
 
@@ -109,51 +132,51 @@ nav.nav__wrapper {
           
         }
         
-        &:nth-child(2) {
-          .navbar-menu {
-            left: 170px;
-          }
-        }
+        // &:nth-child(2) {
+        //   .navbar-menu {
+        //     left: 170px;
+        //   }
+        // }
   
-        &:nth-child(3) {
-          .navbar-menu {
-            left: 340px;
-          }
-        }
+        // &:nth-child(3) {
+        //   .navbar-menu {
+        //     left: 340px;
+        //   }
+        // }
   
-        &:nth-child(4) {
-          .navbar-menu {
-            left: 545px;
-          }
-        }
+        // &:nth-child(4) {
+        //   .navbar-menu {
+        //     left: 545px;
+        //   }
+        // }
   
-        &:nth-child(5) {
-          .navbar-menu {
-            left: unset;
-            right: 410px;
-          }
-        }
+        // &:nth-child(5) {
+        //   .navbar-menu {
+        //     left: unset;
+        //     right: 410px;
+        //   }
+        // }
   
-        &:nth-child(6) {
-          .navbar-menu {
-            left: unset;
-            right: 322px;
-          }
-        }
+        // &:nth-child(6) {
+        //   .navbar-menu {
+        //     left: unset;
+        //     right: 322px;
+        //   }
+        // }
   
-        &:nth-child(7) {
-          .navbar-menu {
-            left: unset;
-            right: 215px;
-          }
-        }
+        // &:nth-child(7) {
+        //   .navbar-menu {
+        //     left: unset;
+        //     right: 215px;
+        //   }
+        // }
   
-        &:nth-child(8) {
-          .navbar-menu {
-            left: unset;
-            right: 10px;
-          }
-        }
+        // &:nth-child(8) {
+        //   .navbar-menu {
+        //     left: unset;
+        //     right: 10px;
+        //   }
+        // }
       }
       
     }

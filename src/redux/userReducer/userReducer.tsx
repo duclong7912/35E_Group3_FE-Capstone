@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { history } from '../../';
 import { EditUserModel, JobHired, ProfileModel, UserState } from '../../Models/userModel/userModel';
 import { LoginModel } from '../../Models/loginModel/loginModel';
+import { closeModal } from '../../hoc/Modal/modal';
 
 const initialState:UserState = {
   loading: false,
@@ -46,8 +47,8 @@ export const resgisterAPI = (value:RegisterModel) => {
       toast.success("Register account successfully.", {autoClose: 3000});
       const action = loadingAction(true);
       dispatch(action)
+      setTimeout(() => {dispatch(loadingAction(false))},2600)
       setTimeout(() => {history.push("/users")},2500)
-      setTimeout(() => {dispatch(loadingAction(false))},3000)
     } catch (error:any) {
       setTimeout(() => {toast.error("Email already exists.", {autoClose: 3000})},200);
     }
@@ -55,7 +56,6 @@ export const resgisterAPI = (value:RegisterModel) => {
 }
 
 // --- Login
-
 export const loginAPI = (value:LoginModel) => {
   return async (dispatch:DispatchType) => {
     try {
@@ -80,6 +80,7 @@ export const loginAPI = (value:LoginModel) => {
   }
 }
 
+// get Profile
 export const profileAPI = (id:number) => {
   return async (dispatch:DispatchType) => {
     const result = await http.get(`/users/${id}`);
@@ -88,27 +89,32 @@ export const profileAPI = (id:number) => {
   }
 }
 
+// update Profile
 export const updateProfileAPI = (values:EditUserModel) => {
   return async (dispatch:DispatchType) => {
-    const result = await http.put(`/users/${values.id}`, values)
+    await http.put(`/users/${values.id}`, values)
     toast.success("Update profile successfully.", {autoClose: 3000});
+    closeModal(".modal__edit-user")
+    dispatch(profileAPI(values.id))
   }
 }
 
+// Change avatar
 export const changeAvatarAPI = (file:any) => {
   return async (dispatch:DispatchType) => {
     try {
       await http.post("/users/upload-avatar",
       { formFile: file }, {headers: { "Content-Type": "multipart/form-data" }});
       const { id } = getStoreJson(USER_LOGIN)
-      dispatch(profileAPI(id))
-      toast.success("Change avatar successfully.", {autoClose: 3000});
+      await dispatch(profileAPI(id))
+      toast.success("Change avatar successfully.", {autoClose: 3000})
     } catch (error) {
-      console.log(error)
+      toast.error("Image size must be less than 1Mb.", {autoClose: 3000});
     }
   }
 }
 
+// get Job hired
 export const getJobHiredAPI = () => {
   return async (dispatch:DispatchType) => {
     const result = await http.get("/thue-cong-viec/lay-danh-sach-da-thue");
@@ -116,6 +122,7 @@ export const getJobHiredAPI = () => {
   }
 }
 
+// delete Job hired
 export const deleteJobHiredAPI = (id:number) => {
   return async (dispatch:DispatchType) => {
     await http.delete(`/thue-cong-viec/${id}`);

@@ -28,6 +28,9 @@ const HomeCarousel = (props: Props) => {
       navigate(`result/${param}`)
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }, 500)
+
+
+    
   }
 
   return (

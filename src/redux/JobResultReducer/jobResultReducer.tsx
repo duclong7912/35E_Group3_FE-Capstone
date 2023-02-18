@@ -29,7 +29,7 @@ export default jobResultReducer.reducer;
 
 ///----------------action asycn---------
 
-export const jobSearchApi = (param: string) => {
+export const jobSearchApi = (param: string|undefined) => {
   return async (dispatch: DispatchType) => {
     const result = await http.get(
       `/cong-viec/lay-danh-sach-cong-viec-theo-ten/${param}`

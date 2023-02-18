@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { LoginModel } from '../../Models/loginModel/loginModel'
 import * as yup from "yup";
-import { ToastContainer, toast } from 'react-toastify';
 import BeatLoader from "react-spinners/BeatLoader";
 import HashLoader from "react-spinners/HashLoader";
 import { loginAPI } from '../../redux/userReducer/userReducer';
@@ -19,11 +18,11 @@ const Login = (props: Props) => {
   const { loading, userLogin } = useSelector((state:StateType) => state.userReducer)
   const dispatch:DispatchType = useDispatch();
   const navigate = useNavigate();
-  useEffect(() => {
-    if(userLogin){
-      navigate("/")
-    }
-  }, [])
+  // useEffect(() => {
+  //   if(userLogin){
+  //     navigate("/")
+  //   }
+  // }, [])
 
   const formLog = useFormik<LoginModel>({
     initialValues: {
@@ -48,7 +47,6 @@ const Login = (props: Props) => {
 
   return (
     <div className="login">
-      <ToastContainer />
       <div className="login__content">
         {loading ? <HashLoader color='#17a98c' size={40} /> : <>
         <div className="back-to-home">

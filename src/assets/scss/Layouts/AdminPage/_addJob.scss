@@ -15,6 +15,9 @@
             .modal__content{
                 max-height: 550px;
                 overflow-y: auto;
+                @include res(sm) {
+                    max-height: 450px;
+                }
                 .form{
                     
                     .form__content{
