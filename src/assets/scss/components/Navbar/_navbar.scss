@@ -96,7 +96,7 @@ nav.nav__wrapper {
 
         .navbar-menu {
           position: absolute;
-          // top: 45px;
+          top: 45px;
           left: 0;
           background: #fff;
           display: none;
@@ -150,12 +150,12 @@ nav.nav__wrapper {
         //   }
         // }
   
-        // &:nth-child(5) {
-        //   .navbar-menu {
-        //     left: unset;
-        //     right: 410px;
-        //   }
-        // }
+        &:nth-child(5) {
+          .navbar-menu {
+            left: unset;
+            right: 0;
+          }
+        }
   
         // &:nth-child(6) {
         //   .navbar-menu {
