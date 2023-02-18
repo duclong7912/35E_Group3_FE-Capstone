@@ -58,7 +58,7 @@ const JobType = (props: Props) => {
           </div>
           <div className="popular__job">
             <div className="popular__job-title">
-              <h4>Most popular in Graphics & Design</h4>
+              <h4>Most popular in {arrJobType[0]?.tenLoaiCongViec}</h4>
             </div>
             <div className="popular__job-wrapper">
               <div className="popular__job-content">
@@ -101,7 +101,7 @@ const JobType = (props: Props) => {
             </div>
           </div>
 
-          {arrJobType.map((type: JobTypeModel, index:number) => {
+          {arrJobType.map((type: JobTypeModel, index: number) => {
             return (
               <div key={index} className="job__explore">
                 <div className="explore__title">
