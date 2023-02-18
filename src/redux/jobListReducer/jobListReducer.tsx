@@ -4,8 +4,7 @@ import { http } from "../../util/config";
 import { DispatchType } from "../configStore";
 
 const initialState: JobListState = {
-  arrJobList: [
-  ],
+  arrJobList: [],
 };
 
 const jobListReducer = createSlice({
@@ -32,10 +31,22 @@ export const getListByIdApi = (id: string | undefined) => {
     const result = await http.get(
       `/cong-viec/lay-cong-viec-theo-chi-tiet-loai/${id}`
     );
-    const action = jobListAction(
+    const action: PayloadAction<JobListModel[]> = jobListAction(
       result.data.content
     );
 
+    dispatch(action);
+  };
+};
+
+export const jobSearchApi = (param: string | undefined) => {
+  return async (dispatch: DispatchType) => {
+    const result = await http.get(
+      `/cong-viec/lay-danh-sach-cong-viec-theo-ten/${param}`
+    );
+    const action: PayloadAction<JobListModel[]> = jobListAction(
+      result.data.content
+    );
     dispatch(action);
   };
 };
