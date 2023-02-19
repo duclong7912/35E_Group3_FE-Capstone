@@ -8,6 +8,8 @@ import {
 } from "../../Models/jobDetail/jobDetailModel";
 import { http } from "../../util/config";
 import { DispatchType } from "../configStore";
+import { toast } from 'react-toastify';
+
 
 const initialState: JobDetailState = {
   arrJobDetail: [],
@@ -90,6 +92,7 @@ export const hireJob = (value: ThueCongViec) => {
   return async () => {
     try {
       await http.post("/thue-cong-viec", value);
+      toast.success("Hire job successfully.", {autoClose: 3000});
     } catch (error) {
       console.log(error);
     }
